@@ -5,6 +5,7 @@ export const API_URL = "http://localhost:3001";
 
 export const TOKEN_NAME = "donates_tok"
 
+// For GET Request
 export const doApiGet = async (_url) => {
 
     try {
