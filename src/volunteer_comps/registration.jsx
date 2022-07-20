@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { API_URL, doApiMethod } from '../services/apiService';
 
 export default function Registration() {
 
     let { register, getValues, handleSubmit, formState: { errors } } = useForm();
+    const nav = useNavigate();
 
     const [anomusBtn, setAnomusBtn] = useState(false);
 
     const onSubReg = (_bodyData) => {
-        console.log(_bodyData);
         doApiReg(_bodyData);
     }
 
     const doApiReg = async (_bodyData) => {
         try {
+            _bodyData.anonymous = anomusBtn;
+            delete _bodyData.email2;
             let url = API_URL + "/volunteers/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
+            nav("/login");
             console.log(resp.data);
         }
 

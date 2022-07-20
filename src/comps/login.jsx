@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import ContextAndStates from '../data_comps/contextAndStates';
 import { API_URL, doApiMethod, TOKEN_NAME } from '../services/apiService';
 
 export default function Login() {
