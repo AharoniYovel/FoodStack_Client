@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { doApiMethod } from '../services/apiService';
+import { API_URL, doApiMethod } from '../services/apiService';
 
 export default function Registration() {
 
@@ -16,7 +16,7 @@ export default function Registration() {
 
     const doApiReg = async (_bodyData) => {
         try {
-            let url = API_URL;
+            let url = API_URL + "/volunteers/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
         }
@@ -37,7 +37,6 @@ export default function Registration() {
                 <label>Full Name:</label>
                 <input {...register("fullName", { required: true, minLength: 2 })} type="name" className='form-control' />
                 {errors.fullName && <small className='d-block text-danger'>* Enter full name, min 2 chars</small>}
-
 
                 <label>Email:</label>
                 <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} type="email" className='form-control' />
