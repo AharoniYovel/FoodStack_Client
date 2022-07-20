@@ -9,8 +9,7 @@ export default function HeaderClient(props) {
                 <ul className='nav p-2'>
 
                     <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/about'>About</Link></li>
-                    <li><Link to='/registration'>registration</Link></li>
+                    <li><Link to='/login'>Login</Link></li>
 
                 </ul>
             </nav>

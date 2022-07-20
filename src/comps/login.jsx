@@ -22,6 +22,7 @@ export default function Login() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                nav("/admin/volList");
             }
         }
 
