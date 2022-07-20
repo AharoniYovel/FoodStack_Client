@@ -8,7 +8,6 @@ export default function Registration() {
 
     const [anomusBtn, setAnomusBtn] = useState(false);
 
-
     const onSubReg = (_bodyData) => {
         console.log(_bodyData);
         doApiReg(_bodyData);
@@ -55,7 +54,7 @@ export default function Registration() {
                 {errors.city && <small className='d-block text-danger'>* Enter city</small>}
 
                 <label>radius:</label>
-                <input {...register("radius", { required: true, minLength: 2 })} type="number" className='form-control' />
+                <input {...register("radius", { required: true, minLength: 1 })} type="number" className='form-control' />
                 {errors.radius && <small className='d-block text-danger'>* Enter radius</small>}
 
                 <label>range of people:</label>
@@ -66,8 +65,12 @@ export default function Registration() {
                 <input {...register("phone", { required: true, minLength: 2 })} type="tel" className='form-control' />
                 {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
 
-                <button onClick={() => setAnomusBtn(!anomusBtn)}>anonymous?</button>
 
+                <p>anonymous?</p>
+                <p {...register("anonymous", { required: true })} className='btn btn-success' onClick={() => setAnomusBtn(true)}>yes</p>
+                <p {...register("anonymous", { required: false })} className='btn btn-danger' onClick={() => setAnomusBtn(false)}>no</p>
+
+                <br />
                 <button className='btn btn-danger mt-4'>Sign up</button>
 
             </form>
