@@ -4,7 +4,7 @@ import VolunteersList from './admin_comps/volunteersList';
 import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
 import Login from './comps/login';
-import ContextAndStates from './data_comps/contextAndStates';
+import Registration from './volunteer_comps/registration';
 
 
 export default function AppRoutes() {
@@ -14,13 +14,14 @@ export default function AppRoutes() {
             <HeaderClient />
 
             <Routes>
-                
-                    <Route index element={<Home />} />
-                    <Route path='/login' element={<Login />} />
 
-                    {/* admin */}
-                    <Route path='/admin/volList' element={<VolunteersList />} />
-               
+                <Route index element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/registration' element={<Registration />} />
+
+                {/* admin */}
+                <Route path='/admin/volList' element={<VolunteersList />} />
+
             </Routes>
         </BrowserRouter>
     )
