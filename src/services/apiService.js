@@ -19,6 +19,7 @@ export const doApiGet = async (_url) => {
     }
 
     catch (err) {
+        console.log("problem")
         throw (err);
     }
 }

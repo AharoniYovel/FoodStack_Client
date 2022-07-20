@@ -1,40 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import ContextAndStates from '../data_comps/contextAndStates';
 import { API_URL, doApiMethod, TOKEN_NAME } from '../services/apiService';
 
 export default function Login() {
+    useEffect( () => {
 
+    }, [])
+    
+    
     const nav = useNavigate();
-
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    
     const onSub = (_bodyData) => {
         console.log(_bodyData);
         doApiLogin(_bodyData);
     }
-
+    
     const doApiLogin = async (_bodyData) => {
         try {
             let url = API_URL + "/volunteers/login";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
-
+            
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
                 nav("/admin/volList");
             }
         }
-
+        
         catch (err) {
             console.log(err.response);
             alert("User or Password wrong");
         }
     }
-
+    
     return (
         <React.Fragment>
             <div className='container'>
+           
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
 
