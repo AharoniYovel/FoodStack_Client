@@ -8,14 +8,13 @@ export default function ContextAndStates() {
     const [volListAr, setVolListAr] = useState([]);
 
     useEffect(() => {
-        doApi();
+        doApiListVol();
     }, [])
 
 
-    const doApi = async () => {
+    const doApiListVol = async () => {
         let apiUrl = API_URL + "/volunteers/list";
         let resp = await doApiGet(apiUrl);
-        console.log(resp.data);
         setVolListAr(resp.data);
     }
 
