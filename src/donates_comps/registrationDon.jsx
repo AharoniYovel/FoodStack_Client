@@ -16,7 +16,7 @@ export default function RegistrationDon() {
     }
 
     const doApiReg = async (_bodyData) => {
-        
+
         try {
             _bodyData.anonymous = anomusBtn;
             let url = API_URL + "/donates/reg";
@@ -59,7 +59,7 @@ export default function RegistrationDon() {
                 {errors.floor && <small className='d-block text-danger'>* Enter floor number</small>}
 
                 <label>Phone:</label>
-                <input {...register("phone", { required: true, minLength: 2 })} type="tel" className='form-control' />
+                <input {...register("phone", { required: true, minLength: 9 })} type="tel" className='form-control' />
                 {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
 
                 <label>range of people:</label>
@@ -70,13 +70,13 @@ export default function RegistrationDon() {
 
                 <p>anonymous?</p>
                 <div className="form-check">
-                    <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" required type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                     <label className="form-check-label" >
                         Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input {...register("anonymous", { required: false })} onClick={() => setAnomusBtn(false)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                    <input {...register("anonymous", { required: false })} onClick={() => setAnomusBtn(false)} className="form-check-input" required type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
                     <label className="form-check-label" >
                         No
                     </label>

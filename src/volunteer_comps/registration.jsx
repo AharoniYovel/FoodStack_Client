@@ -67,19 +67,19 @@ export default function Registration() {
                 {errors.rangePeople && <small className='d-block text-danger'>* Enter radius</small>}
 
                 <label>Phone:</label>
-                <input {...register("phone", { required: true, minLength: 2 })} type="tel" className='form-control' />
+                <input {...register("phone", { required: true, minLength: 9 })} type="tel" className='form-control' />
                 {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
                 <br />
 
                 <p>anonymous?</p>
                 <div className="form-check">
-                    <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" required id="flexRadioDefault1" />
                     <label className="form-check-label" >
                         Yes
                     </label>
                 </div>
                 <div className="form-check">
-                    <input {...register("anonymous", { required: false })} onClick={() => setAnomusBtn(false)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                    <input {...register("anonymous", { required: false })} onClick={() => setAnomusBtn(false)} className="form-check-input" type="radio" name="flexRadioDefault" required id="flexRadioDefault2" />
                     <label className="form-check-label" >
                         No
                     </label>
