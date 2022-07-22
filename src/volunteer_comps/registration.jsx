@@ -8,7 +8,8 @@ export default function Registration() {
     let { register, getValues, handleSubmit, formState: { errors } } = useForm();
     const nav = useNavigate();
 
-    const [anomusBtn, setAnomusBtn] = useState(false);
+    const [anomusBtn, setAnomusBtn] = useState(true);
+    // console.log(anomusBtn);
 
     const onSubReg = (_bodyData) => {
         doApiReg(_bodyData);
@@ -68,14 +69,26 @@ export default function Registration() {
                 <label>Phone:</label>
                 <input {...register("phone", { required: true, minLength: 2 })} type="tel" className='form-control' />
                 {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
-
+                <br />
 
                 <p>anonymous?</p>
-                <p {...register("anonymous", { required: true })} className='btn btn-success' onClick={() => setAnomusBtn(true)}>yes</p>
-                <p {...register("anonymous", { required: false })} className='btn btn-danger' onClick={() => setAnomusBtn(false)}>no</p>
+                <div className="form-check">
+                    <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                    <label className="form-check-label" >
+                        Yes
+                    </label>
+                </div>
+                <div className="form-check">
+                    <input {...register("anonymous", { required: false })} onClick={() => setAnomusBtn(false)} className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                    <label className="form-check-label" >
+                        No
+                    </label>
+                </div>
+
 
                 <br />
-                <button className='btn btn-danger mt-4'>Sign up</button>
+                <button className='btn btn-success mt-4'>Sign up</button>
+
 
             </form>
         </div>
