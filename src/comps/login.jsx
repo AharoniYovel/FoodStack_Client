@@ -53,6 +53,7 @@ export default function Login() {
 
 
                     <button className='btn btn-info mt-3'>Log in</button>
+                    
                 </form>
             </div>
         </React.Fragment>
