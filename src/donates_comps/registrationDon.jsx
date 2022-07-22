@@ -16,6 +16,7 @@ export default function RegistrationDon() {
     }
 
     const doApiReg = async (_bodyData) => {
+        
         try {
             _bodyData.anonymous = anomusBtn;
             let url = API_URL + "/donates/reg";
