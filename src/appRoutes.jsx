@@ -5,6 +5,7 @@ import VolunteersList from './admin_comps/volunteersList';
 import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
 import Login from './comps/login';
+import RegistrationDon from './donates_comps/registrationDon';
 import Registration from './volunteer_comps/registration';
 
 
@@ -19,6 +20,7 @@ export default function AppRoutes() {
                 <Route index element={<Home />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/registration' element={<Registration />} />
+                <Route path='registrationDon' element={<RegistrationDon />} />
 
                 {/* admin */}
                 <Route path='/admin/volList' element={<VolunteersList />} />
