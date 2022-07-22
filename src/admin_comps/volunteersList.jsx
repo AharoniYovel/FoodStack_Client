@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ClientContext } from '../context/context';
 import VolItem from '../volunteer_comps/volItem';
 
@@ -9,7 +9,7 @@ export default function VolunteersList() {
 
 
     return (
-        
+
         <div className='container'>
             <div className="row">
                 {volListAr.map((item, i) => {

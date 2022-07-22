@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import DonatesList from './admin_comps/donatesList';
 import VolunteersList from './admin_comps/volunteersList';
 import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
@@ -21,6 +22,7 @@ export default function AppRoutes() {
 
                 {/* admin */}
                 <Route path='/admin/volList' element={<VolunteersList />} />
+                <Route path='/admin/donList' element={<DonatesList />} />
 
             </Routes>
         </BrowserRouter>
