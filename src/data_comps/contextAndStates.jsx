@@ -14,7 +14,7 @@ export default function ContextAndStates() {
     useEffect(() => {
         doApiListVol();
         doApiListDon();
-    }, [])
+    }, [volListAr, donListAr])
 
 
     const doApiListVol = async () => {

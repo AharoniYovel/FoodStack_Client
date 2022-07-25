@@ -21,6 +21,7 @@ export default function RegistrationDon() {
             _bodyData.anonymous = anomusBtn;
             let url = API_URL + "/donates/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
+            alert("Thx for your reg");
             nav("/admin/donList");
             console.log(resp.data);
         }
