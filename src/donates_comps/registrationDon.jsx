@@ -60,8 +60,8 @@ export default function RegistrationDon() {
                 {errors.floor && <small className='d-block text-danger'>* Enter floor number</small>}
 
                 <label>Phone:</label>
-                <input {...register("phone", { required: true, minLength: 9 })} type="tel" className='form-control' />
-                {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
+                <input {...register("phone", { required: true, minLength: 9, maxLength: 10 })} type="tel" className='form-control' />
+                {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars, max 10</small>}
 
                 <label>range of people:</label>
                 <input {...register("rangePeople", { required: true, minLength: 1 })} type="number" className='form-control' />

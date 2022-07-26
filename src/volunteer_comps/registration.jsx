@@ -67,8 +67,8 @@ export default function Registration() {
                 {errors.rangePeople && <small className='d-block text-danger'>* Enter radius</small>}
 
                 <label>Phone:</label>
-                <input {...register("phone", { required: true, minLength: 9 })} type="tel" className='form-control' />
-                {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars</small>}
+                <input {...register("phone", { required: true, minLength: 9, maxLength: 10 })} type="tel" className='form-control' />
+                {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars,max 10</small>}
                 <br />
 
                 <p>anonymous?</p>
@@ -84,8 +84,7 @@ export default function Registration() {
                         No
                     </label>
                 </div>
-
-
+                
                 <br />
                 <button className='btn btn-success mt-4'>Sign up</button>
 
