@@ -9,7 +9,6 @@ export default function Registration() {
     const nav = useNavigate();
 
     const [anomusBtn, setAnomusBtn] = useState(true);
-    // console.log(anomusBtn);
 
     const onSubReg = (_bodyData) => {
         doApiReg(_bodyData);
@@ -84,7 +83,7 @@ export default function Registration() {
                         No
                     </label>
                 </div>
-                
+
                 <br />
                 <button className='btn btn-success mt-4'>Sign up</button>
 
