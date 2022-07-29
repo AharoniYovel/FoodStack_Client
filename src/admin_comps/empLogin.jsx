@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
+import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
 
-export default function Login() {
-    useEffect(() => {
 
-    }, [])
-
+export default function EmpLogin() {
 
     const nav = useNavigate();
 
@@ -15,18 +12,18 @@ export default function Login() {
 
     const onSub = (_bodyData) => {
         console.log(_bodyData);
-        doApiLogin(_bodyData);
+        doApiEmpLogin(_bodyData);
     }
 
-    const doApiLogin = async (_bodyData) => {
+    const doApiEmpLogin = async (_bodyData) => {
         try {
-            let url = API_URL + VOLUNTEERS + "/login";
+            let url = API_URL + EMPLOYEES + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
-                nav("/volInfo");
+                nav("/employee/volList");
             }
         }
 
@@ -36,19 +33,20 @@ export default function Login() {
         }
     }
 
+
     return (
         <React.Fragment>
             <div className='container'>
 
-                <h1>Login</h1>
+                <h1>Login Employees</h1>
                 <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
 
                     <label>Email:</label>
-                    <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} type="email" required className='form-control' />
+                    <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
                     {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
 
                     <label>Password:</label>
-                    <input {...register("password", { required: true, minLength: 3 })} type="password" required className='form-control' />
+                    <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
                     {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
 
 
@@ -57,6 +55,5 @@ export default function Login() {
                 </form>
             </div>
         </React.Fragment>
-
     )
 }

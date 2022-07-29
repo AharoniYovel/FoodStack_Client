@@ -6,8 +6,6 @@ export default function VolunteersList() {
 
     const { volListAr } = useContext(ClientContext);
 
-
-
     return (
 
         <div className='container'>

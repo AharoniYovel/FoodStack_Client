@@ -10,8 +10,8 @@ export default function HeaderAdmin() {
 
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/login'>Login</Link></li>
-                    <li><Link to='/admin/volList'>Volunteers list</Link></li>
-                    <li><Link to='/admin/donList'>Donates list</Link></li>
+                    <li><Link to='/employee/volList'>Volunteers list</Link></li>
+                    <li><Link to='/employee/donList'>Donates list</Link></li>
 
                 </ul>
             </nav>

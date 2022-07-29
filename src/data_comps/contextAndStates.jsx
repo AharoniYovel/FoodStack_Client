@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import AppRoutes from '../appRoutes';
 import { ClientContext } from "../context/context";
-import { API_URL, doApiGet } from '../services/apiService';
+import { API_URL, doApiGet, DONATES, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
+
+    const [volInfo, setvVolInfo] = useState([]);
 
     //  * volunteers list state
     const [volListAr, setVolListAr] = useState([]);
@@ -14,17 +16,23 @@ export default function ContextAndStates() {
     useEffect(() => {
         doApiListVol();
         doApiListDon();
-    }, [volListAr, donListAr])
+        doApiVolInfo();
+    }, [volListAr, donListAr, volInfo])
 
+    const doApiVolInfo = async () => {
+        let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
+        let resp = await doApiGet(apiUrl);
+        setvVolInfo(resp.data);
+    }
 
     const doApiListVol = async () => {
-        let apiUrl = API_URL + "/volunteers/list";
+        let apiUrl = API_URL + VOLUNTEERS + "/list";
         let resp = await doApiGet(apiUrl);
         setVolListAr(resp.data);
     }
 
     const doApiListDon = async () => {
-        let apiUrl = API_URL + "/donates/list";
+        let apiUrl = API_URL + DONATES + "/list";
         let resp = await doApiGet(apiUrl);
         setDonListAr(resp.data);
     }
@@ -32,7 +40,7 @@ export default function ContextAndStates() {
     return (
         <ClientContext.Provider value={
             {
-                volListAr, donListAr
+                volListAr, donListAr, volInfo
             }
         }>
 

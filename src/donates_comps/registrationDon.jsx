@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { API_URL, doApiMethod } from '../services/apiService';
+import { API_URL, doApiMethod, DONATES } from '../services/apiService';
 
 
 export default function RegistrationDon() {
@@ -19,10 +19,10 @@ export default function RegistrationDon() {
 
         try {
             _bodyData.anonymous = anomusBtn;
-            let url = API_URL + "/donates/reg";
+            let url = API_URL + DONATES + "/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
             alert("Thx for your reg");
-            nav("/admin/donList");
+            // nav("/employee/donList");
             console.log(resp.data);
         }
 

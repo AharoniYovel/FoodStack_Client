@@ -33,7 +33,7 @@ export default function Registration() {
 
     return (
         <div className='container'>
-            <h2>Registration</h2>
+            <h2>Registration Volunteers</h2>
 
             <form onSubmit={handleSubmit(onSubReg)} className='col-md-6 p-3 border'>
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DonatesList from './admin_comps/donatesList';
+import EmpLogin from './admin_comps/empLogin';
 import VolunteersList from './admin_comps/volunteersList';
 import HeaderAdmin from './comps/headerAdmin';
 import HeaderClient from './comps/headerClient';
@@ -8,6 +9,7 @@ import Home from './comps/home';
 import Login from './comps/login';
 import RegistrationDon from './donates_comps/registrationDon';
 import Registration from './volunteer_comps/registration';
+import VolInfo from './volunteer_comps/volInfo';
 
 
 export default function AppRoutes() {
@@ -16,20 +18,26 @@ export default function AppRoutes() {
 
 
             <Routes>
-                <Route path='/admin/*' element={<HeaderAdmin />} />
+                <Route path='/employee/*' element={<HeaderAdmin />} />
                 <Route path='/*' element={<HeaderClient />} />
             </Routes>
 
             <Routes>
 
                 <Route index element={<Home />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/registration' element={<Registration />} />
+
+                {/* Donates */}
                 <Route path='registrationDon' element={<RegistrationDon />} />
 
-                {/* admin */}
-                <Route path='/admin/volList' element={<VolunteersList />} />
-                <Route path='/admin/donList' element={<DonatesList />} />
+                {/* Volunteers */}
+                <Route path='/login' element={<Login />} />
+                <Route path='/registration' element={<Registration />} />
+                <Route path='/volInfo' element={<VolInfo />} />
+
+                {/* Employee */}
+                <Route path='/loginEmployees' element={<EmpLogin />} />
+                <Route path='/employee/volList' element={<VolunteersList />} />
+                <Route path='/employee/donList' element={<DonatesList />} />
 
             </Routes>
         </BrowserRouter>

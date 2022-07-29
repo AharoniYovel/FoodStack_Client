@@ -3,6 +3,10 @@ import axios from "axios";
 export const API_URL = "http://localhost:3001";
 // export const API_URL = "https://mysite.co.il";
 
+export const EMPLOYEES = "/employees";
+export const DONATES = "/donates";
+export const VOLUNTEERS = "/volunteers";
+
 export const TOKEN_NAME = "donates_tok"
 
 // For GET Request
@@ -19,7 +23,7 @@ export const doApiGet = async (_url) => {
     }
 
     catch (err) {
-        console.log("problem")
+        console.log("problem to get data")
         throw (err);
     }
 }
@@ -40,6 +44,7 @@ export const doApiMethod = async (_url, _method, _body = {}) => {
     }
 
     catch (err) {
+        console.log("problem to post/put/del data")
         throw (err);
     }
 }
