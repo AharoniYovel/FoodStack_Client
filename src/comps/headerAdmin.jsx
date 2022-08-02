@@ -32,7 +32,6 @@ export default function HeaderAdmin() {
                     <ul className='nav p-2 col-auto'>
 
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
                         <li><Link to='/employee/volList'>Volunteers list</Link></li>
                         <li><Link to='/employee/donList'>Donates list</Link></li>
 

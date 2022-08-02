@@ -33,7 +33,6 @@ export default function HeaderClient() {
                     <ul className='nav p-2 col-auto'>
 
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
                         <li><Link to='/loginEmployees'>Login Employees</Link></li>
                         <li><Link to='/registration'>Registration Volunteers</Link></li>
                         <li><Link to='/registrationDon'>Registration Donates</Link></li>
@@ -45,7 +44,10 @@ export default function HeaderClient() {
                             <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
                         </div>
                         :
-                        <React.Fragment></React.Fragment>
+
+                        <div className='col-auto'>
+                            <Link className='btn badge bg-success' to='/login'>Log in</Link>
+                        </div>
                     }
 
                 </div>
