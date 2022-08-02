@@ -6,7 +6,6 @@ import { API_URL, doApiGet, DONATES, VOLUNTEERS } from '../services/apiService';
 export default function ContextAndStates() {
 
     const [logOutBtn, setLogOutBtn] = useState(false);
-    console.log(logOutBtn)
 
     //  * volunteer info state
     const [volInfo, setvVolInfo] = useState([]);
