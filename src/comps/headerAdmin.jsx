@@ -9,7 +9,12 @@ export default function HeaderAdmin() {
 
     const { logOutBtn, setLogOutBtn } = useContext(ClientContext);
 
-  
+    useEffect(() => {
+        if (localStorage.getItem(TOKEN_NAME)) {
+            setLogOutBtn(true);
+        }
+        else { setLogOutBtn(false); }
+    }, [logOutBtn])
 
     const onLogOut = () => {
         setLogOutBtn(false);
