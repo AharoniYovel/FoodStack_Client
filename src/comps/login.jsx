@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
 
 export default function Login() {
-    useEffect(() => {
 
-    }, [])
 
+    const { doApiVolInfo } = useContext(ClientContext);
 
     const nav = useNavigate();
 
@@ -26,6 +26,7 @@ export default function Login() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                await doApiVolInfo();
                 nav("/volInfo");
             }
         }

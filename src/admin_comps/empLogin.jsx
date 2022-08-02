@@ -1,10 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
 
 
 export default function EmpLogin() {
+
+    const { doApiListDon, doApiListVol } = useContext(ClientContext);
+
 
     const nav = useNavigate();
 
@@ -23,6 +27,8 @@ export default function EmpLogin() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                await doApiListDon();
+                await doApiListVol();
                 nav("/employee/volList");
             }
         }

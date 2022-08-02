@@ -1,10 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ClientContext } from '../context/context';
 import VolItem from '../volunteer_comps/volItem';
 
 export default function VolunteersList() {
 
-    const { volListAr } = useContext(ClientContext);
+    const { volListAr, doApiListVol } = useContext(ClientContext);
+
+    useEffect(() => {
+        doApiListVol();
+    }, [volListAr])
+
 
     return (
 

@@ -5,6 +5,8 @@ import { API_URL, doApiGet, DONATES, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
 
+
+    //  * volunteer info state
     const [volInfo, setvVolInfo] = useState([]);
 
     //  * volunteers list state
@@ -13,11 +15,10 @@ export default function ContextAndStates() {
     //  * donates list state
     const [donListAr, setDonListAr] = useState([]);
 
-    useEffect(() => {
-        doApiListVol();
-        doApiListDon();
-        doApiVolInfo();
-    }, [volListAr, donListAr, volInfo])
+
+
+    
+
 
     const doApiVolInfo = async () => {
         let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
@@ -40,6 +41,10 @@ export default function ContextAndStates() {
     return (
         <ClientContext.Provider value={
             {
+                //Functions 
+                doApiVolInfo, doApiListVol, doApiListDon,
+
+                // States
                 volListAr, donListAr, volInfo
             }
         }>

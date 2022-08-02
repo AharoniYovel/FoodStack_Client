@@ -1,9 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ClientContext } from '../context/context';
 
 export default function VolInfo() {
 
-    const { volInfo } = useContext(ClientContext);
+    const { volInfo, doApiVolInfo } = useContext(ClientContext);
+
+    useEffect(() => {
+        doApiVolInfo();
+    }, [volInfo])
+
 
     return (
         <div className='container col-md-4 border border-danger p-2'>

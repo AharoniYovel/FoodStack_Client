@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ClientContext } from '../context/context';
 import DonItem from '../donates_comps/donItem';
 
 export default function DonatesList() {
 
-    const { donListAr } = useContext(ClientContext);
+    const { donListAr, doApiListDon } = useContext(ClientContext);
 
+    useEffect(() => {
+        doApiListDon();
+    }, [donListAr])
 
 
     return (

@@ -8,7 +8,7 @@ export default function HeaderAdmin() {
 
     const onLogOut = () => {
         localStorage.removeItem(TOKEN_NAME);
-        nav("/admin");
+        nav("/loginEmployees");
         alert("log out see you soon!")
     }
 
