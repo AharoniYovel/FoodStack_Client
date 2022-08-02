@@ -7,7 +7,7 @@ export const EMPLOYEES = "/employees";
 export const DONATES = "/donates";
 export const VOLUNTEERS = "/volunteers";
 
-export const TOKEN_NAME = "donates_tok"
+export const TOKEN_NAME = "food_Stack"
 
 // For GET Request
 export const doApiGet = async (_url) => {
