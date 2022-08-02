@@ -5,6 +5,8 @@ import { API_URL, doApiGet, DONATES, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
 
+    const [logOutBtn, setLogOutBtn] = useState(false);
+    console.log(logOutBtn)
 
     //  * volunteer info state
     const [volInfo, setvVolInfo] = useState([]);
@@ -14,10 +16,6 @@ export default function ContextAndStates() {
 
     //  * donates list state
     const [donListAr, setDonListAr] = useState([]);
-
-
-
-    
 
 
     const doApiVolInfo = async () => {
@@ -42,10 +40,10 @@ export default function ContextAndStates() {
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon,
+                doApiVolInfo, doApiListVol, doApiListDon, setLogOutBtn,
 
                 // States
-                volListAr, donListAr, volInfo
+                volListAr, donListAr, volInfo, logOutBtn
             }
         }>
 

@@ -7,7 +7,7 @@ import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiSer
 export default function Login() {
 
 
-    const { doApiVolInfo } = useContext(ClientContext);
+    const { doApiVolInfo, setLogOutBtn } = useContext(ClientContext);
 
     const nav = useNavigate();
 
@@ -26,6 +26,7 @@ export default function Login() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                setLogOutBtn(true);
                 await doApiVolInfo();
                 nav("/volInfo");
             }

@@ -7,7 +7,7 @@ import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiServ
 
 export default function EmpLogin() {
 
-    const { doApiListDon, doApiListVol } = useContext(ClientContext);
+    const { doApiListDon, doApiListVol, setLogOutBtn } = useContext(ClientContext);
 
 
     const nav = useNavigate();
@@ -27,6 +27,7 @@ export default function EmpLogin() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                setLogOutBtn(true);
                 await doApiListDon();
                 await doApiListVol();
                 nav("/employee/volList");

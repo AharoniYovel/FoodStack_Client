@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ClientContext } from '../context/context';
 import { TOKEN_NAME } from '../services/apiService';
 import "./header_footer.css"
 
@@ -7,9 +8,14 @@ export default function HeaderClient() {
 
     const nav = useNavigate();
 
+    const { logOutBtn, setLogOutBtn } = useContext(ClientContext);
+
+    
+
     const onLogOut = () => {
+        setLogOutBtn(false);
         localStorage.removeItem(TOKEN_NAME);
-        nav("/login");
+        nav("/login")
         alert("log out see you soon!")
     }
 
@@ -28,9 +34,13 @@ export default function HeaderClient() {
 
                     </ul>
 
-                    <div className='col-auto'>
-                        <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
-                    </div>
+                    {logOutBtn ?
+                        <div className='col-auto'>
+                            <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
+                        </div>
+                        :
+                        <React.Fragment></React.Fragment>
+                    }
 
                 </div>
             </nav>
