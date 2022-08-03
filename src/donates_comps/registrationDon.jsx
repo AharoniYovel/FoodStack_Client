@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, DONATES } from '../services/apiService';
 
 
 export default function RegistrationDon() {
 
+    const { setDonateID, donateID } = useContext(ClientContext);
+
     let { register, getValues, handleSubmit, formState: { errors } } = useForm();
+
     const nav = useNavigate();
 
     const [anomusBtn, setAnomusBtn] = useState(true);
 
     const onSubReg = (_bodyData) => {
         doApiReg(_bodyData);
+        console.log(_bodyData);
     }
 
     const doApiReg = async (_bodyData) => {
@@ -21,9 +26,8 @@ export default function RegistrationDon() {
             _bodyData.anonymous = anomusBtn;
             let url = API_URL + DONATES + "/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
-            alert("Thx for your reg");
+            await setDonateID(resp.data)
             // nav("/employee/donList");
-            console.log(resp.data);
         }
 
         catch (err) {
@@ -32,6 +36,8 @@ export default function RegistrationDon() {
             alert("wrong deatails");
         }
     }
+
+
 
     return (
         <div className='container'>
@@ -43,7 +49,7 @@ export default function RegistrationDon() {
                 <input {...register("fullName", { required: true, minLength: 2 })} type="name" className='form-control' />
                 {errors.fullName && <small className='d-block text-danger'>* Enter full name, min 2 chars</small>}
 
-                <label>City:</label>
+                {/* <label>City:</label>
                 <input {...register("city", { required: true, minLength: 2 })} type="text" className='form-control' />
                 {errors.city && <small className='d-block text-danger'>* Enter city</small>}
 
@@ -57,7 +63,7 @@ export default function RegistrationDon() {
 
                 <label>Floor number:</label>
                 <input {...register("floor", { required: true, minLength: 1 })} type="number" className='form-control' />
-                {errors.floor && <small className='d-block text-danger'>* Enter floor number</small>}
+                {errors.floor && <small className='d-block text-danger'>* Enter floor number</small>} */}
 
                 <label>Phone:</label>
                 <input {...register("phone", { required: true, minLength: 9, maxLength: 10 })} type="tel" className='form-control' />

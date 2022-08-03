@@ -6,6 +6,8 @@ export const API_URL = "http://localhost:3001";
 export const EMPLOYEES = "/employees";
 export const DONATES = "/donates";
 export const VOLUNTEERS = "/volunteers";
+export const PATHS = "/paths";
+export const POINTS = "/points";
 
 export const TOKEN_NAME = "food_Stack"
 

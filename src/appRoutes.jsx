@@ -7,6 +7,7 @@ import HeaderAdmin from './comps/headerAdmin';
 import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
 import Login from './comps/login';
+import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
@@ -28,6 +29,7 @@ export default function AppRoutes() {
 
                 {/* Donates */}
                 <Route path='registrationDon' element={<RegistrationDon />} />
+                <Route path='donatePoint' element={<DonatePoint />} />
 
                 {/* Volunteers */}
                 <Route path='/login' element={<Login />} />

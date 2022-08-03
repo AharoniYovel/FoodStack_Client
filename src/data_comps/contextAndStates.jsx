@@ -16,6 +16,8 @@ export default function ContextAndStates() {
     //  * donates list state
     const [donListAr, setDonListAr] = useState([]);
 
+    const [donateID, setDonateID] = useState(String);
+
 
     const doApiVolInfo = async () => {
         let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
@@ -39,10 +41,10 @@ export default function ContextAndStates() {
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setLogOutBtn,
+                doApiVolInfo, doApiListVol, doApiListDon, setLogOutBtn, setDonateID,
 
                 // States
-                volListAr, donListAr, volInfo, logOutBtn
+                volListAr, donListAr, volInfo, logOutBtn, donateID
             }
         }>
 
