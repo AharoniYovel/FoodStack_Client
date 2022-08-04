@@ -7,6 +7,7 @@ import HeaderAdmin from './comps/headerAdmin';
 import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
 import Login from './comps/login';
+import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
 import Registration from './volunteer_comps/registration';
@@ -45,6 +46,8 @@ export default function AppRoutes() {
                     <Route path='donList' element={<DonatesList />} />
 
                 </Route>
+
+                <Route path='*' element={<NotFound404 />} />
 
             </Routes>
         </BrowserRouter>
