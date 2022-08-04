@@ -26,7 +26,6 @@ export default function Login() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
-                setLogOutBtn(true);
                 await doApiVolInfo();
                 nav("/volInfo");
             }

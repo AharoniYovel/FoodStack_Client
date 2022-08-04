@@ -7,17 +7,7 @@ export default function HeaderAdmin() {
 
     const nav = useNavigate();
 
-    const { logOutBtn, setLogOutBtn } = useContext(ClientContext);
-
-    useEffect(() => {
-        if (localStorage.getItem(TOKEN_NAME)) {
-            setLogOutBtn(true);
-        }
-        else { setLogOutBtn(false); }
-    }, [logOutBtn])
-
     const onLogOut = () => {
-        setLogOutBtn(false);
         localStorage.removeItem(TOKEN_NAME);
         nav("/loginEmployees");
         alert("log out see you soon!")
@@ -37,17 +27,17 @@ export default function HeaderAdmin() {
 
                     </ul>
 
-                    {logOutBtn ?
-                        <div className='col-auto'>
+                    {localStorage[TOKEN_NAME] &&
+                        <div div className='col-auto'>
                             <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
                         </div>
-                        :
-                        <React.Fragment></React.Fragment>
                     }
+
+                    <React.Fragment></React.Fragment>
 
                 </div>
 
             </nav>
-        </header>
+        </header >
     )
 }
