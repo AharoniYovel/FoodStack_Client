@@ -38,8 +38,13 @@ export default function AppRoutes() {
 
                 {/* Employee */}
                 <Route path='/loginEmployees' element={<EmpLogin />} />
-                <Route path='/employee/volList' element={<VolunteersList />} />
-                <Route path='/employee/donList' element={<DonatesList />} />
+
+                <Route path='/employee'>
+
+                    <Route path='volList' element={<VolunteersList />} />
+                    <Route path='donList' element={<DonatesList />} />
+
+                </Route>
 
             </Routes>
         </BrowserRouter>
