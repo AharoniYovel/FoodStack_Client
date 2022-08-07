@@ -20,7 +20,6 @@
     height: 100%;
     border-radius: 50%;
     border: 15px solid transparent;
-    mix-blend-mode: overlay;
     animation: rotate var(--duration) var(--timing) infinite;
     pointer-events: none;
 }
@@ -40,6 +39,12 @@
 .spinner-sector-green {
     border-right-color: lightgreen;
     --duration: 2.5s;
+    --timing: ease-out;
+}
+
+.spinner-sector-purple {
+    border-right-color: rgb(249, 0, 254);
+    --duration: 3s;
     --timing: ease-out;
 }
 
