@@ -14,8 +14,8 @@ export default function HeaderClient() {
         let name = localStorage["Name"];
         localStorage.removeItem(TOKEN_NAME);
         localStorage.removeItem("Name");
-        nav("/login")
-        toast.dark(`Log out, see you soon ${name}!`)
+        nav("/login");
+        toast.dark(`Log out, see you soon ${name}!`);
     }
 
     return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Loader from '../../helpers/loading';
+import SpinerLoader from '../../helpers/spinerLoader/spinerLoader';
 
 export default function IndexEmp() {
 
@@ -9,7 +9,7 @@ export default function IndexEmp() {
     return (
         <div>
             {!loading ?
-                <Loader /> : <h2>asdasdas</h2>
+                <SpinerLoader /> : <h2>asdasdas</h2>
             }
         </div>
     )

@@ -25,6 +25,7 @@ export default function EmpLogin() {
             let url = API_URL + EMPLOYEES + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
+            
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
                 localStorage.setItem("NickName", resp.data.employee.nickName)
@@ -43,24 +44,25 @@ export default function EmpLogin() {
 
 
     return (
+        <div style={{height:'800px', background:"grey"}}>
+            <div className='container col-md-6'>
 
-        <div className='container col-md-6'>
+                <h1 className='text-center'>Login Employees</h1>
+                <form onSubmit={handleSubmit(onSub)} className='p-3 shadow-lg'>
 
-            <h1>Login Employees</h1>
-            <form onSubmit={handleSubmit(onSub)} className='p-3 shadow-lg'>
+                    <label>Email:</label>
+                    <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
+                    {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
 
-                <label>Email:</label>
-                <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
-                {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
-
-                <label>Password:</label>
-                <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
-                {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
+                    <label>Password:</label>
+                    <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
+                    {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
 
 
-                <button className='btn btn-info mt-3'>Log in</button>
+                    <button className='btn btn-dark mt-3'>Log in</button>
 
-            </form>
+                </form>
+            </div>
         </div>
 
     )

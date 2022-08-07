@@ -12,8 +12,8 @@ export default function HeaderAdmin() {
 
     const onLogOut = () => {
         let nickName = localStorage["NickName"]
-        localStorage.removeItem(TOKEN_NAME);
         localStorage.removeItem("NickName");
+        localStorage.removeItem(TOKEN_NAME);
         nav("/loginEmployees");
         toast.dark(`Log out, see you soon ${nickName}!`)
     }
