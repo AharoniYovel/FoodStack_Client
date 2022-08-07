@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, POINTS } from '../services/apiService';
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -10,6 +11,7 @@ import { toast } from "react-toastify";
 export default function DonatePoint() {
 
     const { donateID } = useContext(ClientContext);
+    const nav = useNavigate();
 
 
     let { register, getValues, handleSubmit, formState: { errors } } = useForm();
@@ -23,12 +25,13 @@ export default function DonatePoint() {
         try {
             let url = API_URL + POINTS + "/addPoint";
             let resp = await doApiMethod(url, "post", _bodyData);
-            console.log(resp.data);
+            nav("/");
+            toast.success("Thank you for your register, you are now in pending status")
         }
 
         catch (err) {
             console.log(err.response);
-            toast.warning("wrong deatails");
+            toast.warning(`wrong deatails`);
         }
     }
 
@@ -63,7 +66,7 @@ export default function DonatePoint() {
 
 
                 <br />
-                <button className='btn btn-success mt-4'>Sign up</button>
+                <button className='btn btn-success mt-4'>Sign up</button><small className='float-end display-6'>2/2</small>
 
 
             </form>

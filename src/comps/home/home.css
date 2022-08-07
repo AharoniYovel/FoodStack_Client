@@ -1,0 +1,12 @@
+.strip h1 {
+    color: rgb(255, 0, 0);
+    text-shadow: rgb(122, 122, 122) 2px 3px 1px;
+}
+
+
+.strip {
+    height:1000px;
+    background-position: "center";
+    background-size: cover;
+    background-image: url(/public/images/strip.jpg);
+}

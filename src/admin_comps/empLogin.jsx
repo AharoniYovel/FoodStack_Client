@@ -30,7 +30,7 @@ export default function EmpLogin() {
                 localStorage.setItem("NickName", resp.data.employee.nickName)
                 await doApiListDon();
                 await doApiListVol();
-                nav("/employee/volList");
+                nav("/employee");
                 toast.success(`Welcome back ${resp.data.employee.nickName}`)
             }
         }

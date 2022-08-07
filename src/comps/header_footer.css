@@ -1,5 +1,26 @@
+header {
+    background: rgba(238, 206, 1, 0.427);
+
+
+}
+
+.logoSite {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: brown;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    transition: 1s;
+}
+
+.logoSite:hover {
+    color: red;
+    transition: 1s;
+}
+
 header nav ul li a {
     padding: 0 8px;
-    color: green;
+    color: rgba(11, 9, 19, 0.986);
     text-decoration: none;
+    font-size: 1.5em;
+    margin: 16px;
 }

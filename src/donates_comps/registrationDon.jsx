@@ -29,13 +29,13 @@ export default function RegistrationDon() {
             let url = API_URL + DONATES + "/reg";
             let resp = await doApiMethod(url, "post", _bodyData);
             await setDonateID(resp.data)
-            // nav("/employee/donList");
+            nav("/registrationDon/donatePoint");
         }
 
         catch (err) {
             // The way to collect err in axios
             console.log(err.response);
-            toast.warning("wrong deatails");
+            toast.warning(`wrong deatails, ${err.response.data.err_msg}`);
         }
     }
 
@@ -50,22 +50,6 @@ export default function RegistrationDon() {
                 <label>Full Name:</label>
                 <input {...register("fullName", { required: true, minLength: 2 })} type="name" className='form-control' />
                 {errors.fullName && <small className='d-block text-danger'>* Enter full name, min 2 chars</small>}
-
-                {/* <label>City:</label>
-                <input {...register("city", { required: true, minLength: 2 })} type="text" className='form-control' />
-                {errors.city && <small className='d-block text-danger'>* Enter city</small>}
-
-                <label>Adress:</label>
-                <input {...register("adress", { required: true, minLength: 2 })} type="text" className='form-control' />
-                {errors.adress && <small className='d-block text-danger'>* Enter city</small>}
-
-                <label>House number:</label>
-                <input {...register("houseNum", { required: true, minLength: 1 })} type="number" className='form-control' />
-                {errors.houseNum && <small className='d-block text-danger'>* Enter House number</small>}
-
-                <label>Floor number:</label>
-                <input {...register("floor", { required: true, minLength: 1 })} type="number" className='form-control' />
-                {errors.floor && <small className='d-block text-danger'>* Enter floor number</small>} */}
 
                 <label>Phone:</label>
                 <input {...register("phone", { required: true, minLength: 9, maxLength: 10 })} type="tel" className='form-control' />
@@ -93,7 +77,7 @@ export default function RegistrationDon() {
 
 
                 <br />
-                <button className='btn btn-success mt-4'>Sign up</button>
+                <button className='btn btn-info mt-4'>Next</button><small className='float-end display-6'>1/2</small>
 
 
             </form>

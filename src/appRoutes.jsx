@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import DonatesList from './admin_comps/donatesList';
 import EmpLogin from './admin_comps/empLogin';
+import IndexEmp from './admin_comps/home/indexEmp';
 import VolunteersList from './admin_comps/volunteersList';
 import HeaderAdmin from './comps/headerAdmin';
 import HeaderClient from './comps/headerClient';
@@ -33,18 +34,25 @@ export default function AppRoutes() {
                 <Route index element={<Home />} />
 
                 {/* Donates */}
-                <Route path='registrationDon' element={<RegistrationDon />} />
-                <Route path='donatePoint' element={<DonatePoint />} />
+                <Route path='/registrationDon' element={<RegistrationDon />} />
+                <Route path='/registrationDon/donatePoint' element={<DonatePoint />} />
+
+
+
 
                 {/* Volunteers */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/registration' element={<Registration />} />
                 <Route path='/volInfo' element={<VolInfo />} />
 
+
+
                 {/* Employee */}
                 <Route path='/loginEmployees' element={<EmpLogin />} />
 
                 <Route path='/employee'>
+                    
+                    <Route index element={<IndexEmp />} />
 
                     <Route path='volList' element={<VolunteersList />} />
                     <Route path='donList' element={<DonatesList />} />

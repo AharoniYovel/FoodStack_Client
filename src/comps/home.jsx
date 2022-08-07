@@ -1,7 +1,17 @@
 import React from 'react'
+import '../comps/home/home.css';
+
+import Strip from './home/strip';
 
 export default function Home() {
+
+   
+
+
     return (
-        <div>Home</div>
+        <React.Fragment >
+                <Strip />
+        </React.Fragment>
     )
 }
+
