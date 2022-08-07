@@ -26,25 +26,25 @@
 
 .spinner-sector-red {
     border-top-color: lightcoral;
-    --duration: 1.5s;
+    --duration: 0.7s;
     --timing: ease-in-out;
 }
 
 .spinner-sector-blue {
-    border-left-color: lightblue;
-    --duration: 2s;
+    border-left-color: red;
+    --duration: 0.8s;
     --timing: ease-in;
 }
 
 .spinner-sector-green {
     border-right-color: lightgreen;
-    --duration: 2.5s;
+    --duration: 0.9s;
     --timing: ease-out;
 }
 
 .spinner-sector-purple {
     border-right-color: rgb(249, 0, 254);
-    --duration: 3s;
+    --duration: 1s;
     --timing: ease-out;
 }
 

@@ -43,25 +43,25 @@ export default function EmpLogin() {
 
 
     return (
-        <React.Fragment>
-            <div className='container'>
 
-                <h1>Login Employees</h1>
-                <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
+        <div className='container col-md-6'>
 
-                    <label>Email:</label>
-                    <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
-                    {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
+            <h1>Login Employees</h1>
+            <form onSubmit={handleSubmit(onSub)} className='p-3 shadow-lg'>
 
-                    <label>Password:</label>
-                    <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
-                    {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
+                <label>Email:</label>
+                <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
+                {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
+
+                <label>Password:</label>
+                <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
+                {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
 
 
-                    <button className='btn btn-info mt-3'>Log in</button>
+                <button className='btn btn-info mt-3'>Log in</button>
 
-                </form>
-            </div>
-        </React.Fragment>
+            </form>
+        </div>
+
     )
 }
