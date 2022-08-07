@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { API_URL, doApiMethod } from '../services/apiService';
+import { toast } from "react-toastify";
+
 
 export default function Registration() {
 
@@ -27,7 +29,7 @@ export default function Registration() {
         catch (err) {
             // The way to collect err in axios
             console.log(err.response);
-            alert("User or Password wrong");
+            toast.error("User or Password wrong");
         }
     }
 

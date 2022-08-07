@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, DONATES } from '../services/apiService';
+import { toast } from "react-toastify";
+
 
 
 export default function RegistrationDon() {
@@ -33,7 +35,7 @@ export default function RegistrationDon() {
         catch (err) {
             // The way to collect err in axios
             console.log(err.response);
-            alert("wrong deatails");
+            toast.warning("wrong deatails");
         }
     }
 

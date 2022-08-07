@@ -1,16 +1,20 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { TOKEN_NAME } from '../services/apiService';
-import "./header_footer.css"
+import "./header_footer.css";
+import { toast } from "react-toastify";
+
 
 export default function HeaderClient() {
 
     const nav = useNavigate();
 
     const onLogOut = () => {
+        let name = localStorage["Name"];
         localStorage.removeItem(TOKEN_NAME);
+        localStorage.removeItem("Name");
         nav("/login")
-        alert("log out see you soon!")
+        toast.dark(`Log out, see you soon ${name}!`)
     }
 
     return (

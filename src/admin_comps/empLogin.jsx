@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
+import { toast } from "react-toastify";
 
 
 export default function EmpLogin() {
@@ -24,18 +25,19 @@ export default function EmpLogin() {
             let url = API_URL + EMPLOYEES + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
-
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                localStorage.setItem("NickName", resp.data.employee.nickName)
                 await doApiListDon();
                 await doApiListVol();
                 nav("/employee/volList");
+                toast.success(`Welcome back ${resp.data.employee.nickName}`)
             }
         }
 
         catch (err) {
             console.log(err.response);
-            alert("User or Password wrong");
+            toast.error("User or Password wrong");
         }
     }
 

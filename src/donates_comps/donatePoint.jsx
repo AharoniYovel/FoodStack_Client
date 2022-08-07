@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, POINTS } from '../services/apiService';
+import { toast } from "react-toastify";
+
 
 
 
@@ -26,7 +28,7 @@ export default function DonatePoint() {
 
         catch (err) {
             console.log(err.response);
-            alert("wrong deatails");
+            toast.warning("wrong deatails");
         }
     }
 

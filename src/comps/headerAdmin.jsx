@@ -1,16 +1,19 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { ClientContext } from '../context/context';
 import { TOKEN_NAME } from '../services/apiService';
+import { toast } from "react-toastify";
+
 
 export default function HeaderAdmin() {
 
     const nav = useNavigate();
 
     const onLogOut = () => {
+        let nickName = localStorage["NickName"]
         localStorage.removeItem(TOKEN_NAME);
+        localStorage.removeItem("NickName");
         nav("/loginEmployees");
-        alert("log out see you soon!")
+        toast.dark(`Log out, see you soon ${nickName}!`)
     }
 
     return (

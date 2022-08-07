@@ -1,5 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import DonatesList from './admin_comps/donatesList';
 import EmpLogin from './admin_comps/empLogin';
 import VolunteersList from './admin_comps/volunteersList';
@@ -50,6 +54,10 @@ export default function AppRoutes() {
                 <Route path='*' element={<NotFound404 />} />
 
             </Routes>
+
+            {/* div for toast */}
+            <ToastContainer theme='dark' position="top-left" />
+
         </BrowserRouter>
     )
 }

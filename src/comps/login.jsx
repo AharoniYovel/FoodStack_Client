@@ -3,11 +3,13 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
+import { toast } from "react-toastify";
+
 
 export default function Login() {
 
 
-    const { doApiVolInfo, setLogOutBtn } = useContext(ClientContext);
+    const { doApiVolInfo } = useContext(ClientContext);
 
     const nav = useNavigate();
 
@@ -26,14 +28,16 @@ export default function Login() {
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
+                localStorage.setItem("Name", resp.data.volunteer.fullName)
                 await doApiVolInfo();
                 nav("/volInfo");
+                toast.success(`Welcome back ${resp.data.volunteer.fullName}`)
             }
         }
 
         catch (err) {
             console.log(err.response);
-            alert("User or Password wrong");
+            toast.error("User or Password wrong");
         }
     }
 
