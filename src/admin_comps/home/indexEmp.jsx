@@ -9,8 +9,8 @@ export default function IndexEmp() {
     return (
         <div>
             {!loading ?
-                <Loader />: <h2>asdasdas</h2>
-        }
+                <Loader /> : <h2>asdasdas</h2>
+            }
         </div>
     )
 }

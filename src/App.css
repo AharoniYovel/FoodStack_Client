@@ -3,7 +3,3 @@
 .container, .row {
     min-height: inherit;
 }
-
-.loadingComp span{
-border: saddlebrown solid 2px;
-}

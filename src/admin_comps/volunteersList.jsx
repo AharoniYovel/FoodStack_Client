@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ClientContext } from '../context/context';
-import Loader from '../helpers/loading';
+import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 import VolItem from '../volunteer_comps/volItem';
+
 
 export default function VolunteersList() {
 
@@ -12,11 +13,11 @@ export default function VolunteersList() {
 
     useEffect(() => {
         doApiListVol();
-        setTimeout(timeOut, 10000);
+        setTimeout(timeOut, 3000);
     }, [volListAr])
 
     const timeOut = () => {
-        setLoading(true);
+        setLoading(false);
     }
 
 
@@ -32,7 +33,7 @@ export default function VolunteersList() {
                         )
                     })
                     :
-                    <Loader />
+                    <SpinerLoader />
                 }
             </div>
 
