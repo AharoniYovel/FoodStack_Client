@@ -97,7 +97,7 @@ export default function Registration() {
 
                     <p>anonymous?</p>
                     <div className="form-check">
-                        <input {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" required id="flexRadioDefault1" />
+                        <input  {...register("anonymous", { required: true })} onClick={() => setAnomusBtn(true)} className="form-check-input" type="radio" name="flexRadioDefault" required id="flexRadioDefault1" />
                         <label className="form-check-label" >
                             Yes
                         </label>
