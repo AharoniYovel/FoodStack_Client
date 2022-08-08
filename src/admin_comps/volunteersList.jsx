@@ -24,7 +24,8 @@ export default function VolunteersList() {
     return (
 
         <div className='container'>
-            <div className="row">
+            <div className="row row-cols-md-2 row-cols-1 g-5 m-0">
+
                 {loading ?
 
                     volListAr.map((item, i) => {
@@ -35,6 +36,7 @@ export default function VolunteersList() {
                     :
                     <SpinerLoader />
                 }
+
             </div>
 
         </div>

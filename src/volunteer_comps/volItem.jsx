@@ -4,8 +4,8 @@ export default function VolItem({ item }) {
 
 
     return (
-        <div className='col-md-4 border border-danger p-2'>
-            <ul>
+        <div className='col p-3'>
+            <ul className='border border-success'>
                 <h2>name: {item.fullName}</h2>
                 <li>short id : {item.short_id}</li>
                 <li>role: {item.role}</li>
