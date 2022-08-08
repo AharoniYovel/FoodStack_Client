@@ -9,7 +9,7 @@ export default function CardR() {
     var $cell = $('.card');
 
     //open and close card when clicked on card
-    $cell.find('.js-expander').click(function () {
+    $cell.find('.js-expander').trigger(function () {
 
         var $thisCell = $(this).closest('.card');
 
@@ -30,7 +30,7 @@ export default function CardR() {
     });
 
     //close card when click on cross
-    $cell.find('.js-collapser').click(function () {
+    $cell.find('.js-collapser').trigger(function () {
 
         var $thisCell = $(this).closest('.card');
 
@@ -152,7 +152,7 @@ export default function CardR() {
                 </div> */}
 
             </div>
-          
+
         </div>
 
 
