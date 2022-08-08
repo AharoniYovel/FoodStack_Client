@@ -25,7 +25,7 @@ export default function EmpLogin() {
             let url = API_URL + EMPLOYEES + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
-            
+
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
                 localStorage.setItem("NickName", resp.data.employee.nickName)
@@ -45,7 +45,7 @@ export default function EmpLogin() {
 
     return (
         <div style={{height:'800px', background:"grey"}}>
-            <div className='container col-md-6'>
+            <div className='container col-md-4'>
 
                 <h1 className='text-center'>Login Employees</h1>
                 <form onSubmit={handleSubmit(onSub)} className='p-3 shadow-lg'>

@@ -4,6 +4,7 @@ import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, POINTS } from '../services/apiService';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
+import { FaRegCheckSquare } from 'react-icons/fa';
 
 
 
@@ -40,10 +41,10 @@ export default function DonatePoint() {
 
 
     return (
-        <div className='container'>
-            <h2>Registration Donates</h2>
+        <div className='container col-md-5 mt-5'>
+            <h2 className='text-center'>Registration Donates</h2>
 
-            <form onSubmit={handleSubmit(onSubPoint)} className='col-md-6 p-3 border'>
+            <form onSubmit={handleSubmit(onSubPoint)} className='p-3 border'>
 
                 <input hidden {...register("donateId", { value: donateID })} />
 
@@ -66,7 +67,7 @@ export default function DonatePoint() {
 
 
                 <br />
-                <button className='btn btn-success mt-4'>Sign up</button><small className='float-end display-6'>2/2</small>
+                <button className='btn btn-success mt-4'>Sign Up<FaRegCheckSquare className='ms-2 fs-4'/></button><small className='float-end display-6'>2/2</small>
 
 
             </form>
