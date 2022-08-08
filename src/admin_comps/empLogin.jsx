@@ -47,8 +47,8 @@ export default function EmpLogin() {
         <div style={{height:'800px', background:"grey"}}>
             <div className='container col-md-4'>
 
-                <h1 className='text-center'>Login Employees</h1>
-                <form onSubmit={handleSubmit(onSub)} className='p-3 shadow-lg'>
+                <h1 className='text-center p-3'>Login Employees</h1>
+                <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5 shadow-lg bg-gradient'>
 
                     <label>Email:</label>
                     <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
