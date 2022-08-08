@@ -43,7 +43,7 @@ export default function HeaderClient() {
                         :
 
                         <div className='col-auto'>
-                            <Link className='badge fs-5 logOutBtn' to='/login'>Log in</Link>
+                            <Link className='badge fs-5 logOutBtn' to='/login'>Login</Link>
                         </div>
                     }
 
