@@ -22,7 +22,7 @@ export default function HeaderClient() {
         <header className='container-fluid'>
 
             <Link className='float-start m-2 logoSite' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
-        
+
             <nav className='container'>
 
                 <div className="row justify-content-between align-items-center">
