@@ -1,17 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ClientContext } from '../context/context';
 import DonItem from '../donates_comps/donItem';
+import CustomizedListForDon from '../helpers/cardMetirial/CustomizedListForDon';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 
 export default function DonatesList() {
 
-    const { donListAr, doApiListDon } = useContext(ClientContext);
+    const { donListAr, doApiListDon, pointAr, doApiListPoints } = useContext(ClientContext);
 
     const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
         doApiListDon();
+        doApiListPoints();
         setTimeout(timeOut, 1500);
     }, [donListAr])
 
@@ -26,7 +28,7 @@ export default function DonatesList() {
                 {loading ?
                     donListAr.map((item, i) => {
                         return (
-                            <DonItem key={i} item={item} />
+                            <CustomizedListForDon key={i} itemProp={item} />
                         )
                     })
                     :

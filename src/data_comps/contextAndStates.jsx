@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AppRoutes from '../appRoutes';
 import { ClientContext } from "../context/context";
-import { API_URL, doApiGet, DONATES, VOLUNTEERS } from '../services/apiService';
+import { API_URL, doApiGet, DONATES, POINTS, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
 
@@ -16,6 +16,8 @@ export default function ContextAndStates() {
     const [donListAr, setDonListAr] = useState([]);
 
     const [donateID, setDonateID] = useState(String);
+
+    const [pointAr, setPointAr] = useState([]);
 
 
     const doApiVolInfo = async () => {
@@ -36,14 +38,20 @@ export default function ContextAndStates() {
         setDonListAr(resp.data);
     }
 
+    const doApiListPoints = async () => {
+        let apiUrl = API_URL + POINTS + "/list";
+        let resp = await doApiGet(apiUrl);
+        setPointAr(resp.data);
+    }
+
     return (
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints,
 
                 // States
-                volListAr, donListAr, volInfo, donateID
+                volListAr, donListAr, volInfo, donateID, pointAr
             }
         }>
 
