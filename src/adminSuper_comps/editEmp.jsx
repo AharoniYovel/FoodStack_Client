@@ -10,6 +10,8 @@ import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 export default function EditEmp() {
 
     const [employee, setEmployee] = useState({});
+    const [loading, setLoading] = useState(false);
+
 
     const params = useParams();
 
@@ -17,7 +19,12 @@ export default function EditEmp() {
 
     useEffect(() => {
         doApiInit();
+        setTimeout(timeOut, 1000);
     }, [])
+
+    const timeOut = () => {
+        setLoading(true);
+    }
 
     // * to collect data to inputs
     const doApiInit = async () => {
@@ -42,7 +49,7 @@ export default function EditEmp() {
     }
 
     const doApiEdit = async (_dataBody) => {
-        let url = API_URL + EMPLOYEES + employee._id;
+        let url = API_URL + EMPLOYEES + "/editEmp/" + employee._id;
         try {
             let resp = await doApiMethod(url, "PUT", _dataBody);
             if (resp.data.modifiedCount == 1) {
@@ -64,7 +71,7 @@ export default function EditEmp() {
     return (
         <div className='container'>
             <h1>Edit Employee</h1>
-            {employee.nickName ?
+            {employee.nickName && loading ?
                 <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
 
                     <label>nickName:</label>
@@ -82,9 +89,11 @@ export default function EditEmp() {
 
 
                     <button onClick={() => { window.confirm("Are you sure?") }} className='btn btn-warning mt-3'>Edit User</button>
-                    {/* <Link to="/admin/usersList" className='btn btn-danger ms-3 mt-3'>Back</Link> */}
+                    <button className='btn btn-danger mt-3 ms-5' onClick={() => {
+                        window.confirm("are you sure?") && nav(-1);
+                    }} type="button">Back</button>
                 </form>
-                : 
+                :
                 <SpinerLoader />
 
             }
