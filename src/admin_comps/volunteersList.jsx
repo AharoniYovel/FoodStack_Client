@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ClientContext } from '../context/context';
+import CustomizedListForVol from '../helpers/cardMetirial/CustomizedList';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
-import VolItem from '../volunteer_comps/volItem';
 
 
 export default function VolunteersList() {
@@ -24,13 +24,15 @@ export default function VolunteersList() {
     return (
 
         <div className='container'>
-            <div className="row row-cols-md-2 row-cols-1 g-5 m-0">
+            <div className="row g-4 row-cols-md-3 row-cols-1 p-5">
 
                 {loading ?
 
                     volListAr.map((item, i) => {
                         return (
-                            <VolItem key={i} item={item} />
+                            <div className='col'>
+                                <CustomizedListForVol key={i} itemProp={item} />
+                            </div>
                         )
                     })
                     :

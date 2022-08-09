@@ -35,7 +35,11 @@ export default function DonatesList() {
                                 </div>
                             )
                         }
-                        else { return <h1 className='text-center text-danger'>Erorr, <br /> fail to load the Donated</h1> }
+                        else {
+                            return <div>
+                                <h2 className='text-center text-danger border border-danger rounded-2'>Erorr, <br /> fail to load the Donated</h2>
+                            </div>
+                        }
 
                     })
                     :

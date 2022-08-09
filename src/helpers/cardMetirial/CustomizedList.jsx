@@ -15,13 +15,14 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Home from '@mui/icons-material/Home';
 import People from '@mui/icons-material/People';
 import PermMedia from '@mui/icons-material/PermMedia';
-import Public from '@mui/icons-material/Public';
 import { Link } from 'react-router-dom';
 import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
 import ContrastIcon from '@mui/icons-material/Contrast';
+import ModeOfTravelIcon from '@mui/icons-material/ModeOfTravel';
+import MoreTimeIcon from '@mui/icons-material/MoreTime';
 
 
 
@@ -41,15 +42,16 @@ const FireNav = styled(List)({
 
 export default function CustomizedListForVol({ itemProp }) {
 
-
+  let arrTitleName = ["Role", "Email", "Phone", "Radius", "RangePeople", "Create_at", "Anonymous"];
 
   const data = [
     { icon: <FolderSharedOutlinedIcon />, label: `${itemProp.role}` },
     { icon: <DraftsOutlinedIcon />, label: `${itemProp.email}` },
     { icon: <PermMedia />, label: `${itemProp.phone}` },
-    { icon: <Public />, label: 'Hosting' },
+    { icon: <ModeOfTravelIcon />, label: `${itemProp.radius} k"m` },
     { icon: <People />, label: `${itemProp.rangePeople}` },
-    { icon: <ContrastIcon />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
+    { icon: <MoreTimeIcon />, label: `${itemProp.create_at}` },
+    { icon: <ContrastIcon />, label: `Anonymous? ===> ${itemProp.anonymous ? "Yes" : "No"}` },
   ];
 
   const [open, setOpen] = React.useState(false);
@@ -78,7 +80,7 @@ export default function CustomizedListForVol({ itemProp }) {
               <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
               <ListItemText
                 sx={{ my: 0 }}
-                primary={`${itemProp.fullName || itemProp.nickName}`}
+                primary={`${itemProp.fullName}`}
                 primaryTypographyProps={{
                   fontSize: 20,
                   fontWeight: 'medium',
@@ -156,7 +158,7 @@ export default function CustomizedListForVol({ itemProp }) {
                 }}
               >
                 <ListItemText
-                  primary={`Info Of ${itemProp.fullName || itemProp.nickName}`}
+                  primary={`Info Of ${itemProp.fullName} - ID:${itemProp.short_id}`}
                   primaryTypographyProps={{
                     fontSize: 15,
                     fontWeight: 'medium',
@@ -184,12 +186,37 @@ export default function CustomizedListForVol({ itemProp }) {
                 />
               </ListItemButton>
               {open &&
-                data.map((item) => (
-                  <ListItemButton
+                data.map((item, i) => (
+                  <ListItemButton title={arrTitleName[i]}
                     key={item.label}
-                    sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                    sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,0.8)', }}
                   >
-                    <ListItemIcon sx={{ color: 'inherit' }}>
+                    <ListItemIcon  sx={{
+                      '& svg': {
+                        color: 'rgba(255,255,255,0.8)',
+                        transition: '0.2s',
+                        transform: 'translateX(0) rotate(0)',
+                      },
+                      '&:hover, &:focus': {
+                        bgcolor: 'unset',
+                        '& svg:first-of-type': {
+                          transform: 'translateX(-4px) rotate(-20deg)',
+                        },
+                        '& svg:last-of-type': {
+                          right: 0,
+                          opacity: 1,
+                        },
+                      },
+                      '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        height: '80%',
+                        display: 'block',
+                        left: 0,
+                        width: '1px',
+                        bgcolor: 'divider',
+                      },
+                    }}>
                       {item.icon}
                     </ListItemIcon>
                     <ListItemText

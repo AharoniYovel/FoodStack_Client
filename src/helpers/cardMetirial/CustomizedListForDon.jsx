@@ -14,10 +14,7 @@ import ArrowRight from '@mui/icons-material/ArrowRight';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Home from '@mui/icons-material/Home';
 import People from '@mui/icons-material/People';
-import PermMedia from '@mui/icons-material/PermMedia';
-import Public from '@mui/icons-material/Public';
 import { Link } from 'react-router-dom';
-import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
@@ -44,14 +41,15 @@ const FireNav = styled(List)({
 
 export default function CustomizedListForDon({ itemProp, pointProp }) {
 
+    let arrTitleName = ["Role", "Status", "Phone", "Range Of People", "Create_at", "Anonymous"];
 
     const data = [
-        { icon: <FolderSharedOutlinedIcon />, label: `Role: ${itemProp.role}` },
+        { icon: <FolderSharedOutlinedIcon />, label: `${itemProp.role}` },
         { icon: <QuestionMarkIcon />, label: `${itemProp.status}` },
         { icon: <LocalPhoneOutlinedIcon />, label: `${itemProp.phone}` },
-        { icon: <MoreTimeIcon />, label: `${itemProp.create_at}` },
         { icon: <People />, label: `${itemProp.rangePeople}` },
-        { icon: <ContrastIcon />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
+        { icon: <MoreTimeIcon />, label: `${itemProp.create_at}` },
+        { icon: <ContrastIcon />, label: `Anonymous? ===> ${itemProp.anonymous ? "Yes" : "No"}` },
     ];
 
     const [open, setOpen] = React.useState(false);
@@ -158,7 +156,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                 }}
                             >
                                 <ListItemText
-                                    primary={`Info Of ${itemProp.fullName}`}
+                                    primary={`Info Of ${itemProp.fullName} - ID:${itemProp.short_id}`}
                                     primaryTypographyProps={{
                                         fontSize: 15,
                                         fontWeight: 'medium',
@@ -186,8 +184,8 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                 />
                             </ListItemButton>
                             {open &&
-                                data.map((item) => (
-                                    <ListItemButton
+                                data.map((item, i) => (
+                                    <ListItemButton title={arrTitleName[i]}
                                         key={item.label}
                                         sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
                                     >
