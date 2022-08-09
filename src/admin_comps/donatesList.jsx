@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ClientContext } from '../context/context';
-import DonItem from '../donates_comps/donItem';
 import CustomizedListForDon from '../helpers/cardMetirial/CustomizedListForDon';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 
@@ -22,14 +21,22 @@ export default function DonatesList() {
     }
 
 
+
+
     return (
         <div className='container'>
             <div className="row">
                 {loading ?
                     donListAr.map((item, i) => {
-                        return (
-                            <CustomizedListForDon key={i} itemProp={item} />
-                        )
+                        if (donListAr[i]._id === pointAr[i].donateId) {
+                            return (
+                                <div className='col'>
+                                    <CustomizedListForDon key={i} itemProp={item} pointProp={pointAr[i]} />
+                                </div>
+                            )
+                        }
+                        else { return <h1>eror,fail to load the Donated</h1> }
+
                     })
                     :
                     <SpinerLoader />
