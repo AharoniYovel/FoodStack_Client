@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import SpinerLoader from '../../helpers/spinerLoader/spinerLoader';
+import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 
-export default function IndexEmp() {
+export default function SuperArea() {
 
     const [loading, setLoading] = useState(false);
 

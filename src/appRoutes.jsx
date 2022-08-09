@@ -2,12 +2,16 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AddEmp from './adminSuper_comps/addEmp';
+import EditEmp from './adminSuper_comps/editEmp';
+import EmpsList from './adminSuper_comps/empsList';
+import SuperArea from './adminSuper_comps/superArea';
 
 
 
 import DonatesList from './admin_comps/donatesList';
 import EmpLogin from './admin_comps/empLogin';
-import IndexEmp from './admin_comps/home/indexEmp';
+import EmpArea from './admin_comps/home/empArea';
 import VolunteersList from './admin_comps/volunteersList';
 import HeaderAdmin from './comps/headerAdmin';
 import HeaderClient from './comps/headerClient';
@@ -27,6 +31,7 @@ export default function AppRoutes() {
 
             <Routes>
                 <Route path='/employee/*' element={<HeaderAdmin />} />
+                <Route path='/superAdmin/*' element={<HeaderAdmin />} />
                 <Route path='/*' element={<HeaderClient />} />
             </Routes>
 
@@ -49,14 +54,34 @@ export default function AppRoutes() {
                 {/* Employee */}
                 <Route path='/loginEmployees' element={<EmpLogin />} />
 
+
                 <Route path='/employee'>
 
-                    <Route index element={<IndexEmp />} />
+                    <Route index element={<EmpArea />} />
 
                     <Route path='volList' element={<VolunteersList />} />
                     <Route path='donList' element={<DonatesList />} />
 
                 </Route>
+
+
+
+
+                {/* SUPER ADMIN */}
+                <Route path='/superAdmin'>
+
+                    <Route index element={<SuperArea />} />
+
+
+
+                    <Route path='empsList' element={<EmpsList />} />
+                    <Route path='/superAdmin/empsList/addEmp' element={<AddEmp />} />
+                    <Route path='/superAdmin/empsList/editEmp/:id' element={<EditEmp />} />
+
+                </Route>
+
+
+
 
                 <Route path='*' element={<NotFound404 />} />
 

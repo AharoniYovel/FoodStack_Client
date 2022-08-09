@@ -191,7 +191,7 @@ export default function CustomizedListForVol({ itemProp }) {
                     key={item.label}
                     sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,0.8)', }}
                   >
-                    <ListItemIcon  sx={{
+                    <ListItemIcon sx={{
                       '& svg': {
                         color: 'rgba(255,255,255,0.8)',
                         transition: '0.2s',

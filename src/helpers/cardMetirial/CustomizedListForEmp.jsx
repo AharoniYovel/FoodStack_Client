@@ -21,7 +21,7 @@ import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
-
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const FireNav = styled(List)({
@@ -100,8 +100,8 @@ export default function CustomizedListForEmp({ itemProp }) {
                   }}
                 />
               </ListItemButton>
-              <Link to='/'>
-                <Tooltip title="Navigate">
+              <Link to={'/superAdmin/empsList/editEmp/' + itemProp._id}>
+                <Tooltip title="Edit">
                   <IconButton
                     size="large"
                     sx={{
@@ -131,7 +131,7 @@ export default function CustomizedListForEmp({ itemProp }) {
                       },
                     }}
                   >
-                    <PlaceOutlinedIcon />
+                    <EditIcon />
                     <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} />
                   </IconButton>
                 </Tooltip>

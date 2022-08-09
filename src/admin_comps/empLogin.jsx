@@ -31,7 +31,12 @@ export default function EmpLogin() {
                 localStorage.setItem("NickName", resp.data.employee.nickName)
                 await doApiListDon();
                 await doApiListVol();
-                nav("/employee");
+
+                if (resp.data.employee.role === "superAdmin") {
+                    nav("/superAdmin");
+                }
+                else { nav("/employee"); }
+
                 toast.success(`Welcome back ${resp.data.employee.nickName}`)
             }
         }
@@ -44,7 +49,7 @@ export default function EmpLogin() {
 
 
     return (
-        <div style={{height:'800px', background:"grey"}}>
+        <div style={{ height: '800px', background: "grey" }}>
             <div className='container col-md-4'>
 
                 <h1 className='text-center p-3'>Login Employees</h1>

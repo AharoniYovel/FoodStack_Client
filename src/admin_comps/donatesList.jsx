@@ -27,11 +27,12 @@ export default function DonatesList() {
         <div className='container'>
             <div className="row g-4 row-cols-md-3 row-cols-1 p-5">
                 {loading ?
+
                     donListAr.map((item, i) => {
                         if (donListAr[i]._id === pointAr[i].donateId) {
                             return (
-                                <div className='col'>
-                                    <CustomizedListForDon key={i} itemProp={item} pointProp={pointAr[i]} />
+                                <div key={i} className='col'>
+                                    <CustomizedListForDon itemProp={item} pointProp={pointAr[i]} />
                                 </div>
                             )
                         }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AppRoutes from '../appRoutes';
 import { ClientContext } from "../context/context";
-import { API_URL, doApiGet, DONATES, POINTS, VOLUNTEERS } from '../services/apiService';
+import { API_URL, doApiGet, DONATES, EMPLOYEES, POINTS, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
 
@@ -15,9 +15,13 @@ export default function ContextAndStates() {
     //  * donates list state
     const [donListAr, setDonListAr] = useState([]);
 
+    // * donatedID by reference state
     const [donateID, setDonateID] = useState(String);
 
+    // * points list state
     const [pointAr, setPointAr] = useState([]);
+
+    const [empListAr, setEmpListAr] = useState([]);
 
 
     const doApiVolInfo = async () => {
@@ -44,14 +48,20 @@ export default function ContextAndStates() {
         setPointAr(resp.data);
     }
 
+    const doApiListEmp = async () => {
+        let apiUrl = API_URL + EMPLOYEES + "/list";
+        let resp = await doApiGet(apiUrl);
+        setEmpListAr(resp.data);
+    }
+
     return (
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr
             }
         }>
 

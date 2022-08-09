@@ -189,7 +189,32 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                         key={item.label}
                                         sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
                                     >
-                                        <ListItemIcon sx={{ color: 'inherit' }}>
+                                        <ListItemIcon sx={{
+                                            '& svg': {
+                                                color: 'rgba(255,255,255,0.8)',
+                                                transition: '0.2s',
+                                                transform: 'translateX(0) rotate(0)',
+                                            },
+                                            '&:hover, &:focus': {
+                                                bgcolor: 'unset',
+                                                '& svg:first-of-type': {
+                                                    transform: 'translateX(-4px) rotate(-20deg)',
+                                                },
+                                                '& svg:last-of-type': {
+                                                    right: 0,
+                                                    opacity: 1,
+                                                },
+                                            },
+                                            '&:after': {
+                                                content: '""',
+                                                position: 'absolute',
+                                                height: '80%',
+                                                display: 'block',
+                                                left: 0,
+                                                width: '1px',
+                                                bgcolor: 'divider',
+                                            },
+                                        }}>
                                             {item.icon}
                                         </ListItemIcon>
                                         <ListItemText
