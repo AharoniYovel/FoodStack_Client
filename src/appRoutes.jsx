@@ -16,6 +16,7 @@ import Login from './comps/login';
 import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
+import CustomizedList from './helpers/cardMetirial/CustomizedList';
 import CardR from './helpers/cards/cardR';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
@@ -40,6 +41,7 @@ export default function AppRoutes() {
                 <Route path='/registrationDon/donatePoint' element={<DonatePoint />} />
 
                 <Route path='card' element={<CardR />} />
+                <Route path='cardMetiail' element={<CustomizedList />} />
 
                 {/* Volunteers */}
                 <Route path='/login' element={<Login />} />
