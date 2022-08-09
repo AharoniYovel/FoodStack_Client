@@ -21,6 +21,7 @@ import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
+import ContrastIcon from '@mui/icons-material/Contrast';
 
 
 
@@ -48,7 +49,7 @@ export default function CustomizedListForVol({ itemProp }) {
     { icon: <PermMedia />, label: `${itemProp.phone}` },
     { icon: <Public />, label: 'Hosting' },
     { icon: <People />, label: `${itemProp.rangePeople}` },
-    { icon: <People />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
+    { icon: <ContrastIcon />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
   ];
 
   const [open, setOpen] = React.useState(false);

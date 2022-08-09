@@ -25,7 +25,7 @@ export default function DonatesList() {
 
     return (
         <div className='container'>
-            <div className="row">
+            <div className="row g-4 row-cols-md-3 row-cols-1 p-5">
                 {loading ?
                     donListAr.map((item, i) => {
                         if (donListAr[i]._id === pointAr[i].donateId) {
@@ -35,7 +35,7 @@ export default function DonatesList() {
                                 </div>
                             )
                         }
-                        else { return <h1>eror,fail to load the Donated</h1> }
+                        else { return <h1 className='text-center text-danger'>Erorr, <br /> fail to load the Donated</h1> }
 
                     })
                     :

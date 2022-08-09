@@ -21,6 +21,10 @@ import DraftsOutlinedIcon from '@mui/icons-material/DraftsOutlined';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import MoreTimeIcon from '@mui/icons-material/MoreTime';
+import ContrastIcon from '@mui/icons-material/Contrast';
 
 
 
@@ -42,12 +46,12 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
 
 
     const data = [
-        { icon: <FolderSharedOutlinedIcon />, label: `${itemProp.role}` },
-        { icon: <DraftsOutlinedIcon />, label: `${itemProp.email}` },
-        { icon: <PermMedia />, label: `${itemProp.phone}` },
-        { icon: <Public />, label: 'Hosting' },
+        { icon: <FolderSharedOutlinedIcon />, label: `Role: ${itemProp.role}` },
+        { icon: <QuestionMarkIcon />, label: `${itemProp.status}` },
+        { icon: <LocalPhoneOutlinedIcon />, label: `${itemProp.phone}` },
+        { icon: <MoreTimeIcon />, label: `${itemProp.create_at}` },
         { icon: <People />, label: `${itemProp.rangePeople}` },
-        { icon: <People />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
+        { icon: <ContrastIcon />, label: `Anonymous? ---> ${itemProp.anonymous ? "Yes" : "No"}` },
     ];
 
     const [open, setOpen] = React.useState(false);
@@ -163,7 +167,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                     }}
 
 
-                                    secondary={`Role, Email, Phone, Storage, Hosting, Functions, and Machine Learning`}
+                                    secondary={`Role, Status, Phone, Create_at, RangePeople, Anonymous`}
                                     secondaryTypographyProps={{
                                         noWrap: true,
                                         fontSize: 12,
