@@ -31,19 +31,19 @@
 }
 
 .spinner-sector-blue {
-    border-left-color: red;
+    border-left-color: rgba(165, 42, 42, 0.627);
     --duration: 0.8s;
     --timing: ease-in;
 }
 
 .spinner-sector-green {
-    border-right-color: lightgreen;
+    border-right-color: rgba(238, 206, 1, 0.723);
     --duration: 0.9s;
     --timing: ease-out;
 }
 
 .spinner-sector-purple {
-    border-right-color: rgb(249, 0, 254);
+    border-right-color: rgba(255, 0, 115, 0.505);
     --duration: 1s;
     --timing: ease-out;
 }

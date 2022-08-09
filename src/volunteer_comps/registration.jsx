@@ -45,7 +45,6 @@ export default function Registration() {
                     toast.success("Thank you for help the world!");
                 }
             }
-            // console.log(resp.data);
         }
 
         catch (err) {
