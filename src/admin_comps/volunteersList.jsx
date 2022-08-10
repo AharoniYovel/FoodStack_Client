@@ -24,13 +24,14 @@ export default function VolunteersList() {
     return (
 
         <div className='container'>
+            <h1 className='text-center'>Volunteers List</h1>
             <div className="row g-4 row-cols-md-3 row-cols-1 p-5">
 
                 {loading ?
 
                     volListAr.map((item, i) => {
                         return (
-                            <div  key={i} className='col'>
+                            <div key={i} className='col'>
                                 <CustomizedListForVol itemProp={item} />
                             </div>
                         )

@@ -25,6 +25,8 @@ export default function DonatesList() {
 
     return (
         <div className='container'>
+            <h1 className='text-center'>Donates List</h1>
+
             <div className="row g-4 row-cols-md-3 row-cols-1 p-5">
                 {loading ?
 
