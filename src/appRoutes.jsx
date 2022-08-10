@@ -35,7 +35,7 @@ export default function AppRoutes() {
                 <Route path='/*' element={<HeaderClient />} />
             </Routes>
 
-            <Routes>
+            <Routes> 
  
                 <Route index element={<Home />} />
 
