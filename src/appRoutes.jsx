@@ -36,7 +36,7 @@ export default function AppRoutes() {
             </Routes>
 
             <Routes>
-
+ 
                 <Route index element={<Home />} />
 
                 {/* Donates */}
