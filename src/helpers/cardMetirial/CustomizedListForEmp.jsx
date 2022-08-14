@@ -90,7 +90,7 @@ export default function CustomizedListForEmp({ itemProp }) {
                 <ListItemIcon>
                   <PhoneForwardedIcon color="primary" />
                 </ListItemIcon>
-                <a className='text-decoration-line-through' href="tel:+972546885698">
+                <a className='text-decoration-line-through' href={`tel:+972${itemProp.phone}`}>
                   <ListItemText
                     primary={`${itemProp.phone}`}
                     primaryTypographyProps={{
