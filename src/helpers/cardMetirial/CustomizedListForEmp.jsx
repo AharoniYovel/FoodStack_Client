@@ -50,8 +50,9 @@ export default function CustomizedListForEmp({ itemProp }) {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <ThemeProvider
+
+    <Box  sx={{ display: 'flex' }}>
+      <ThemeProvider 
         theme={createTheme({
           components: {
             MuiListItemButton: {
@@ -67,7 +68,7 @@ export default function CustomizedListForEmp({ itemProp }) {
           },
         })}
       >
-        <Paper elevation={0} sx={{ maxWidth: 256 }}>
+        <Paper className='w-100 h-100' elevation={0} sx={{ maxWidth: 256 }}>
           <FireNav component="nav" disablePadding>
             <ListItemButton component="a" href="#customized-list">
               <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
@@ -233,5 +234,6 @@ export default function CustomizedListForEmp({ itemProp }) {
         </Paper>
       </ThemeProvider>
     </Box >
+
   );
 }

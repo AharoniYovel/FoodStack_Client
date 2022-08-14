@@ -4,6 +4,7 @@ import { ClientContext } from '../context/context';
 import CustomizedListForEmp from '../helpers/cardMetirial/CustomizedListForEmp';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 
+
 export default function EmpsList() {
 
     const { empListAr, doApiListEmp } = useContext(ClientContext);

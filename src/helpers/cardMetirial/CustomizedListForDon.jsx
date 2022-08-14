@@ -72,7 +72,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                     },
                 })}
             >
-                <Paper elevation={0} sx={{ maxWidth: 256 }}>
+                <Paper className='w-100 h-100' elevation={0} sx={{ maxWidth: 256 }}>
                     <FireNav component="nav" disablePadding>
                         <ListItemButton component="a" href="#customized-list">
                             <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
