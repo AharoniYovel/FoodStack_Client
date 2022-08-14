@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
 import { toast } from "react-toastify";
+import axios from 'axios';
 
 
 export default function EmpLogin() {
@@ -23,7 +24,11 @@ export default function EmpLogin() {
     const doApiEmpLogin = async (_bodyData) => {
         try {
             let url = API_URL + EMPLOYEES + "/login";
-            let resp = await doApiMethod(url, "post", _bodyData);
+            let resp = await axios.post(url, {
+                email: "superAdmin@walla.com",
+                password: "123"
+            });
+            // let resp = await doApiMethod(url, "post", _bodyData);
             console.log(resp.data);
 
             if (resp.data.token) {

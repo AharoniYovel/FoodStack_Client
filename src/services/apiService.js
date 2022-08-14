@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const API_URL = "http://localhost:3001";
-// export const API_URL = "https://mysite.co.il";
+// export const API_URL = "http://localhost:3001";
+export const API_URL = "https://foodstack-23.herokuapp.com/";
 
-export const EMPLOYEES = "/employees";
-export const DONATES = "/donates";
-export const VOLUNTEERS = "/volunteers";
-export const PATHS = "/paths";
-export const POINTS = "/points";
+export const EMPLOYEES = "employees";
+export const DONATES = "donates";
+export const VOLUNTEERS = "volunteers";
+export const PATHS = "paths";
+export const POINTS = "points";
 
 export const TOKEN_NAME = "food_Stack"
 

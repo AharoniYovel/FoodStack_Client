@@ -90,19 +90,21 @@ export default function CustomizedListForEmp({ itemProp }) {
                 <ListItemIcon>
                   <PhoneForwardedIcon color="primary" />
                 </ListItemIcon>
-                <ListItemText
-                  primary={`${itemProp.phone}`}
-                  primaryTypographyProps={{
-                    color: 'primary',
-                    fontWeight: 'medium',
-                    variant: 'body2',
-                  }}
-                />
+                <a className='text-decoration-line-through' href="tel:+972546885698">
+                  <ListItemText
+                    primary={`${itemProp.phone}`}
+                    primaryTypographyProps={{
+                      color: 'primary',
+                      fontWeight: 'medium',
+                      variant: 'body2',
+                    }}
+                  />
+                </a>
               </ListItemButton>
 
 
               {!(itemProp._id === infConect.superAdminId || itemProp.role === "superAdmin") ?
-                <Link Link to={'/superAdmin/empsList/editEmp/' + itemProp._id}>
+                <Link to={'/superAdmin/empsList/editEmp/' + itemProp._id}>
                   <Tooltip title="Edit">
                     <IconButton
                       size="large"

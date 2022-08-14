@@ -33,10 +33,11 @@ export default function HeaderAdmin() {
                     </ul>
 
                     {localStorage[TOKEN_NAME] &&
-                        <div div className='col-auto'>
+                        <div className='col-auto'>
                             <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
                         </div>
                     }
+
 
                     <React.Fragment></React.Fragment>
 
