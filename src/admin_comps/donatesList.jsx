@@ -13,7 +13,7 @@ export default function DonatesList() {
     useEffect(() => {
         doApiListDon();
         doApiListPoints();
-        setTimeout(timeOut, 1500);
+        setTimeout(timeOut, 1000);
     }, [donListAr])
 
     const timeOut = () => {

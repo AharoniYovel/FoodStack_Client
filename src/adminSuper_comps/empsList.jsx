@@ -13,7 +13,7 @@ export default function EmpsList() {
 
     useEffect(() => {
         doApiListEmp();
-        setTimeout(timeOut, 1500);
+        setTimeout(timeOut, 1000);
     }, [empListAr])
 
     const timeOut = () => {

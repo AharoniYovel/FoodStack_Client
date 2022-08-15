@@ -11,7 +11,7 @@ export default function VolInfo() {
 
     useEffect(() => {
         doApiVolInfo();
-        setTimeout(timeOut, 1500);
+        setTimeout(timeOut, 1000);
     }, [volInfo])
 
     const timeOut = () => {

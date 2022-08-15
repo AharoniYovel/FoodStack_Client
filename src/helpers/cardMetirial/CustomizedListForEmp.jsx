@@ -72,7 +72,7 @@ export default function CustomizedListForEmp({ itemProp }) {
           <FireNav component="nav" disablePadding>
             <ListItemButton component="a" href="#customized-list">
               <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
-              <ListItemText
+              <ListItemText 
                 sx={{ my: 0 }}
                 primary={`${itemProp.nickName}`}
                 primaryTypographyProps={{

@@ -13,7 +13,7 @@ export default function VolunteersList() {
 
     useEffect(() => {
         doApiListVol();
-        setTimeout(timeOut, 1500);
+        setTimeout(timeOut, 1000);
     }, [volListAr])
 
     const timeOut = () => {

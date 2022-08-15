@@ -22,6 +22,8 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import MoreTimeIcon from '@mui/icons-material/MoreTime';
 import ContrastIcon from '@mui/icons-material/Contrast';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 
 
@@ -84,7 +86,12 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                     fontWeight: 'medium',
                                     letterSpacing: 0,
                                 }}
+
                             />
+                            <Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
+                                <EditIcon />
+                            </Link>
+
                         </ListItemButton>
                         <Divider />
                         <ListItem component="div" disablePadding>
@@ -185,48 +192,94 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                             </ListItemButton>
                             {open &&
                                 data.map((item, i) => (
-                                    <ListItemButton title={arrTitleName[i]}
-                                        key={item.label}
-                                        sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
-                                    >
-                                        <ListItemIcon sx={{
-                                            '& svg': {
-                                                color: 'rgba(255,255,255,0.8)',
-                                                transition: '0.2s',
-                                                transform: 'translateX(0) rotate(0)',
-                                            },
-                                            '&:hover, &:focus': {
-                                                bgcolor: 'unset',
-                                                '& svg:first-of-type': {
-                                                    transform: 'translateX(-4px) rotate(-20deg)',
+
+
+                                    item.label === itemProp.phone ?
+
+                                        <a className='text-decoration-none' href={`tel:${itemProp.phone}`}>
+                                            <ListItemButton title={arrTitleName[i]}
+                                                key={item.label}
+                                                sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                                            >
+                                                <ListItemIcon sx={{
+                                                    '& svg': {
+                                                        color: 'rgba(255,255,255,0.8)',
+                                                        transition: '0.2s',
+                                                        transform: 'translateX(0) rotate(0)',
+                                                    },
+                                                    '&:hover, &:focus': {
+                                                        bgcolor: 'unset',
+                                                        '& svg:first-of-type': {
+                                                            transform: 'translateX(-4px) rotate(-20deg)',
+                                                        },
+                                                        '& svg:last-of-type': {
+                                                            right: 0,
+                                                            opacity: 1,
+                                                        },
+                                                    },
+                                                    '&:after': {
+                                                        content: '""',
+                                                        position: 'absolute',
+                                                        height: '80%',
+                                                        display: 'block',
+                                                        left: 0,
+                                                        width: '1px',
+                                                        bgcolor: 'divider',
+                                                    },
+                                                }}>
+                                                    {item.icon}
+                                                </ListItemIcon>
+                                                <ListItemText
+                                                    primary={item.label}
+                                                    primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                                                />
+                                            </ListItemButton>
+                                        </a>
+
+                                        :
+
+                                        <ListItemButton title={arrTitleName[i]}
+                                            key={item.label}
+                                            sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                                        >
+                                            <ListItemIcon sx={{
+                                                '& svg': {
+                                                    color: 'rgba(255,255,255,0.8)',
+                                                    transition: '0.2s',
+                                                    transform: 'translateX(0) rotate(0)',
                                                 },
-                                                '& svg:last-of-type': {
-                                                    right: 0,
-                                                    opacity: 1,
+                                                '&:hover, &:focus': {
+                                                    bgcolor: 'unset',
+                                                    '& svg:first-of-type': {
+                                                        transform: 'translateX(-4px) rotate(-20deg)',
+                                                    },
+                                                    '& svg:last-of-type': {
+                                                        right: 0,
+                                                        opacity: 1,
+                                                    },
                                                 },
-                                            },
-                                            '&:after': {
-                                                content: '""',
-                                                position: 'absolute',
-                                                height: '80%',
-                                                display: 'block',
-                                                left: 0,
-                                                width: '1px',
-                                                bgcolor: 'divider',
-                                            },
-                                        }}>
-                                            {item.icon}
-                                        </ListItemIcon>
-                                        <ListItemText
-                                            primary={item.label}
-                                            primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
-                                        />
-                                    </ListItemButton>
+                                                '&:after': {
+                                                    content: '""',
+                                                    position: 'absolute',
+                                                    height: '80%',
+                                                    display: 'block',
+                                                    left: 0,
+                                                    width: '1px',
+                                                    bgcolor: 'divider',
+                                                },
+                                            }}>
+                                                {item.icon}
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={item.label}
+                                                primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                                            />
+                                        </ListItemButton>
                                 ))}
                         </Box>
                     </FireNav>
                 </Paper>
             </ThemeProvider>
-        </Box>
+        </Box >
     );
 }

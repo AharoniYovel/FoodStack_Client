@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 
 
-
 export default function EditEmp() {
 
     const [employee, setEmployee] = useState({});
@@ -70,7 +69,7 @@ export default function EditEmp() {
 
     return (
         <div className='container'>
-            <h1>Edit Employee</h1>
+            <h1>Edit {employee.nickName}</h1>
             {employee.nickName && loading ?
                 <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
 

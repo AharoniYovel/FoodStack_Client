@@ -2,14 +2,14 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+
 import AddEmp from './adminSuper_comps/addEmp';
 import EditEmp from './adminSuper_comps/editEmp';
 import EmpsList from './adminSuper_comps/empsList';
 import SuperArea from './adminSuper_comps/superArea';
-
-
-
 import DonatesList from './admin_comps/donatesList';
+import EditDon from './admin_comps/editDon';
+import EditVol from './admin_comps/editVol';
 import EmpLogin from './admin_comps/empLogin';
 import EmpArea from './admin_comps/home/empArea';
 import VolunteersList from './admin_comps/volunteersList';
@@ -35,8 +35,8 @@ export default function AppRoutes() {
                 <Route path='/*' element={<HeaderClient />} />
             </Routes>
 
-            <Routes> 
- 
+            <Routes>
+
                 <Route index element={<Home />} />
 
                 {/* Donates */}
@@ -60,7 +60,11 @@ export default function AppRoutes() {
                     <Route index element={<EmpArea />} />
 
                     <Route path='volList' element={<VolunteersList />} />
+                    <Route path='/employee/volList/editVol/:id' element={<EditVol />} />
+
                     <Route path='donList' element={<DonatesList />} />
+                    <Route path='/employee/donList/editDon/:id' element={<EditDon />} />
+
 
                 </Route>
 
