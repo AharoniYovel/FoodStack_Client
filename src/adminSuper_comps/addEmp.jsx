@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { ClientContext } from '../context/context';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 import { API_URL, doApiMethod, EMPLOYEES } from '../services/apiService';
 
@@ -74,6 +73,9 @@ export default function AddEmp() {
 
                         <button className='btn btn-info mt-4'>Add Employee</button>
 
+                        <button className='btn btn-dark mt-4 ms-5' onClick={() => {
+                            window.confirm("are you sure?") && nav(-1);
+                        }} type="button">Back</button>
 
                         <br />
                     </form>

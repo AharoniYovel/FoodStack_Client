@@ -6,7 +6,6 @@ import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 export default function DonatesList() {
 
     const { donListAr, doApiListDon, pointAr, doApiListPoints } = useContext(ClientContext);
-
     const [loading, setLoading] = useState(false);
 
 

@@ -97,7 +97,7 @@ export default function EditVol() {
     return (
         <div className='container-fluid'>
             <div className='container col-md-5'>
-                <h1 className='text-center p-3'>Edit {volunteer.fullName}</h1>
+                <h1 className='text-center p-3'>Edit "{volunteer.fullName}"</h1>
 
 
                 {volunteer._id && loading ?
@@ -115,15 +115,15 @@ export default function EditVol() {
                         <input defaultValue={volunteer.city} {...register("city", { required: true, minLength: 2 })} type="text" className='form-control' />
                         {errors.city && <small className='d-block text-danger'>* Enter city</small>}
 
-                        <label>phone:</label>
+                        <label>Phone:</label>
                         <input defaultValue={volunteer.phone} {...register("phone", { required: true, minLength: 9 })} type="text" className='form-control' />
                         {errors.phone && <small className='d-flex text-danger'>* Enter valid phone</small>}
 
-                        <label>radius:</label>
+                        <label>Radius:</label>
                         <input defaultValue={volunteer.radius} {...register("radius", { required: true, minLength: 1 })} type="number" className='form-control' />
                         {errors.radius && <small className='d-block text-danger'>* Enter radius</small>}
 
-                        <label>range of people:</label>
+                        <label>Range of people:</label>
                         <input defaultValue={volunteer.rangePeople} {...register("rangePeople", { required: true, minLength: 1 })} type="number" className='form-control' />
                         {errors.rangePeople && <small className='d-block text-danger'>* Enter number above 0</small>}
 

@@ -22,7 +22,9 @@ export default function VolInfo() {
     return (
         <React.Fragment>
             {loading ?
-                <CustomizedListForVol itemProp={volInfo} />
+                <div className='d-flex align-items-center justify-content-center col-12'>
+                    <CustomizedListForVol itemProp={volInfo} />
+                </div>
                 :
                 <SpinerLoader />
             }

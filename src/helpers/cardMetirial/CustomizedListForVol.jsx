@@ -44,6 +44,7 @@ const FireNav = styled(List)({
 
 export default function CustomizedListForVol({ itemProp }) {
 
+
   let arrTitleName = ["Role", "Email", "Phone", "Radius", "RangePeople", "Create_at", "Anonymous"];
 
   const data = [
@@ -57,6 +58,7 @@ export default function CustomizedListForVol({ itemProp }) {
   ];
 
   const [open, setOpen] = React.useState(false);
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -89,10 +91,14 @@ export default function CustomizedListForVol({ itemProp }) {
                   letterSpacing: 0,
                 }}
               />
-              <Link className='text-white' to={'/employee/volList/editVol/' + itemProp._id}>
-                <EditIcon />
-              </Link>
 
+              {localStorage["NickName"] ?
+                <Link className='text-white' to={'/employee/volList/editVol/' + itemProp._id}>
+                  <EditIcon />
+                </Link>
+                :
+                null
+              }
             </ListItemButton>
             <Divider />
             <ListItem component="div" disablePadding>
@@ -285,6 +291,6 @@ export default function CustomizedListForVol({ itemProp }) {
           </FireNav>
         </Paper>
       </ThemeProvider>
-    </Box>
+    </Box >
   );
 }

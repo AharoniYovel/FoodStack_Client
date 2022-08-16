@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
-import { API_URL, doApiGet, doApiMethod, DONATES } from '../services/apiService';
+import { API_URL, doApiGet, doApiMethod, DONATES, POINTS } from '../services/apiService';
 
 export default function EditDon() {
 
@@ -75,19 +75,55 @@ export default function EditDon() {
         setFade(false);
     }
 
+    const onDelClick = async (_idDel) => {
+        let url = API_URL + DONATES + "/delDon/" + _idDel;
+        try {
+            let resp = await doApiMethod(url, "delete");
+            if (resp.data.deletedCount == 1) {
+                toast.success("Donated deleted")
+                delPoint(_idDel);
+                nav(-1);
+            }
+        }
+
+        catch (err) {
+            console.log(err);
+            toast.warning("there problem to delete, try refresh the page");
+        }
+    }
+
+    const delPoint = async (_idDelOfDon) => {
+        try {
+            let url = API_URL + POINTS + "/delPoint/" + _idDelOfDon;
+            let resp = await doApiMethod(url, "delete");
+            if (resp.data.deletedCount == 1) {
+                toast.success("Point deleted")
+            }
+        }
+
+        catch (err) {
+            console.log(err);
+            toast.warning("there problem to delete point, try refresh the page");
+        }
+    }
+
 
     return (
-        <div className='container'>
-            <h1>Edit {donated.fullName}</h1>
+        <div className='container col-md-5'>
+            <h1 className='text-center p-3'>Edit "{donated.fullName}"</h1>
 
             {donated._id && loading ?
-                <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
+                <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5'>
 
-                    <label>phone:</label>
+                    <button onClick={() => { window.confirm("Are you sure?") && onDelClick(donated._id) }} type='button' className='float-end badge bg-danger'>Delete</button>
+                    <br />
+
+
+                    <label>Phone:</label>
                     <input defaultValue={donated.phone} {...register("phone", { required: true, minLength: 9 })} type="text" className='form-control' />
                     {errors.phone && <small className='d-flex text-danger'>* Enter valid phone</small>}
 
-                    <label>range of people:</label>
+                    <label>Range of people:</label>
                     <input defaultValue={donated.rangePeople} {...register("rangePeople", { required: true, minLength: 1 })} type="number" className='form-control' />
                     {errors.rangePeople && <small className='d-block text-danger'>* Enter number above 0</small>}
 
@@ -116,7 +152,7 @@ export default function EditDon() {
                     </div>
 
 
-
+                    {/* //! (fade)prevent from user or admin to send multi request to server & to shut it down */}
                     {!fade && <button button onClick={() => { window.confirm("Are you sure?") }} className='btn btn-warning mt-3'>Edit donated</button>}
                     <button className='btn btn-danger mt-3 ms-5' onClick={() => {
                         window.confirm("are you sure?") && nav(-1);

@@ -10,7 +10,7 @@ import { BsArrowRightCircleFill } from 'react-icons/bs';
 
 export default function RegistrationDon() {
 
-    const { setDonateID, donateID } = useContext(ClientContext);
+    const { setDonateID } = useContext(ClientContext);
 
     let { register, getValues, handleSubmit, formState: { errors } } = useForm();
 

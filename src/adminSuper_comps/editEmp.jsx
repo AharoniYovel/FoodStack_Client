@@ -68,12 +68,12 @@ export default function EditEmp() {
     }
 
     return (
-        <div className='container'>
-            <h1>Edit {employee.nickName}</h1>
+        <div className='container col-md-5'>
+            <h1 className='text-center p-3'>Edit {employee.nickName}</h1>
             {employee.nickName && loading ?
-                <form onSubmit={handleSubmit(onSub)} className='col-md-6 p-3 shadow'>
+                <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5'>
 
-                    <label>nickName:</label>
+                    <label>NickName:</label>
                     <input defaultValue={employee.nickName} {...register("nickName", { required: true, minLength: 2 })} type="text" className='form-control' />
                     {errors.nickName && <small className='d-flex text-danger'>* Enter valid nickName</small>}
 
@@ -81,7 +81,7 @@ export default function EditEmp() {
                     <input defaultValue={employee.email} {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} type="text" className='form-control' />
                     {errors.email && <small className='d-flex text-danger'>* Enter valid email</small>}
 
-                    <label>phone:</label>
+                    <label>Phone:</label>
                     <input defaultValue={employee.phone} {...register("phone", { required: true, minLength: 9 })} type="text" className='form-control' />
                     {errors.phone && <small className='d-flex text-danger'>* Enter valid phone</small>}
 
