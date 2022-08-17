@@ -5,12 +5,12 @@ import Strip from './home/strip';
 
 export default function Home() {
 
-   
+
 
 
     return (
         <React.Fragment >
-                <Strip />
+            <Strip />
         </React.Fragment>
     )
 }
