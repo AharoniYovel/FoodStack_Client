@@ -81,7 +81,7 @@ export default function EditDon() {
             let resp = await doApiMethod(url, "delete");
             if (resp.data.deletedCount == 1) {
                 toast.success("Donated deleted")
-                delPoint(_idDel);
+                await delPoint(_idDel);
                 nav(-1);
             }
         }
@@ -153,7 +153,7 @@ export default function EditDon() {
 
 
                     {/* //! (fade)prevent from user or admin to send multi request to server & to shut it down */}
-                    {!fade && <button button onClick={() => { window.confirm("Are you sure?") }} className='btn btn-warning mt-3'>Edit donated</button>}
+                    {!fade && <button onClick={() => { window.confirm("Are you sure?") }} className='btn btn-warning mt-3'>Edit donated</button>}
                     <button className='btn btn-danger mt-3 ms-5' onClick={() => {
                         window.confirm("are you sure?") && nav(-1);
                     }} type="button">Back</button>

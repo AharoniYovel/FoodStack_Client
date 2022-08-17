@@ -76,7 +76,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
             >
                 <Paper className='w-100 h-100' elevation={0} sx={{ maxWidth: 256 }}>
                     <FireNav component="nav" disablePadding>
-                        <ListItemButton component="a" href="#customized-list">
+                        <ListItemButton>
                             <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
                             <ListItemText
                                 sx={{ my: 0 }}
@@ -88,10 +88,10 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                 }}
 
                             />
+
                             <Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
                                 <EditIcon />
                             </Link>
-
                         </ListItemButton>
                         <Divider />
                         <ListItem component="div" disablePadding>
@@ -196,7 +196,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
 
                                     item.label === itemProp.phone ?
 
-                                        <a className='text-decoration-none' href={`tel:${itemProp.phone}`}>
+                                        <a key={item.label} className='text-decoration-none' href={`tel:${itemProp.phone}`}>
                                             <ListItemButton title={arrTitleName[i]}
                                                 key={item.label}
                                                 sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}

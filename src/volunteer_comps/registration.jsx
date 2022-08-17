@@ -24,26 +24,23 @@ export default function Registration() {
 
     const doApiReg = async (_bodyData) => {
         try {
-            _bodyData.anonymous = anomusBtn;
-            delete _bodyData.email2;
-            let url = API_URL + VOLUNTEERS + "/reg";
+
             let loginObj = {
                 email: _bodyData.email,
                 password: _bodyData.password
             }
+            
+            _bodyData.anonymous = anomusBtn;
+            delete _bodyData.email2;
+            let url = API_URL + VOLUNTEERS + "/reg";
+
+
             let resp = await doApiMethod(url, "post", _bodyData);
 
             if (resp.data._id) {
-                let urlLogFirst = API_URL + VOLUNTEERS + "/login";
-                let respLogFirst = await doApiMethod(urlLogFirst, 'post', loginObj);
-
-                if (respLogFirst.data.token) {
-                    localStorage.setItem(TOKEN_NAME, respLogFirst.data.token);
-                    localStorage.setItem("Name", respLogFirst.data.volunteer.fullName)
-                    await doApiVolInfo();
-                    nav("/volInfo");
-                    toast.success("Thank you for help the world!");
-                }
+                await loginAfterReg(loginObj);
+                nav("/volInfo");
+                toast.success("Thank you for help the world!");
             }
         }
 
@@ -51,6 +48,26 @@ export default function Registration() {
             // The way to collect err in axios
             console.log(err.response);
             toast.error("User or Password wrong");
+        }
+    }
+
+
+    const loginAfterReg = async (_loginObj) => {
+
+        try {
+            let url = API_URL + VOLUNTEERS + "/login";
+            let resp = await doApiMethod(url, 'post', _loginObj);
+
+            if (resp.data.token) {
+                localStorage.setItem(TOKEN_NAME, resp.data.token);
+                localStorage.setItem("Name", resp.data.volunteer.fullName);
+                await doApiVolInfo();
+            }
+        }
+
+        catch (err) {
+            console.log(err.response);
+            toast.warning("there problem to login first time, try refresh the page");
         }
     }
 

@@ -193,7 +193,7 @@ export default function CustomizedListForEmp({ itemProp }) {
                 data.map((item, i) => (
                   item.label === itemProp.email ?
 
-                    <a className='text-decoration-none' href={`mailto:${itemProp.email}`}>
+                    <a key={item.label} className='text-decoration-none' href={`mailto:${itemProp.email}`}>
                       <ListItemButton title={arrTitleName[i]}
                         key={item.label}
                         sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}

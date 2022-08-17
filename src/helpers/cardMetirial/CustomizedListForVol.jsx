@@ -80,7 +80,7 @@ export default function CustomizedListForVol({ itemProp }) {
       >
         <Paper className='w-100 h-100' elevation={0} sx={{ maxWidth: 256 }}>
           <FireNav component="nav" disablePadding>
-            <ListItemButton component="a" href="#customized-list">
+            <ListItemButton >
               <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
               <ListItemText
                 sx={{ my: 0 }}
@@ -203,7 +203,7 @@ export default function CustomizedListForVol({ itemProp }) {
                   item.label === itemProp.phone ?
 
 
-                    <a className='text-decoration-none' href={`tel:${itemProp.phone}`}>
+                    <a key={item.label} className='text-decoration-none' href={`tel:${itemProp.phone}`}>
                       <ListItemButton className='text-decoration-none' title={arrTitleName[i]}
                         key={item.label}
                         sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,0.8)', }}
@@ -248,7 +248,7 @@ export default function CustomizedListForVol({ itemProp }) {
 
                     item.label === itemProp.email ?
                     
-                      <a className='text-decoration-none' href={`mailto:${itemProp.email}`}>
+                      <a key={item.label} className='text-decoration-none' href={`mailto:${itemProp.email}`}>
                         <ListItemButton className='text-decoration-none' title={arrTitleName[i]}
                           key={item.label}
                           sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,0.8)', }}
