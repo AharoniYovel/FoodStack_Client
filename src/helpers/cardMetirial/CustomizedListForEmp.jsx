@@ -51,8 +51,8 @@ export default function CustomizedListForEmp({ itemProp }) {
 
   return (
 
-    <Box  sx={{ display: 'flex' }}>
-      <ThemeProvider 
+    <Box sx={{ display: 'flex' }}>
+      <ThemeProvider
         theme={createTheme({
           components: {
             MuiListItemButton: {
@@ -72,7 +72,7 @@ export default function CustomizedListForEmp({ itemProp }) {
           <FireNav component="nav" disablePadding>
             <ListItemButton component="a" href="#customized-list">
               <ListItemIcon sx={{ fontSize: 20 }}><PersonPinOutlinedIcon /></ListItemIcon>
-              <ListItemText 
+              <ListItemText
                 sx={{ my: 0 }}
                 primary={`${itemProp.nickName}`}
                 primaryTypographyProps={{
@@ -191,43 +191,89 @@ export default function CustomizedListForEmp({ itemProp }) {
               </ListItemButton>
               {open &&
                 data.map((item, i) => (
-                  <ListItemButton title={arrTitleName[i]}
-                    key={item.label}
-                    sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
-                  >
-                    <ListItemIcon sx={{
-                      '& svg': {
-                        color: 'rgba(255,255,255,0.8)',
-                        transition: '0.2s',
-                        transform: 'translateX(0) rotate(0)',
-                      },
-                      '&:hover, &:focus': {
-                        bgcolor: 'unset',
-                        '& svg:first-of-type': {
-                          transform: 'translateX(-4px) rotate(-20deg)',
+                  item.label === itemProp.email ?
+
+                    <a className='text-decoration-none' href={`mailto:${itemProp.email}`}>
+                      <ListItemButton title={arrTitleName[i]}
+                        key={item.label}
+                        sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                      >
+                        <ListItemIcon sx={{
+                          '& svg': {
+                            color: 'rgba(255,255,255,0.8)',
+                            transition: '0.2s',
+                            transform: 'translateX(0) rotate(0)',
+                          },
+                          '&:hover, &:focus': {
+                            bgcolor: 'unset',
+                            '& svg:first-of-type': {
+                              transform: 'translateX(-4px) rotate(-20deg)',
+                            },
+                            '& svg:last-of-type': {
+                              right: 0,
+                              opacity: 1,
+                            },
+                          },
+                          '&:after': {
+                            content: '""',
+                            position: 'absolute',
+                            height: '80%',
+                            display: 'block',
+                            left: 0,
+                            width: '1px',
+                            bgcolor: 'divider',
+                          },
+                        }}>
+                          {item.icon}
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={item.label}
+                          primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                        />
+                      </ListItemButton>
+                    </a>
+
+                    :
+
+                    <ListItemButton title={arrTitleName[i]}
+                      key={item.label}
+                      sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                    >
+                      <ListItemIcon sx={{
+                        '& svg': {
+                          color: 'rgba(255,255,255,0.8)',
+                          transition: '0.2s',
+                          transform: 'translateX(0) rotate(0)',
                         },
-                        '& svg:last-of-type': {
-                          right: 0,
-                          opacity: 1,
+                        '&:hover, &:focus': {
+                          bgcolor: 'unset',
+                          '& svg:first-of-type': {
+                            transform: 'translateX(-4px) rotate(-20deg)',
+                          },
+                          '& svg:last-of-type': {
+                            right: 0,
+                            opacity: 1,
+                          },
                         },
-                      },
-                      '&:after': {
-                        content: '""',
-                        position: 'absolute',
-                        height: '80%',
-                        display: 'block',
-                        left: 0,
-                        width: '1px',
-                        bgcolor: 'divider',
-                      },
-                    }}>
-                      {item.icon}
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.label}
-                      primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
-                    />
-                  </ListItemButton>
+                        '&:after': {
+                          content: '""',
+                          position: 'absolute',
+                          height: '80%',
+                          display: 'block',
+                          left: 0,
+                          width: '1px',
+                          bgcolor: 'divider',
+                        },
+                      }}>
+                        {item.icon}
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={item.label}
+                        primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                      />
+                    </ListItemButton>
+
+
                 ))}
             </Box>
           </FireNav>
