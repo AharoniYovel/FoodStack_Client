@@ -10,3 +10,17 @@
     background-size: cover;
     background-image: url(/public/images/strip.jpg);
 }
+
+@media (max-width:768px) {
+
+    .strip {
+        position: relative;
+        width: 100%;
+        background-size:  cover;
+        background-repeat: no-repeat;
+        background-position: 100%;
+        min-height: 100vh;
+        background-image: url(/public/images/strip.jpg);
+    }
+
+}
