@@ -5,8 +5,8 @@
 
 
 .strip {
-    height:1000px;
-    background-position: "center";
+    height: 1000px;
+    background-position: center center;
     background-size: cover;
     background-image: url(/public/images/strip.jpg);
 }
