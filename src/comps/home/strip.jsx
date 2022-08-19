@@ -19,7 +19,7 @@ export default function Strip() {
                     <div className="col">
                         <MultiActionAreaCard />
                     </div>
-                    
+
                 </div>
             </div>
         </div>
