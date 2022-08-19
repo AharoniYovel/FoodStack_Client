@@ -44,6 +44,7 @@ export default function AppRoutes() {
                 <Route path='/registrationDon/donatePoint' element={<DonatePoint />} />
 
 
+
                 {/* Volunteers */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/registration' element={<Registration />} />
