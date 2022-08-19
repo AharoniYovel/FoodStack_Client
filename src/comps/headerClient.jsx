@@ -31,8 +31,6 @@ export default function HeaderClient() {
 
 
                         <li><Link to='/loginEmployees'>Login Employees</Link></li>
-                        <li><Link to='/registration'>Registration Volunteers</Link></li>
-                        <li><Link to='/registrationDon'>Registration Donates</Link></li>
 
                     </ul>
 

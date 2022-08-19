@@ -1,7 +1,8 @@
 import React from 'react'
 import { GiSelfLove } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
-import MultiActionAreaCard from './multiActionAreaCard'
+import MultiActionAreaCardForDon from './multiActionAreaCardForDon'
+import MultiActionAreaCardForVol from './multiActionAreaCardForVol'
 
 export default function Strip() {
 
@@ -17,7 +18,12 @@ export default function Strip() {
 
 
                     <div className="col">
-                        <MultiActionAreaCard />
+                        <MultiActionAreaCardForDon />
+                    </div>
+
+
+                    <div className="col">
+                        <MultiActionAreaCardForVol />
                     </div>
 
                 </div>

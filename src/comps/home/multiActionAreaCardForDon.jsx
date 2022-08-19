@@ -8,7 +8,7 @@ import donateImg from '../../helpers/img/donate.jpg'
 import { Link } from 'react-router-dom';
 
 
-export default function MultiActionAreaCard() {
+export default function MultiActionAreaCardForDon() {
     return (
         <Card className='shadow-lg rounded-5' sx={{ maxWidth: 345 }}>
             <CardActionArea>
@@ -20,6 +20,7 @@ export default function MultiActionAreaCard() {
                 />
                 <CardContent>
                     <Typography className='text-center' gutterBottom variant="h5" component="div">
+                        <p>NEED HELP?</p>
                         Want to be part of our family?
                     </Typography>
                     <Typography className='text-center text-capitalize' variant="body2" color="text.secondary">
