@@ -25,8 +25,6 @@ export default function SuperArea() {
                     <div className='container'>
                         <div className='row'>
                             <Trafic />
-                            <Trafic />
-                            <Trafic />
                         </div>
                     </div>
                 </div>
