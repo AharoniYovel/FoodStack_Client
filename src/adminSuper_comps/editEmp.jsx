@@ -67,11 +67,30 @@ export default function EditEmp() {
         }
     }
 
+    const onDelClick = async (_idDel) => {
+        let url = API_URL + EMPLOYEES + "/delEmployee/" + _idDel;
+        try {
+            let resp = await doApiMethod(url, "delete");
+            if (resp.data.deletedCount == 1) {
+                toast.success("Employee deleted")
+                nav(-1);
+            }
+        }
+
+        catch (err) {
+            console.log(err);
+            toast.warning("there problem to delete, try refresh the page");
+        }
+    }
+
     return (
         <div className='container col-md-5'>
             <h1 className='text-center p-3'>Edit {employee.nickName}</h1>
             {employee.nickName && loading ?
                 <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5'>
+
+                    <button onClick={() => { window.confirm("Are you sure?") && onDelClick(employee._id) }} type='button' className='float-end badge bg-danger'>Delete</button>
+                    <br />
 
                     <label>NickName:</label>
                     <input defaultValue={employee.nickName} {...register("nickName", { required: true, minLength: 2 })} type="text" className='form-control' />

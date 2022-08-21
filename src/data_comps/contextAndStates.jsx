@@ -21,7 +21,13 @@ export default function ContextAndStates() {
     // * points list state
     const [pointAr, setPointAr] = useState([]);
 
+    // *  EMPLOYEES list state
     const [empListAr, setEmpListAr] = useState([]);
+
+    // * counters of Obj in collections
+    const [empCount, setEmpCount] = useState(Number);
+    const [volCount, setVolCount] = useState(Number);
+    const [donCount, setDonCount] = useState(Number);
 
 
     const doApiVolInfo = async () => {
@@ -54,14 +60,34 @@ export default function ContextAndStates() {
         setEmpListAr(resp.data);
     }
 
+    const doApigetCountEmp = async () => {
+        let apiUrl = API_URL + EMPLOYEES + "/count";
+        let resp = await doApiGet(apiUrl);
+        setEmpCount(resp.data);
+    }
+
+    const doApigetCountVol = async () => {
+        let apiUrl = API_URL + VOLUNTEERS + "/count";
+        let resp = await doApiGet(apiUrl);
+        setVolCount(resp.data);
+    }
+
+    const doApigetCountDon = async () => {
+        let apiUrl = API_URL + DONATES + "/count";
+        let resp = await doApiGet(apiUrl);
+        setDonCount(resp.data);
+    }
+
+
+
     return (
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount
             }
         }>
 

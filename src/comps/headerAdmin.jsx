@@ -19,31 +19,30 @@ export default function HeaderAdmin() {
     }
 
     return (
-        <header className='container-fluid bg-info'>
-            <Link className='float-start m-2 logoSite' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
-            <nav className='container'>
-                <div className="row justify-content-between align-items-center">
+        <header>
+            <div className='container-fluid bg-info'>
+                <nav className='container'>
+                    <div className="row justify-content-between align-items-center">
+                        <Link className='float-start m-2 logoSite col-md-2 col-6' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
 
-                    <ul className='nav p-2 col-auto'>
+                        <ul className='nav p-2 col-auto'>
 
-                        <li><Link to='/employee/volList'>Volunteers list</Link></li>
-                        <li><Link to='/employee/donList'>Donates list</Link></li>
-                        {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin/empsList'>Emps list</Link></li> : null}
+                            <li><Link to='/employee/volList'>Volunteers list</Link></li>
+                            <li><Link to='/employee/donList'>Donates list</Link></li>
+                            {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin/empsList'>Emps list</Link></li> : null}
 
-                    </ul>
+                        </ul>
 
-                    {localStorage[TOKEN_NAME] &&
-                        <div className='col-auto'>
-                            <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
-                        </div>
-                    }
+                        {localStorage[TOKEN_NAME] &&
+                            <div className='col-auto col-md-2 col-5'>
+                                <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
+                            </div>
+                        }
 
+                    </div>
 
-                    <React.Fragment></React.Fragment>
-
-                </div>
-
-            </nav>
+                </nav>
+            </div>
         </header >
     )
 }
