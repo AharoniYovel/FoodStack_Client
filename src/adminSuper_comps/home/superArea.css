@@ -2,3 +2,15 @@
     color: #FFFFFF;
     text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
 }
+
+.trafic li {
+    background: rgba(120, 141, 129, 0.327);
+}
+
+header li {
+    border: #4074b5 2px solid;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    margin: 2px;
+}

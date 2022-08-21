@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 import { API_URL, doApiMethod, EMPLOYEES } from '../services/apiService';
 
+
 export default function AddEmp() {
 
     // const { } = useContext(ClientContext);
@@ -71,7 +72,7 @@ export default function AddEmp() {
                         <input {...register("phone", { required: true, minLength: 9, maxLength: 10 })} type="tel" className='form-control' />
                         {errors.phone && <small className='d-block text-danger'>* Enter valid phone, min 9 chars, max 10</small>}
 
-                        <button className='btn btn-info mt-4'>Add Employee</button>
+                        <button className='btn btn-success mt-4'>Add Employee</button>
 
                         <button className='btn btn-dark mt-4 ms-5' onClick={() => {
                             window.confirm("are you sure?") && nav(-1);

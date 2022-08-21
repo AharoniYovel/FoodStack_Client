@@ -4,7 +4,8 @@ import { API_URL, doApiGet, doApiMethod, EMPLOYEES } from '../services/apiServic
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
-
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function EditEmp() {
 
@@ -88,8 +89,9 @@ export default function EditEmp() {
             <h1 className='text-center p-3'>Edit {employee.nickName}</h1>
             {employee.nickName && loading ?
                 <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5'>
-
-                    <button onClick={() => { window.confirm("Are you sure?") && onDelClick(employee._id) }} type='button' className='float-end badge bg-danger'>Delete</button>
+                    <Button onClick={() => { window.confirm("Are you sure?") && onDelClick(employee._id) }} className='float-end badge' variant="outlined" startIcon={<DeleteIcon className='text-danger' />}>
+                        Delete
+                    </Button>
                     <br />
 
                     <label>NickName:</label>

@@ -23,8 +23,24 @@ export default function SuperArea() {
 
                 <div className='container-fluid'>
                     <div className='container'>
-                        <div className='row'>
-                            <Trafic />
+                        <div className='row row-cols-4'>
+
+                            <div className='col'>
+                                <Trafic />
+                            </div>
+
+                            <div className="col">
+
+                            </div>
+
+                            <div className="col">
+
+                            </div>
+
+                            <div className="col">
+
+                            </div>
+
                         </div>
                     </div>
                 </div>

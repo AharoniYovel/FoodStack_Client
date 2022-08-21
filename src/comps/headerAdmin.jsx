@@ -27,6 +27,7 @@ export default function HeaderAdmin() {
 
                         <ul className='nav p-2 col-auto'>
 
+                            {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin'>Home</Link></li> : <li><Link to='/employee'>Home</Link></li>}
                             <li><Link to='/employee/volList'>Volunteers list</Link></li>
                             <li><Link to='/employee/donList'>Donates list</Link></li>
                             {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin/empsList'>Emps list</Link></li> : null}

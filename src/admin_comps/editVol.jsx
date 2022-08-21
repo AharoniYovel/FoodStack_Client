@@ -4,6 +4,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 import { API_URL, doApiGet, doApiMethod, VOLUNTEERS } from '../services/apiService';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
 
 export default function EditVol() {
 
@@ -103,8 +107,10 @@ export default function EditVol() {
                 {volunteer._id && loading ?
                     <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5'>
 
-                        <button onClick={() => { window.confirm("Are you sure?") && onDelClick(volunteer._id) }} type='button' className='float-end badge bg-danger'>Delete</button>
 
+                        <Button type='button' onClick={() => { window.confirm("Are you sure?") && onDelClick(volunteer._id) }} className='float-end badge' variant="outlined" startIcon={<DeleteIcon className='text-danger' />}>
+                            Delete
+                        </Button>
                         <br />
 
                         <label>Email</label>

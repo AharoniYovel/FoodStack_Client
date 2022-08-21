@@ -8,8 +8,8 @@ export default function EmpArea() {
 
     return (
         <div>
-            {!loading ?
-                <SpinerLoader /> : <h2>asdasdas</h2>
+            {loading ?
+                <SpinerLoader /> : <h2>EmpArea</h2>
             }
         </div>
     )
