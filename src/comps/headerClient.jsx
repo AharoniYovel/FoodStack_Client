@@ -21,13 +21,13 @@ export default function HeaderClient() {
     return (
         <header className='container-fluid'>
 
-            <Link className='float-start m-2 logoSite' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
 
             <nav className='container'>
 
                 <div className="row justify-content-between align-items-center">
+                    <Link className='m-2 logoSite col-md-2 col-6' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
 
-                    <ul className='nav p-2 col-auto mx-auto'>
+                    <ul className='nav p-2 col-md-7 mx-auto justify-content-center'>
 
 
                         <li><Link to='/loginEmployees'>Login Employees</Link></li>
@@ -35,13 +35,13 @@ export default function HeaderClient() {
                     </ul>
 
                     {localStorage[TOKEN_NAME] ?
-                        <div className='col-auto'>
-                            <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
+                        <div className='col-md-2 col-5 ' >
+                            <button onClick={onLogOut} className='badge bg-danger float-end'>Log out</button>
                         </div>
                         :
 
-                        <div className='col-auto'>
-                            <Link className='badge fs-5 logOutBtn' to='/login'>Login</Link>
+                        <div className='col-md-2 col-5 float-end'>
+                            <Link className='badge fs-5 logOutBtn float-end' to='/login'>Login</Link>
                         </div>
                     }
 

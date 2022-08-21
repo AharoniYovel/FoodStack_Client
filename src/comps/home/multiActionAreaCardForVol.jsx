@@ -18,9 +18,9 @@ export default function MultiActionAreaCardForVol() {
                     image={volunteerImg}
                     alt="green iguana"
                 />
-                <CardContent>
+                <CardContent className='CardContent'>
                     <Typography className='text-center' gutterBottom variant="h5" component="div">
-                        <p className='text-info'>HAVE A PASSION FOR HELPING PEOPLE?</p>
+                        <p>HAVE A PASSION FOR HELPING PEOPLE?</p>
                         Want to be part of our drivers family?
                     </Typography>
                     <Typography className='text-center text-capitalize' variant="body2" color="text.secondary">
@@ -28,12 +28,13 @@ export default function MultiActionAreaCardForVol() {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
 
+            <CardActions className='CardContent'>
                 <Button className='mx-auto' size="large" >
                     <Link className='text-decoration-none badge bg-warning text-black fs-6' to='/registration'>Click here</Link>
                 </Button>
             </CardActions>
+
         </Card>
     );
 }

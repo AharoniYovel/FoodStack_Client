@@ -11,13 +11,18 @@
     background-image: url(/public/images/strip.jpg);
 }
 
+.CardContent {
+    background: rgba(35, 77, 77, 0.278);
+}
+
+
 @media (max-width:468px) {
 
     .strip {
         position: relative;
         width: 100%;
         height: 100%;
-        background-size:  cover;
+        background-size: cover;
         background-repeat: no-repeat;
         background-position: 10%;
         min-height: 100vh;

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 export default function MultiActionAreaCardForDon() {
     return (
-        <Card className='shadow-lg rounded-5' sx={{ maxWidth: 345 }}>
+        <Card  className='shadow-lg rounded-5' sx={{ maxWidth: 345 }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -18,9 +18,9 @@ export default function MultiActionAreaCardForDon() {
                     image={donateImg}
                     alt="green iguana"
                 />
-                <CardContent>
+                <CardContent className='CardContent' style={{background:''}}>
                     <Typography className='text-center' gutterBottom variant="h5" component="div">
-                        <p>NEED HELP?</p>
+                        <p>NEED HELP FROM OUR ORGANIZATION?</p>
                         Want to be part of our family?
                     </Typography>
                     <Typography className='text-center text-capitalize' variant="body2" color="text.secondary">
@@ -28,12 +28,13 @@ export default function MultiActionAreaCardForDon() {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
 
+            <CardActions className='CardContent'>
                 <Button className='mx-auto' size="large" >
                     <Link className='text-decoration-none badge bg-warning text-black fs-6' to='/registrationDon'>Click here</Link>
                 </Button>
             </CardActions>
+            
         </Card>
     );
 }
