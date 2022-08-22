@@ -20,9 +20,10 @@ import Login from './comps/login';
 import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
-import WrapperOfMap from './maps/googleMaps/wrapperOfMap';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
+
+import Gecode from './maps/googleMaps/gecode';
 
 
 export default function AppRoutes() {
@@ -41,7 +42,7 @@ export default function AppRoutes() {
                 <Route index element={<Home />} />
 
 
-
+                <Route path='map' element={<Gecode />} />
 
                 {/* Donates */}
                 <Route path='/registrationDon' element={<RegistrationDon />} />
