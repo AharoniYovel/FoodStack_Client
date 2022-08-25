@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
 import { toast } from "react-toastify";
-import axios from 'axios';
+import './loginEmp.css'
 
 
 export default function EmpLogin() {
@@ -50,26 +50,31 @@ export default function EmpLogin() {
 
 
     return (
-        <div style={{ height: '800px', background: "grey" }}>
-            <div className='container col-md-4'>
+        <React.Fragment>
+            <div className='container-fluid full-screen-containerEmp'>
+                <div className='login-container'>
 
-                <h1 className='text-center p-3'>Login Employees</h1>
-                <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5 shadow-lg bg-gradient'>
+                    <h1 className='login-title'>Welcome employees</h1>
+                    <form onSubmit={handleSubmit(onSub)} className='form'>
 
-                    <label>Email:</label>
-                    <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" className='form-control' />
-                    {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
+                        <div className="input-group">
+                            <label>Email:</label>
+                            <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} required type="email" />
+                            {errors.email && <small className='text-danger'>* Enter valid mail</small>}
+                        </div>
 
-                    <label>Password:</label>
-                    <input {...register("password", { required: true, minLength: 3 })} required type="password" className='form-control' />
-                    {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
+                        <div className="input-group">
+                            <label>Password:</label>
+                            <input {...register("password", { required: true, minLength: 3 })} required type="password" />
+                            {errors.password && <small className='text-danger'>* Enter valid password (min 3 chars)</small>}
+                        </div>
 
+                        <button className='login-button'>Log in</button>
 
-                    <button className='btn btn-dark mt-3'>Log in</button>
-
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
+        </React.Fragment>
 
     )
 }

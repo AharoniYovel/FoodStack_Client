@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
 import { toast } from "react-toastify";
+import './login.css'
 
 
 export default function Login() {
@@ -44,25 +45,27 @@ export default function Login() {
     return (
         <React.Fragment>
 
-            <div className='container-fluid backRound'>
-                <div className='container col-md-4'>
+            <div className='container-fluid full-screen-containerVol'>
+                <div className='login-container'>
 
-                    <h1 className='text-center p-3'>Login</h1>
-                    <form onSubmit={handleSubmit(onSub)} className='p-3 border border-dark rounded-5 shadow-lg'>
+                    <h1 className='login-title'>Welcome</h1>
+                    <form onSubmit={handleSubmit(onSub)} className='form'>
 
-                        <label>Email:</label>
-                        <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} type="email" required className='form-control' />
-                        {errors.email && <small className='d-flex text-danger'>* Enter valid mail</small>}
+                        <div className="input-group">
+                            <label>Email:</label>
+                            <input {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i })} type="email" required />
+                            {errors.email && <small className='text-danger'>* Enter valid mail</small>}
+                        </div>
 
-                        <label>Password:</label>
-                        <input {...register("password", { required: true, minLength: 3 })} type="password" required className='form-control' />
-                        {errors.password && <small className='d-flex text-danger'>* Enter valid password (min 3 chars)</small>}
+                        <div className="input-group">
+                            <label>Password:</label>
+                            <input {...register("password", { required: true, minLength: 3 })} type="password" required />
+                            {errors.password && <small className='text-danger'>* Enter valid password (min 3 chars)</small>}
+                        </div>
 
-
-                        <button className='btn btn-info mt-3'>Log in</button>
+                        <button className='login-button'>Log in</button>
 
                     </form>
-                    <br />
                 </div>
             </div>
         </React.Fragment>
