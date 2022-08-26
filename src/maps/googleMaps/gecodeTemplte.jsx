@@ -3,13 +3,13 @@ import { infConect } from '../../config/secret';
 import axios from 'axios'
 
 
-export default function Gecode() {
+export default function GecodeTemplte() {
 
     const [first, setfirst] = useState({})
 
-    const data = {
+    const data1 = {
         longitude: Number,
-        attitude: Number
+        latitude: Number
     }
 
     useEffect(() => {
@@ -21,13 +21,13 @@ export default function Gecode() {
 
 
     const doLocation = async (_data) => {
-        let url = `https://maps.googleapis.com/maps/api/geocode/json?address=הרצל 23 ראשון לציון&key=${infConect.googleMapsApiKey}`;
+        let url = `https://maps.googleapis.com/maps/api/geocode/json?address=HaShalom 32, Ramat HaSharon&key=${infConect.googleMapsApiKey}`;
         let resp = await axios.get(url);
         let data = resp.data.results[0].geometry.location;
         console.log('data', data)
-        // data.longitude = data.lat;
-        // data.attitude = data.lng;
-        setfirst(data)
+        data1.latitude = data.lng;
+        data1.longitude = data.lat;
+        setfirst(data1)
     };
 
     return (

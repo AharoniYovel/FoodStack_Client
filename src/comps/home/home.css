@@ -5,11 +5,11 @@
 
 
 .strip {
-    height: 100%;
+    background-image: url(/public/images/strip.jpg);
+    height: 100vh;
     width: 100vw;
     background-size: cover;
     background-position: center;
-    background-image: url(/public/images/strip.jpg);
 }
 
 .CardContent {
@@ -17,17 +17,15 @@
 }
 
 
-@media (max-width:468px) {
+@media (max-width:768px) {
 
     .strip {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 10%;
-        min-height: 100vh;
         background-image: url(/public/images/strip.jpg);
+        /* position: relative; */
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
     }
 
 }

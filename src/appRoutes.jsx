@@ -23,8 +23,6 @@ import RegistrationDon from './donates_comps/registrationDon';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
 
-import Gecode from './maps/googleMaps/gecode';
-
 
 export default function AppRoutes() {
     return (
@@ -41,8 +39,6 @@ export default function AppRoutes() {
 
                 <Route index element={<Home />} />
 
-
-                <Route path='map' element={<Gecode />} />
 
                 {/* Donates */}
                 <Route path='/registrationDon' element={<RegistrationDon />} />
