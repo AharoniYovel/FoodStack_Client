@@ -20,6 +20,7 @@ import Login from './comps/login';
 import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
+import MapForEmp from './maps/mapBox/mapForEmp';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
 
@@ -38,6 +39,8 @@ export default function AppRoutes() {
             <Routes>
 
                 <Route index element={<Home />} />
+
+                <Route path='map' element={<MapForEmp />} />
 
 
                 {/* Donates */}
