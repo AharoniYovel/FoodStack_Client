@@ -4,8 +4,20 @@
     min-height: inherit;
 }
 
+.NewPathLink {
+    margin: 16px;
+    background-image: url(../public/images/newPath.jpg);
+    height: 25vh;
+    width: 25vw;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-/* .container-fluid {
-    background: rgb(213, 208, 208);
-} */
-
+.NewPathLink h1 {
+    
+    color: rgb(249, 249, 249);
+}

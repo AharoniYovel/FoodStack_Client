@@ -6,10 +6,13 @@ export default function Trafic() {
     const { empCount, doApigetCountEmp, volCount, doApigetCountVol, donCount, doApigetCountDon } = useContext(ClientContext);
 
     useEffect(() => {
-        doApigetCountEmp();
         doApigetCountVol();
         doApigetCountDon();
+        doApigetCountEmp();
     }, [empCount, volCount, donCount])
+
+
+
 
     return (
         <React.Fragment>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import NewPathLink from '../admin_comps/home/newPathLink';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
 import './home/superArea.css';
 import Trafic from './trafic';
@@ -23,22 +24,14 @@ export default function SuperArea() {
 
                 <div className='container-fluid'>
                     <div className='container'>
-                        <div className='row row-cols-4'>
+                        <div className='row row-cols-2'>
 
                             <div className='col'>
                                 <Trafic />
                             </div>
 
                             <div className="col">
-
-                            </div>
-
-                            <div className="col">
-
-                            </div>
-
-                            <div className="col">
-
+                                <NewPathLink />
                             </div>
 
                         </div>

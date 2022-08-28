@@ -21,6 +21,7 @@ import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
 import GoogleMapForEmp from './maps/googleMaps/googleMapForEmp';
+import MapForEmpArea from './maps/googleMaps/mapForEmpArea';
 import Registration from './volunteer_comps/registration';
 import VolInfo from './volunteer_comps/volInfo';
 
@@ -40,7 +41,6 @@ export default function AppRoutes() {
 
                 <Route index element={<Home />} />
 
-                <Route path='mapGoogle' element={<GoogleMapForEmp />} />
 
 
                 {/* Donates */}
@@ -70,6 +70,9 @@ export default function AppRoutes() {
                     <Route path='donList' element={<DonatesList />} />
                     <Route path='/employee/donList/editDon/:id' element={<EditDon />} />
 
+                    <Route path='addPathArea' element={<MapForEmpArea />} />
+
+                    <Route path='mapGoogle' element={<GoogleMapForEmp />} />
 
                 </Route>
 

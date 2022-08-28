@@ -31,7 +31,6 @@ export default function HeaderClient() {
 
 
                         <li><Link to='/loginEmployees'>Login Employees</Link></li>
-                        <li><Link to='/mapGoogle'>mapGoogle</Link></li>
 
                     </ul>
 

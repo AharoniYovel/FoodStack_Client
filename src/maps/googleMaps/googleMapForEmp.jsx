@@ -4,39 +4,34 @@ import { infConect } from '../../config/secret'
 import { ClientContext } from '../../context/context'
 
 import './googleMaps.css'
-
-import json from './../mapBox/locations.json'
-
+import SpinerLoader from '../../helpers/spinerLoader/spinerLoader'
 
 
 export default function GoogleMapForEmp() {
 
     const { isLoaded } = useLoadScript({ googleMapsApiKey: infConect.googleMapsApiKey });
 
-    if (!isLoaded) return <div>Loading...</div>
-
-
-
-
-
     return (
-
-        json ? <Map /> : <div>loadibg...</div>
-
+        isLoaded ? <Map /> : <SpinerLoader />
     )
 }
 
 
 function Map() {
 
-    const { pointsForPath, doApiGetPointsForNewPath } = useContext(ClientContext);
+    const { pointsForPath, doApiGetPointsForNewPath, addpointClick } = useContext(ClientContext);
 
     useEffect(() => {
         doApiGetPointsForNewPath();
     }, [pointsForPath])
 
-    // console.log('pointsForPath', pointsForPath)
-    const [selectedPark, setSelectedPark] = useState(null);
+
+    const addPointToAr = (_point) => {
+        addpointClick.push(_point._id);
+        console.log(addpointClick);
+    }
+
+    const [selectedPoint, setselectedPoint] = useState(null);
 
     const center = useMemo(() => ({ lat: 32.05406083412323, lng: 34.839882212960525 }), []);
 
@@ -46,21 +41,24 @@ function Map() {
 
             return (
                 <MarkerF key={i} position={{ lat: point.location.lat, lng: point.location.lng }}
-                    onClick={() => { setSelectedPark(point) }} />
+                    onClick={() => { setselectedPoint(point) }} />
 
             )
         })}
 
 
-        {selectedPark && (<InfoWindow onCloseClick={() => { setSelectedPark(null) }} position={{ lat: selectedPark.location.lat, lng: selectedPark.location.lng }}>
+        {selectedPoint && (<InfoWindow onCloseClick={() => { setselectedPoint(null) }} position={{ lat: selectedPoint.location.lat, lng: selectedPoint.location.lng }}>
             <div className='text-center'>
-                <h2>Name={selectedPark.donateId.fullName}</h2>
-                <h4>Range of people={selectedPark.donateId.rangePeople}</h4>
-                <h4>FLOOR= {selectedPark.floor}</h4>
+                <h2>Name={selectedPoint.donateId.fullName}</h2>
+                <h4 className='h5'>Range of people={selectedPoint.donateId.rangePeople}</h4>
+                <h4 className='h5'>FLOOR= {selectedPoint.floor}</h4>
+                <button onClick={() => { addPointToAr(selectedPoint) }}>add to path</button>
             </div>
         </InfoWindow>)}
 
 
     </GoogleMap>
+
+
 
 }

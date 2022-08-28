@@ -27,6 +27,9 @@ export default function ContextAndStates() {
     // *  POINTS list state FOR MAP
     const [pointsForPath, setPointsForPath] = useState([]);
 
+    const [addpointClick, setaddpointClick] = useState([]);
+
+
     // * counters of Obj in collections
     const [empCount, setEmpCount] = useState(Number);
     const [volCount, setVolCount] = useState(Number);
@@ -96,7 +99,7 @@ export default function ContextAndStates() {
                 doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick
             }
         }>
 
