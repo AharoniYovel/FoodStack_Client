@@ -24,6 +24,9 @@ export default function ContextAndStates() {
     // *  EMPLOYEES list state
     const [empListAr, setEmpListAr] = useState([]);
 
+    // *  POINTS list state FOR MAP
+    const [pointsForPath, setPointsForPath] = useState([]);
+
     // * counters of Obj in collections
     const [empCount, setEmpCount] = useState(Number);
     const [volCount, setVolCount] = useState(Number);
@@ -78,16 +81,22 @@ export default function ContextAndStates() {
         setDonCount(resp.data);
     }
 
+    const doApiGetPointsForNewPath = async () => {
+        let apiUrl = API_URL + POINTS + "/listForMap";
+        let resp = await doApiGet(apiUrl);
+        setPointsForPath(resp.data);
+    }
+
 
 
     return (
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath
             }
         }>
 
