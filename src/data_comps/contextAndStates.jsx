@@ -29,6 +29,9 @@ export default function ContextAndStates() {
 
     const [addpointClick, setaddpointClick] = useState([]);
 
+    const [selectedPoint, setselectedPoint] = useState(null);
+
+
 
     // * counters of Obj in collections
     const [empCount, setEmpCount] = useState(Number);
@@ -96,10 +99,10 @@ export default function ContextAndStates() {
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint
             }
         }>
 

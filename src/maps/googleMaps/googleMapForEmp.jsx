@@ -19,7 +19,9 @@ export default function GoogleMapForEmp() {
 
 function Map() {
 
-    const { pointsForPath, doApiGetPointsForNewPath, addpointClick } = useContext(ClientContext);
+    const { pointsForPath, doApiGetPointsForNewPath, addpointClick, selectedPoint, setselectedPoint } = useContext(ClientContext);
+
+
 
     useEffect(() => {
         doApiGetPointsForNewPath();
@@ -31,7 +33,6 @@ function Map() {
         console.log(addpointClick);
     }
 
-    const [selectedPoint, setselectedPoint] = useState(null);
 
     const center = useMemo(() => ({ lat: 32.05406083412323, lng: 34.839882212960525 }), []);
 
