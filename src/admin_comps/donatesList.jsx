@@ -15,6 +15,8 @@ export default function DonatesList() {
         setTimeout(timeOut, 1000);
     }, [donListAr])
 
+    // console.log(pointAr);
+
     const timeOut = () => {
         setLoading(true);
     }
@@ -30,7 +32,7 @@ export default function DonatesList() {
                 {loading ?
 
                     donListAr.map((item, i) => {
-                        if (donListAr[i]._id === pointAr[i].donateId) {
+                        if (donListAr[i]._id === pointAr[i].donateId._id) {
                             return (
                                 <div key={i} className='col'>
                                     <CustomizedListForDon itemProp={item} pointProp={pointAr[i]} />
