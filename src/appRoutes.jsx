@@ -23,7 +23,7 @@ import RegistrationDon from './donates_comps/registrationDon';
 import GoogleMapForEmp from './maps/googleMaps/googleMapForEmp';
 import MapForEmpArea from './maps/googleMaps/mapForEmpArea';
 import AddPathsToVol from './volunteer_comps/addPathsToVol';
-import PathInfoForVol from './volunteer_comps/pathInfoForVol';
+import PathInfoForVol from './volunteer_comps/pointInPathInfoForVol';
 import Registration from './volunteer_comps/registration';
 import VolArea from './volunteer_comps/volArea';
 import VolInfo from './volunteer_comps/volInfo';
@@ -63,8 +63,8 @@ export default function AppRoutes() {
 
                     <Route path='volInfo' element={<VolInfo />} />
                     <Route path='addNewPathToVol' element={<AddPathsToVol />} />
-                    <Route path='/volunteer/addNewPathToVol/:idPath' element={<PathInfoForVol />} />
                     <Route path='allPaths' element={<VolPaths />} />
+                    <Route path='/volunteer/allPaths/pathInfo/:idPath' element={<PathInfoForVol />} />
 
 
                 </Route>

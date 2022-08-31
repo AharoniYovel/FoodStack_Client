@@ -13,12 +13,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AddPath() {
 
-    const { addpointClick, pointsForPath, setPointsForPath, selectedPoint, donateInfoClick, setDonateInfoClick } = useContext(ClientContext);
+    const { addpointClick, donateInfoClick } = useContext(ClientContext);
 
     const nav = useNavigate();
 
 
-    // console.log(pointsForPath);
     const doApiAddPath = async () => {
 
         try {

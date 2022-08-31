@@ -42,8 +42,6 @@ export default function ItemPath({ item }) {
                 <h4><LocationCityIcon className='fs-2' /> Citys: {item.arr_citys.map((element, i) => {
                     return (<span key={i}>{element},</span>)
                 })}</h4>
-                {/* <div>Price: {item.create_at}</div> */}
-                <Link to={"/volunteer/addNewPathToVol/" + item._id} className='btn btn-info'>More info</Link>
 
             </div>
         </div>
