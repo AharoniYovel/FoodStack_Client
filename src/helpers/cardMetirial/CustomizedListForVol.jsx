@@ -115,7 +115,7 @@ export default function CustomizedListForVol({ itemProp }) {
                   }}
                 />
               </ListItemButton>
-              <Link to='/'>
+              <Link to='/volunteer/allPaths'>
                 <Tooltip title="Show routes">
                   <IconButton
                     size="large"
@@ -247,7 +247,7 @@ export default function CustomizedListForVol({ itemProp }) {
                     :
 
                     item.label === itemProp.email ?
-                    
+
                       <a key={item.label} className='text-decoration-none' href={`mailto:${itemProp.email}`}>
                         <ListItemButton className='text-decoration-none' title={arrTitleName[i]}
                           key={item.label}

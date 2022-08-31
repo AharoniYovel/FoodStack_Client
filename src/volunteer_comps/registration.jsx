@@ -39,7 +39,7 @@ export default function Registration() {
 
             if (resp.data._id) {
                 await loginAfterReg(loginObj);
-                nav("/volInfo");
+                nav("/volunteer");
                 toast.success("Thank you for help the world!");
             }
         }

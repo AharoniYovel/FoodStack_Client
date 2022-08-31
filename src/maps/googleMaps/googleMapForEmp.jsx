@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { GoogleMap, useLoadScript, MarkerF, InfoWindow } from '@react-google-maps/api'
 import { infConect } from '../../config/secret'
 import { ClientContext } from '../../context/context'
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+
 
 import './googleMaps.css'
 import SpinerLoader from '../../helpers/spinerLoader/spinerLoader'
@@ -19,7 +21,7 @@ export default function GoogleMapForEmp() {
 
 function Map() {
 
-    const { pointsForPath, doApiGetPointsForNewPath, addpointClick, selectedPoint, setselectedPoint } = useContext(ClientContext);
+    const { pointsForPath, doApiGetPointsForNewPath, addpointClick, selectedPoint, setselectedPoint, donateInfoClick } = useContext(ClientContext);
 
 
 
@@ -30,7 +32,9 @@ function Map() {
 
     const addPointToAr = (_point) => {
         addpointClick.push(_point._id);
+        donateInfoClick.push(_point)
         console.log(addpointClick);
+        console.log(donateInfoClick);
     }
 
 
@@ -40,18 +44,21 @@ function Map() {
 
         {pointsForPath.map((point, i) => {
 
-            return (
-                <MarkerF key={i} position={{ lat: point.location.lat, lng: point.location.lng }}
-                    onClick={() => { setselectedPoint(point) }} />
+            if (point.donateId.status === 'pending') {
 
-            )
+                return (
+                    <MarkerF key={i} position={{ lat: point.location.lat, lng: point.location.lng }}
+                        onClick={() => { setselectedPoint(point) }} />
+
+                )
+            }
         })}
 
 
         {selectedPoint && (<InfoWindow onCloseClick={() => { setselectedPoint(null) }} position={{ lat: selectedPoint.location.lat, lng: selectedPoint.location.lng }}>
             <div className='text-center'>
                 <h2>Name: {selectedPoint.donateId.fullName}</h2>
-                <h4 className='h5'>Range of people: {selectedPoint.donateId.rangePeople}</h4>
+                <h4 className='h5'><EmojiPeopleIcon /> {selectedPoint.donateId.rangePeople}</h4>
                 <h4 className='h5'>FLOOR: {selectedPoint.floor}</h4>
                 <button className='badge bg-success fs-4' onClick={() => { addPointToAr(selectedPoint) }}>add to path</button>
             </div>

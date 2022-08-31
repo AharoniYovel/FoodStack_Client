@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import Trafic from '../../adminSuper_comps/trafic';
 import SpinerLoader from '../../helpers/spinerLoader/spinerLoader';

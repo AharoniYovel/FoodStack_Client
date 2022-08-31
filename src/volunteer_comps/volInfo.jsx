@@ -22,7 +22,8 @@ export default function VolInfo() {
     return (
         <React.Fragment>
             {loading ?
-                <div className='d-flex align-items-center justify-content-center col-12'>
+                <div className=''>
+                    <h2>My personal info:</h2>
                     <CustomizedListForVol itemProp={volInfo} />
                 </div>
                 :

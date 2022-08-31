@@ -31,7 +31,7 @@ export default function Login() {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);
                 localStorage.setItem("Name", resp.data.volunteer.fullName)
                 await doApiVolInfo();
-                nav("/volInfo");
+                nav("/volunteer");
                 toast.success(`Welcome back ${resp.data.volunteer.fullName}`)
             }
         }
