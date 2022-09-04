@@ -42,6 +42,9 @@ export default function ContextAndStates() {
     const [empCount, setEmpCount] = useState(Number);
     const [volCount, setVolCount] = useState(Number);
     const [donCount, setDonCount] = useState(Number);
+    // * count all the points withOut volunteer related(Waiting for grouping)
+    const [pointCount, setPointCount] = useState(Number);
+    const [pathCount, setPathCount] = useState(Number);
 
 
     const doApiVolInfo = async () => {
@@ -74,6 +77,8 @@ export default function ContextAndStates() {
         setEmpListAr(resp.data);
     }
 
+    // * number of documents req
+
     const doApigetCountEmp = async () => {
         let apiUrl = API_URL + EMPLOYEES + "/count";
         let resp = await doApiGet(apiUrl);
@@ -92,6 +97,20 @@ export default function ContextAndStates() {
         setDonCount(resp.data);
     }
 
+    const doApiGetCountPoints = async () => {
+        let apiUrl = API_URL + POINTS + "/count";
+        let resp = await doApiGet(apiUrl);
+        setPointCount(resp.data);
+    }
+
+    const doApiGetCountPaths = async () => {
+        let apiUrl = API_URL + PATHS + "/count";
+        let resp = await doApiGet(apiUrl);
+        setPathCount(resp.data);
+
+    }
+    // * end number of documents req
+
     const doApiGetPointsForNewPath = async () => {
         let apiUrl = API_URL + POINTS + "/listForMap";
         let resp = await doApiGet(apiUrl);
@@ -104,7 +123,9 @@ export default function ContextAndStates() {
         setPathsForVol(resp.data);
     }
 
-    
+
+
+
 
 
 
@@ -112,10 +133,10 @@ export default function ContextAndStates() {
         <ClientContext.Provider value={
             {
                 //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol,
+                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths,
 
                 // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol
+                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount
             }
         }>
 

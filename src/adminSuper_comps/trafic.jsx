@@ -3,13 +3,16 @@ import { ClientContext } from '../context/context';
 
 export default function Trafic() {
 
-    const { empCount, doApigetCountEmp, volCount, doApigetCountVol, donCount, doApigetCountDon } = useContext(ClientContext);
+    const { empCount, doApigetCountEmp, volCount, doApigetCountVol, donCount, doApigetCountDon, pointCount, doApiGetCountPoints, pathCount, doApiGetCountPaths } = useContext(ClientContext);
 
     useEffect(() => {
         doApigetCountVol();
         doApigetCountDon();
         doApigetCountEmp();
-    }, [empCount, volCount, donCount])
+        doApiGetCountPoints();
+        doApiGetCountPaths();
+    }, [empCount, volCount, donCount, pointCount, pathCount])
+
 
 
 
@@ -30,6 +33,14 @@ export default function Trafic() {
                 <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     Donates
                     <span className="badge bg-success rounded-pill">{donCount}</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
+                    Points Waiting for grouping
+                    <span className="badge bg-secondary rounded-pill">{pointCount}</span>
+                </li>
+                <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
+                    Path active
+                    <span className="badge bg-success rounded-pill">{pathCount}</span>
                 </li>
             </ul>
 

@@ -3,10 +3,10 @@ import React from 'react'
 
 export default function NewPathLink() {
     return (
-        <div className='NewPathLink'>
-            <Link className='text-decoration-none' to='/employee/addPathArea'>
+        <React.Fragment>
+            <Link className='text-decoration-none NewPathLink' to='/employee/addPathArea'>
                 <h1>Add New Path</h1>
             </Link>
-        </div>
+        </React.Fragment>
     )
 }

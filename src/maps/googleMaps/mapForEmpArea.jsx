@@ -6,11 +6,11 @@ export default function MapForEmpArea() {
     return (
         <React.Fragment>
             <div className="d-flex">
-                <div className='col-9'>
+                <div className='col-7'>
                     <GoogleMapForEmp />
                 </div>
 
-                <div className='col-2'>
+                <div className='col-5'>
                     <AddPath />
                 </div>
             </div>
