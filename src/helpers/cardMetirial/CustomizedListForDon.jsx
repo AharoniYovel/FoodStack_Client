@@ -15,7 +15,6 @@ import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import Home from '@mui/icons-material/Home';
 import People from '@mui/icons-material/People';
 import { Link } from 'react-router-dom';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import FolderSharedOutlinedIcon from '@mui/icons-material/FolderSharedOutlined';
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
@@ -23,6 +22,7 @@ import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import MoreTimeIcon from '@mui/icons-material/MoreTime';
 import ContrastIcon from '@mui/icons-material/Contrast';
 import EditIcon from '@mui/icons-material/Edit';
+import { FaWaze } from 'react-icons/fa'
 
 
 
@@ -89,9 +89,15 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
 
                             />
 
-                            <Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
-                                <EditIcon />
-                            </Link>
+                            {localStorage["NickName"] ?
+
+                                <Link Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
+                                    <EditIcon />
+                                </Link>
+                                :
+                                null
+                            }
+
                         </ListItemButton>
                         <Divider />
                         <ListItem component="div" disablePadding>
@@ -108,7 +114,10 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                     }}
                                 />
                             </ListItemButton>
-                            <Link to='/'>
+
+
+
+                            <a target='_black' href={`https://www.waze.com/ul?ll=${pointProp.location.lat}%2C${pointProp.location.lng}&navigate=yes&zoom=17`}>
                                 <Tooltip title="Navigate">
                                     <IconButton
                                         size="large"
@@ -139,11 +148,11 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
                                             },
                                         }}
                                     >
-                                        <PlaceOutlinedIcon />
+                                        <FaWaze />
                                         <ArrowRight sx={{ position: 'absolute', right: 4, opacity: 0 }} />
                                     </IconButton>
                                 </Tooltip>
-                            </Link>
+                            </a>
                         </ListItem>
                         <Divider />
                         <Box

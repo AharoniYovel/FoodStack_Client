@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
 import { toast } from "react-toastify";
@@ -49,6 +49,7 @@ export default function Login() {
                 <div className='login-container'>
 
                     <h1 className='login-title'>Welcome</h1>
+                    <Link className='text-decoration-none badge bg-secondary float-end fs-6' to='/loginEmployees'>Employee?</Link>
                     <form onSubmit={handleSubmit(onSub)} className='form'>
 
                         <div className="input-group">

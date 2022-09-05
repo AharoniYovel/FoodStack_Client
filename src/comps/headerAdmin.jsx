@@ -30,7 +30,7 @@ export default function HeaderAdmin() {
                             {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin'>Home</Link></li> : <li><Link to='/employee'>Home</Link></li>}
                             <li><Link to='/employee/volList'>Volunteers list</Link></li>
                             <li><Link to='/employee/donList'>Donates list</Link></li>
-                            {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin/empsList'>Emps list</Link></li> : null}
+                            {localStorage["NickName"] === "superAdmin" ? <li><Link to='/superAdmin/empsList'>Employees list</Link></li> : null}
 
                         </ul>
 
@@ -39,7 +39,6 @@ export default function HeaderAdmin() {
                                 <button onClick={onLogOut} className='badge bg-danger'>Log out</button>
                             </div>
                         }
-
                     </div>
 
                 </nav>

@@ -15,7 +15,6 @@ export default function DonatesList() {
         setTimeout(timeOut, 1000);
     }, [donListAr])
 
-    // console.log(pointAr);
 
     const timeOut = () => {
         setLoading(true);

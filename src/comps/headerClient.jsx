@@ -29,8 +29,7 @@ export default function HeaderClient() {
 
                     <ul className='nav p-2 col-md-7 mx-auto justify-content-center'>
 
-
-                        <li><Link to='/loginEmployees'>Login Employees</Link></li>
+                        {localStorage[TOKEN_NAME] ? <li><Link to='/volunteer'>Personal area</Link></li> : null}
 
                     </ul>
 
