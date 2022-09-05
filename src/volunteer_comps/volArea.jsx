@@ -16,10 +16,8 @@ export default function VolArea() {
                         <VolInfo />
                     </div>
 
-                    <div className='col NewPathLink'>
-
-                        <Link className='text-white text-decoration-none fs-2' to='/volunteer/addNewPathToVol'>Add new path</Link>
-
+                    <div className='col'>
+                        <Link className='NewPathLink text-white text-decoration-none fs-1' to='/volunteer/addNewPathToVol'>Add new path</Link>
                     </div>
 
 

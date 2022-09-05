@@ -5,6 +5,7 @@
 }
 
 .NewPathLink {
+    margin: 16px;
     background-image: url(../public/images/newPath.jpg);
     height: 100%;
     width: 100%;
@@ -16,6 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-box-shadow: 5px 5px 20px 17px rgba(0, 0, 0, 0.41);
+    box-shadow: 5px 5px 20px 17px rgba(0, 0, 0, 0.41);
 }
 
 .NewPathLink h1 {

@@ -22,7 +22,7 @@ export default function VolInfo() {
     return (
         <React.Fragment>
             {loading ?
-                <div className=''>
+                <div>
                     <h2>My personal info:</h2>
                     <CustomizedListForVol itemProp={volInfo} />
                 </div>

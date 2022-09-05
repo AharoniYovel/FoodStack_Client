@@ -10,7 +10,7 @@ export default function MapForEmpArea() {
                     <GoogleMapForEmp />
                 </div>
 
-                <div className='col-5'>
+                <div className='col-5 p-5'>
                     <AddPath />
                 </div>
             </div>

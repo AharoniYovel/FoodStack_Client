@@ -57,7 +57,7 @@ function Map() {
 
         {selectedPoint && (<InfoWindow onCloseClick={() => { setselectedPoint(null) }} position={{ lat: selectedPoint.location.lat, lng: selectedPoint.location.lng }}>
             <div className='text-center'>
-                <h2>Name: {selectedPoint.donateId.fullName}</h2>
+                <h2 className='text-center'> Name: {selectedPoint.donateId.fullName}</h2>
                 <h4 className='h5'><EmojiPeopleIcon /> {selectedPoint.donateId.rangePeople}</h4>
                 <h4 className='h5'>FLOOR: {selectedPoint.floor}</h4>
                 <button className='badge bg-success fs-4' onClick={() => { addPointToAr(selectedPoint) }}>add to path</button>
