@@ -12,7 +12,7 @@ export const POINTS = "points";
 
 export const TOKEN_NAME = "food_Stack"
 
-// For GET Request
+//* For [GET] Request
 export const doApiGet = async (_url) => {
 
     try {
@@ -31,7 +31,7 @@ export const doApiGet = async (_url) => {
     }
 }
 
-// For Post, Delete, Put , Patch
+//*todo For Post, Delete, Put , Patch
 export const doApiMethod = async (_url, _method, _body = {}) => {
     try {
         let resp = await axios({
