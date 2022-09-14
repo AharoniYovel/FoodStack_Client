@@ -10,7 +10,7 @@ export default function HeaderClient() {
 
     const nav = useNavigate();
 
-    const onLogOut = () => {
+    const onLogOut = async () => {
         let name = localStorage["Name"];
         localStorage.removeItem(TOKEN_NAME);
         localStorage.removeItem("Name");
@@ -27,19 +27,22 @@ export default function HeaderClient() {
                 <div className="row justify-content-between align-items-center">
                     <Link className='m-2 logoSite col-md-2 col-6' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
 
-                    <ul className='nav p-2 col-md-7 mx-auto justify-content-center'>
-
-                        {localStorage[TOKEN_NAME] ? <li><Link to='/volunteer'>Personal area</Link></li> : null}
-
-                    </ul>
 
                     {localStorage[TOKEN_NAME] ?
-                        <div className='col-md-2 col-5 ' >
+                        <ul className='nav p-2 col-md-7 col-2 mx-auto justify-content-center'>
+                            <li><Link to='/volunteer'>Personal area</Link></li>
+                        </ul>
+
+                        :
+                        null
+                    }
+
+                    {localStorage[TOKEN_NAME] ?
+                        <div className='col-md-2 col-2 ' >
                             <button onClick={onLogOut} className='badge bg-danger float-end'>Log out</button>
                         </div>
                         :
-
-                        <div className='col-md-2 col-5 float-end'>
+                        <div className='col-md-2 col-2 float-end'>
                             <Link className='badge fs-5 logOutBtn float-end' to='/login'>Login</Link>
                         </div>
                     }

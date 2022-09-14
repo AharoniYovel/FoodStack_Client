@@ -28,7 +28,8 @@ import Registration from './volunteer_comps/registration';
 import VolArea from './volunteer_comps/volArea';
 import VolInfo from './volunteer_comps/volInfo';
 import VolPaths from './volunteer_comps/volPaths';
-
+import HeaderMUIclient from './comps/headerMUIclient'
+import HeaderMUIemployee from './comps/headerMUIemployee';
 
 export default function AppRoutes() {
     return (
@@ -36,9 +37,14 @@ export default function AppRoutes() {
 
 
             <Routes>
-                <Route path='/employee/*' element={<HeaderAdmin />} />
+                {/* <Route path='/employee/*' element={<HeaderAdmin />} /> */}
+                <Route path='/employee/*' element={<HeaderMUIemployee />} />
+
                 <Route path='/superAdmin/*' element={<HeaderAdmin />} />
-                <Route path='/*' element={<HeaderClient />} />
+
+
+                {/* <Route path='/*' element={<HeaderClient />} /> */}
+                <Route path='/*' element={<HeaderMUIclient />} />
             </Routes>
 
             <Routes>

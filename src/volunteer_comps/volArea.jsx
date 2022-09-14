@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import AuthComp from '../comps/authComp';
 import VolInfo from './volInfo'
 
 export default function VolArea() {
@@ -9,6 +10,7 @@ export default function VolArea() {
 
     return (
         <div className='container-fluid'>
+            <AuthComp />
             <div className='container'>
                 <div className="row row-cols-2">
 
