@@ -20,7 +20,6 @@ import Login from './comps/login';
 import NotFound404 from './comps/notFound404';
 import DonatePoint from './donates_comps/donatePoint';
 import RegistrationDon from './donates_comps/registrationDon';
-import GoogleMapForEmp from './maps/googleMaps/googleMapForEmp';
 import MapForEmpArea from './maps/googleMaps/mapForEmpArea';
 import AddPathsToVol from './volunteer_comps/addPathsToVol';
 import PathInfoForVol from './volunteer_comps/pointInPathInfoForVol';
