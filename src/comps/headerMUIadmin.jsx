@@ -19,13 +19,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
-
-
-
 const pages = [
     {
         name: 'Home',
-        url: '/employee'
+        url: '/superAdmin'
     },
     {
         name: 'Volunteers list',
@@ -34,13 +31,8 @@ const pages = [
     {
         name: 'Donates list',
         url: '/employee/donList'
-    },
-    {
-        name: 'Employees list',
-        url: '/superAdmin/empsList'
     }
 ];
-
 const settings = [
     {
         name: 'Profile',
@@ -48,7 +40,9 @@ const settings = [
     },
 ];
 
-const HeaderMUIemployee = () => {
+
+
+const HeaderMUIadmin = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -130,13 +124,11 @@ const HeaderMUIemployee = () => {
                             }}
                         >
                             {pages.map((page, i) => (
-
-                                <MenuItem key={i} onClick={handleCloseNavMenu} >
+                                <MenuItem key={i} onClick={handleCloseNavMenu}>
                                     <Link className='text-decoration-none text-black' to={page.url}>
                                         <Typography textAlign="center">{page.name}</Typography>
                                     </Link>
                                 </MenuItem>
-
                             ))}
                         </Menu>
                     </Box>
@@ -212,8 +204,8 @@ const HeaderMUIemployee = () => {
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar >
+        </AppBar>
     );
 };
 
-export default HeaderMUIemployee;
+export default HeaderMUIadmin;

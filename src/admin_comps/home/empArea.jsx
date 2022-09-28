@@ -23,7 +23,7 @@ export default function EmpArea() {
 
                 <div className='container-fluid'>
                     <div className='container'>
-                        <div className='row row-cols-2'>
+                        <div className='row row-cols-md-2 row-cols-1 g-5'>
 
                             <div className='col'>
                                 <Trafic />

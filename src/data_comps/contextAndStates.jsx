@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import AppRoutes from '../appRoutes';
 import { ClientContext } from "../context/context";
 import { API_URL, doApiGet, DONATES, EMPLOYEES, PATHS, POINTS, VOLUNTEERS } from '../services/apiService';
@@ -125,20 +125,18 @@ export default function ContextAndStates() {
 
 
 
+    const value = {
+        //todo Functions()
+        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths,
 
+        //? States[]
+        volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount
+    }
 
 
 
     return (
-        <ClientContext.Provider value={
-            {
-                //Functions 
-                doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths,
-
-                // States
-                volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount
-            }
-        }>
+        <ClientContext.Provider value={value}>
 
             <AppRoutes />
 

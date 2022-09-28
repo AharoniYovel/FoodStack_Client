@@ -61,7 +61,7 @@ export default function CustomizedListForVol({ itemProp }) {
 
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className='justify-content-center' sx={{ display: 'flex' }}>
       <ThemeProvider
         theme={createTheme({
           components: {

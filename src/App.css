@@ -19,6 +19,7 @@
     align-items: center;
     -webkit-box-shadow: 5px 5px 20px 17px rgba(0, 0, 0, 0.41);
     box-shadow: 5px 5px 20px 17px rgba(0, 0, 0, 0.41);
+    border-radius: 24px;
 }
 
 .NewPathLink h1 {

@@ -57,7 +57,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
     const [open, setOpen] = React.useState(false);
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box className='justify-content-center' sx={{ display: 'flex' }}>
             <ThemeProvider
                 theme={createTheme({
                     components: {

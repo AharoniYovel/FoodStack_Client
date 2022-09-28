@@ -30,6 +30,7 @@ import VolInfo from './volunteer_comps/volInfo';
 import VolPaths from './volunteer_comps/volPaths';
 import HeaderMUIclient from './comps/headerMUIclient'
 import HeaderMUIemployee from './comps/headerMUIemployee';
+import HeaderMUIadmin from './comps/headerMUIadmin';
 
 export default function AppRoutes() {
     return (
@@ -41,6 +42,7 @@ export default function AppRoutes() {
                 <Route path='/employee/*' element={<HeaderMUIemployee />} />
 
                 <Route path='/superAdmin/*' element={<HeaderAdmin />} />
+                {/* <Route path='/superAdmin/*' element={<HeaderMUIadmin />} /> */}
 
 
                 {/* <Route path='/*' element={<HeaderClient />} /> */}
@@ -92,8 +94,6 @@ export default function AppRoutes() {
                     <Route path='/employee/donList/editDon/:id' element={<EditDon />} />
 
                     <Route path='addPathArea' element={<MapForEmpArea />} />
-
-                    <Route path='mapGoogle' element={<GoogleMapForEmp />} />
 
                 </Route>
 
