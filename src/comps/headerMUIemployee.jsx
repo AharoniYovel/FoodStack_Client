@@ -17,9 +17,7 @@ import { TOKEN_NAME } from '../services/apiService';
 import { toast } from 'react-toastify';
 import LogoutIcon from '@mui/icons-material/Logout';
 
-
-
-
+import "./header_footer.css";
 
 
 const pages = [
@@ -34,10 +32,6 @@ const pages = [
     {
         name: 'Donates list',
         url: '/employee/donList'
-    },
-    {
-        name: 'Employees list',
-        url: '/superAdmin/empsList'
     }
 ];
 
@@ -52,9 +46,15 @@ const HeaderMUIemployee = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
+
+
     const nav = useNavigate();
 
+    React.useEffect(() => {
 
+        ifSuperAdmin();
+
+    }, [pages])
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -71,6 +71,12 @@ const HeaderMUIemployee = () => {
         setAnchorElUser(null);
     };
 
+    const ifSuperAdmin = async () => {
+        if (localStorage['NickName'] === 'superAdmin') {
+            await pages.push({ name: 'Employees list', url: '/superAdmin/empsList' });
+            console.log(pages, 'pages of line 82');
+        }
+    }
 
     const onLogOut = async () => {
         let name = localStorage["NickName"];
@@ -129,6 +135,9 @@ const HeaderMUIemployee = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
+
+
+
                             {pages.map((page, i) => (
 
                                 <MenuItem key={i} onClick={handleCloseNavMenu} >

@@ -14,7 +14,6 @@ import EmpLogin from './admin_comps/empLogin';
 import EmpArea from './admin_comps/home/empArea';
 import VolunteersList from './admin_comps/volunteersList';
 import HeaderAdmin from './comps/headerAdmin';
-import HeaderClient from './comps/headerClient';
 import Home from './comps/home';
 import Login from './comps/login';
 import NotFound404 from './comps/notFound404';
@@ -29,7 +28,7 @@ import VolInfo from './volunteer_comps/volInfo';
 import VolPaths from './volunteer_comps/volPaths';
 import HeaderMUIclient from './comps/headerMUIclient'
 import HeaderMUIemployee from './comps/headerMUIemployee';
-import HeaderMUIadmin from './comps/headerMUIadmin';
+// import HeaderMUIadmin from './comps/headerMUIadmin';
 
 export default function AppRoutes() {
     return (
@@ -40,7 +39,7 @@ export default function AppRoutes() {
                 {/* <Route path='/employee/*' element={<HeaderAdmin />} /> */}
                 <Route path='/employee/*' element={<HeaderMUIemployee />} />
 
-                <Route path='/superAdmin/*' element={<HeaderAdmin />} />
+                <Route path='/superAdmin/*' element={<HeaderMUIemployee />} />
                 {/* <Route path='/superAdmin/*' element={<HeaderMUIadmin />} /> */}
 
 
