@@ -28,7 +28,6 @@ import VolInfo from './volunteer_comps/volInfo';
 import VolPaths from './volunteer_comps/volPaths';
 import HeaderMUIclient from './comps/headerMUIclient'
 import HeaderMUIemployee from './comps/headerMUIemployee';
-// import HeaderMUIadmin from './comps/headerMUIadmin';
 
 export default function AppRoutes() {
     return (
@@ -40,7 +39,6 @@ export default function AppRoutes() {
                 <Route path='/employee/*' element={<HeaderMUIemployee />} />
 
                 <Route path='/superAdmin/*' element={<HeaderMUIemployee />} />
-                {/* <Route path='/superAdmin/*' element={<HeaderMUIadmin />} /> */}
 
 
                 {/* <Route path='/*' element={<HeaderClient />} /> */}
