@@ -12,6 +12,8 @@ export default function EditDon() {
     const [donated, setDonated] = useState({});
     const [loading, setLoading] = useState(false);
     const [anomusBtn, setAnomusBtn] = useState(true);
+    const [pathIdValid, setPathIdValid] = useState();
+
 
     // ! state that prevent to show btn to block multi req...
     const [fade, setFade] = useState(false);
@@ -38,6 +40,7 @@ export default function EditDon() {
         try {
             let resp = await doApiGet(url);
             setDonated(resp.data);
+            await doApiPathIdValid(resp.data._id);
         }
 
         catch (err) {
@@ -47,6 +50,20 @@ export default function EditDon() {
 
     }
 
+    const doApiPathIdValid = async (_idOfDonated) => {
+        let url = API_URL + POINTS + '/pathIdValid/' + _idOfDonated;
+        try {
+            let resp = await doApiGet(url);
+            if (resp.data.pathId !== null) {
+                setPathIdValid(resp.data.pathId);
+            }
+        }
+        catch (err) {
+            console.log(err.response);
+            toast.warning("There's error try again");
+        }
+    }
+    
     const onSub = (_dataBody) => {
         console.log(_dataBody);
         doApiEdit(_dataBody);
