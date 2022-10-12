@@ -32,6 +32,10 @@ const pages = [
     {
         name: 'Donates list',
         url: '/employee/donList'
+    },
+    {
+        name: 'Paths list',
+        url: '/employee/pathList'
     }
 ];
 

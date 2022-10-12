@@ -50,6 +50,7 @@ export default function EditDon() {
 
     }
 
+    // * check if there a path that the donated is releated to. Or null or valid pathID
     const doApiPathIdValid = async (_idOfDonated) => {
         let url = API_URL + POINTS + '/pathIdValid/' + _idOfDonated;
         try {

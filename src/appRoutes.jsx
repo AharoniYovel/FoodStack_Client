@@ -28,6 +28,7 @@ import VolInfo from './volunteer_comps/volInfo';
 import VolPaths from './volunteer_comps/volPaths';
 import HeaderMUIclient from './comps/headerMUIclient'
 import HeaderMUIemployee from './comps/headerMUIemployee';
+import PathsList from './admin_comps/pathsList';
 
 export default function AppRoutes() {
     return (
@@ -88,6 +89,8 @@ export default function AppRoutes() {
 
                     <Route path='donList' element={<DonatesList />} />
                     <Route path='/employee/donList/editDon/:id' element={<EditDon />} />
+
+                    <Route path='pathList' element={<PathsList />} />
 
                     <Route path='addPathArea' element={<MapForEmpArea />} />
 
