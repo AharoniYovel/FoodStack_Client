@@ -91,7 +91,7 @@ export default function CustomizedListForDon({ itemProp, pointProp }) {
 
                             {localStorage["NickName"] ?
 
-                                <Link Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
+                                <Link className='text-white' to={'/employee/donList/editDon/' + itemProp._id}>
                                     <EditIcon />
                                 </Link>
                                 :

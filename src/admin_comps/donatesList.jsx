@@ -11,8 +11,12 @@ export default function DonatesList() {
 
     useEffect(() => {
         doApiListDon();
-        doApiListPoints();
-        setTimeout(timeOut, 1000);
+        if (donListAr.length > 0) {
+            doApiListPoints();
+            if (pointAr.length > 0) {
+                setTimeout(timeOut, 10);
+            }
+        }
     }, [donListAr])
 
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// export const API_URL = "http://localhost:3001/";
-export const API_URL = "https://foodstack-23.herokuapp.com/";
+export const API_URL = "http://localhost:3001/";
+// export const API_URL = "https://foodstack-23.herokuapp.com/";
 
 
 export const EMPLOYEES = "employees";

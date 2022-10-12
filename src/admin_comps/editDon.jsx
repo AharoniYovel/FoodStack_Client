@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
-import { API_URL, doApiGet, doApiMethod, DONATES, POINTS } from '../services/apiService';
+import { API_URL, doApiGet, doApiMethod, DONATES, PATHS, POINTS } from '../services/apiService';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -12,7 +12,7 @@ export default function EditDon() {
     const [donated, setDonated] = useState({});
     const [loading, setLoading] = useState(false);
     const [anomusBtn, setAnomusBtn] = useState(true);
-    const [pathIdValid, setPathIdValid] = useState();
+    const [pathIdValid, setPathIdValid] = useState({});
 
 
     // ! state that prevent to show btn to block multi req...
@@ -54,16 +54,15 @@ export default function EditDon() {
         let url = API_URL + POINTS + '/pathIdValid/' + _idOfDonated;
         try {
             let resp = await doApiGet(url);
-            if (resp.data.pathId !== null) {
-                setPathIdValid(resp.data.pathId);
-            }
+            setPathIdValid(resp.data);
         }
+
         catch (err) {
             console.log(err.response);
             toast.warning("There's error try again");
         }
     }
-    
+
     const onSub = (_dataBody) => {
         console.log(_dataBody);
         doApiEdit(_dataBody);
@@ -101,6 +100,10 @@ export default function EditDon() {
             if (resp.data.deletedCount == 1) {
                 toast.success("Donated deleted")
                 await delPoint(_idDel);
+                if (pathIdValid.pathId !== null) {
+                    await delPointFromPath();
+                }
+
                 nav(-1);
             }
         }
@@ -124,6 +127,22 @@ export default function EditDon() {
             console.log(err);
             toast.warning("there problem to delete point, try refresh the page");
         }
+    }
+
+    const delPointFromPath = async () => {
+
+        try {
+            let url = API_URL + PATHS + '/delOneDonated/' + pathIdValid.pathId + '/' + pathIdValid._id;
+            let resp = await doApiMethod(url, "PUT");
+            console.log('resp.data', resp.data);
+            console.log("point from pathModel.arr_points_id deleted and his city");
+        }
+
+        catch (err) {
+            console.log(err);
+            toast.warning("there problem to delete point from pathModel, check server");
+        }
+
     }
 
 
