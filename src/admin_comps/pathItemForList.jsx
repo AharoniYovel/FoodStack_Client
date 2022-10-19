@@ -41,7 +41,7 @@ export default function PathItemForList({ item }) {
                 }
 
                 {FamilysNum !== 0 ?
-                    <Link to={'/'} className='btn btn-secondary'>More info</Link>
+                    <Link to={'/employee/pathList/pathListOfVol/' + item._id + '/' + item.volunteerID.fullName} className='btn btn-secondary'>More info</Link>
                     :
                     <CallAndDelPath fullName={item.volunteerID.fullName} volunteer={item.volunteerID} idDel={item._id} />
                 }

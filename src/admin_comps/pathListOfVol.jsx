@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import CustomizedListForDon from '../helpers/cardMetirial/CustomizedListForDon';
 import { API_URL, doApiGet, PATHS } from '../services/apiService';
 import { FaWaze } from 'react-icons/fa'
 
-
-export default function PointInPathInfoForVol() {
+export default function PathListOfVol() {
 
     const params = useParams();
 
@@ -23,12 +22,9 @@ export default function PointInPathInfoForVol() {
         doApigetPathInfo();
     }, [path])
 
-
-
-
     return (
         <div className='container'>
-            <h1 className='text-center'>Donates List</h1>
+            <h1 className='text-center'>{params.volName}'s Donates List</h1>
 
             <div className="text-center">
                 <a className='btn btn-info mx-auto fw-bolder' target='_black' href={`https://www.waze.com/ul?ll=32.018229%2C34.84453&navigate=yes&zoom=17`}>Navigate to Hemed
@@ -49,7 +45,3 @@ export default function PointInPathInfoForVol() {
         </div>
     )
 }
-
-
-
-

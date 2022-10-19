@@ -12,7 +12,6 @@ export default function PathsList() {
     }, [pathList])
 
 
-
     const doApiGetPathsList = async () => {
         let apiUrl = API_URL + PATHS + '/allPathList';
         let resp = await doApiGet(apiUrl);
