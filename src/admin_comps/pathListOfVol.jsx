@@ -24,7 +24,7 @@ export default function PathListOfVol() {
 
     return (
         <div className='container'>
-            <h1 className='text-center'>{params.volName}'s Donates List</h1>
+            <h1 className='text-center p-4'>{params.volName}'s Donates List</h1>
 
             <div className="text-center">
                 <a className='btn btn-info mx-auto fw-bolder' target='_black' href={`https://www.waze.com/ul?ll=32.018229%2C34.84453&navigate=yes&zoom=17`}>Navigate to Hemed
