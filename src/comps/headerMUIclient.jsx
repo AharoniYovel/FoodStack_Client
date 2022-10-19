@@ -23,22 +23,28 @@ import "./header_footer.css";
 
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = [
+const pages = [
     {
-        name: "Login",
-        url: '/login'
+        name: 'Add New Path',
+        url: '/volunteer/addNewPathToVol'
     },
     {
-        name: "Profile",
-        url: '/volunteer'
-    }
+        name: 'My Paths',
+        url: '/volunteer/allPaths'
+    },
 ];
+const settings = [{ name: "Login", url: '/login' }];
 
 
 const HeaderMUIclient = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    React.useEffect(() => {
+
+        ifLogIn();
+
+    }, [settings])
 
     const nav = useNavigate();
 
@@ -56,6 +62,12 @@ const HeaderMUIclient = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const ifLogIn = async () => {
+        if (localStorage[TOKEN_NAME]) {
+            settings.push({ name: "Profile", url: '/volunteer' });
+        }
+    }
 
 
     const onLogOut = async () => {
@@ -83,7 +95,7 @@ const HeaderMUIclient = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        <Link className='m-2 logoSite col-md-2 col-6' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} className='display-6' /></Link>
+                        <Link className='m-2 logoSite col-md-2 col-6 display-6' to='/'>FOOD STACK<GiSelfLove style={{ color: 'rgba(255, 0, 115, 0.989)' }} /></Link>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -117,7 +129,9 @@ const HeaderMUIclient = () => {
                         >
                             {pages.map((page, i) => (
                                 <MenuItem key={i} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link className='text-decoration-none text-black' to={page.url}>
+                                        <Typography textAlign="center">{page.name}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -141,11 +155,11 @@ const HeaderMUIclient = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {/* {pages.map((page) => (
                             <Button
-                                key={page}
+                                key={page.name}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))} */}
                     </Box>
@@ -182,7 +196,7 @@ const HeaderMUIclient = () => {
                         </Menu>
 
                         {localStorage[TOKEN_NAME] ?
-                            <LogoutIcon style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
+                            <LogoutIcon titleAccess="Logout" style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
                             :
                             null
                         }

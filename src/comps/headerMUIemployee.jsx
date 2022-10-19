@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,9 +15,10 @@ import { GiSelfLove } from 'react-icons/gi';
 import { TOKEN_NAME } from '../services/apiService';
 import { toast } from 'react-toastify';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 import "./header_footer.css";
-
 
 const pages = [
     {
@@ -47,9 +47,9 @@ const settings = [
 ];
 
 const HeaderMUIemployee = () => {
+
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
 
 
     const nav = useNavigate();
@@ -77,7 +77,7 @@ const HeaderMUIemployee = () => {
 
     const ifSuperAdmin = async () => {
         if (localStorage['NickName'] === 'superAdmin') {
-            await pages.push({ name: 'Employees list', url: '/superAdmin/empsList' });
+            pages.push({ name: 'Employees list', url: '/superAdmin/empsList' });
             console.log(pages, 'pages of line 82');
         }
     }
@@ -188,7 +188,7 @@ const HeaderMUIemployee = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <AccountCircleIcon className='fs-1 text-white' />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -217,7 +217,7 @@ const HeaderMUIemployee = () => {
                         </Menu>
 
                         {localStorage[TOKEN_NAME] ?
-                            <LogoutIcon style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
+                            <LogoutIcon titleAccess="Logout" style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
                             :
                             null
                         }
