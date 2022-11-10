@@ -1,5 +1,7 @@
+require("dotenv").config();
+
 export const infConect = {
-    superAdminId: "62dfe55030080f755358cb4a",
-    googleMapsApiKey: "AIzaSyCrCJgLKlYLU9462v5WH88Gh_3zVqbf_Ko",
-    mapboxAccessToken: 'pk.eyJ1IjoiYWhhcm9uaXlvdmVsIiwiYSI6ImNsN2FmZmNoajAxMXgzcXNkZzM1OXFhY3gifQ.kklHl1UoeY9Yvjyam34ebQ',
+    superAdminId: process.env.REACT_APP_SUPER_ADMIN_ID,
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    mapboxAccessToken: process.env.REACT_APP_MAP_BOX_ACCESS_TOKEN
 }
