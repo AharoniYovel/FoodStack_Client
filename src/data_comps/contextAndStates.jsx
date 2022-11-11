@@ -1,9 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AppRoutes from '../appRoutes';
 import { ClientContext } from "../context/context";
 import { API_URL, doApiGet, DONATES, EMPLOYEES, PATHS, POINTS, VOLUNTEERS } from '../services/apiService';
 
 export default function ContextAndStates() {
+
+    const [volunteer, setVolunteer] = useState({ name: "", role: "" });
+
+    useEffect(() => {
+        if (localStorage['Name']) {
+            doApiVolunteer();
+        }
+    }, []);
 
 
     //  * volunteer info state
@@ -45,6 +53,15 @@ export default function ContextAndStates() {
     // * count all the points withOut volunteer related(Waiting for grouping)
     const [pointCount, setPointCount] = useState(Number);
     const [pathCount, setPathCount] = useState(Number);
+
+    const doApiVolunteer = async () => {
+        let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
+        let resp = await doApiGet(apiUrl);
+        setVolunteer({
+            name: resp.data.fullName,
+            role: resp.data.role
+        });
+    }
 
 
     const doApiVolInfo = async () => {
