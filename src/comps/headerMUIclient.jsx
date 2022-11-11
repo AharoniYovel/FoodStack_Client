@@ -17,6 +17,7 @@ import { toast } from 'react-toastify';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import "./header_footer.css";
+import { ClientContext } from '../context/context';
 
 
 
@@ -38,6 +39,9 @@ const settings = [{ name: "Login", url: '/login' }];
 const HeaderMUIclient = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const { volunteer, setVolunteer } = React.useContext(ClientContext);
+
 
     React.useEffect(() => {
 
@@ -70,10 +74,11 @@ const HeaderMUIclient = () => {
 
 
     const onLogOut = async () => {
+        setVolunteer({ name: "", role: "" })
         let name = localStorage["Name"];
         localStorage.removeItem(TOKEN_NAME);
         localStorage.removeItem("Name");
-        nav("/login");
+        nav("/");
         toast.dark(`Log out, see you soon ${name}!`);
     }
 
@@ -106,7 +111,7 @@ const HeaderMUIclient = () => {
                             onClick={handleOpenNavMenu}
                             color="inherit"
                         >
-                            <MenuIcon />
+                            < MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"

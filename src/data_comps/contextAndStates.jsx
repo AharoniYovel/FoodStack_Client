@@ -9,9 +9,10 @@ export default function ContextAndStates() {
 
     useEffect(() => {
         if (localStorage['Name']) {
-            doApiVolunteer();
+            doApiVolInfo();
         }
-    }, []);
+    }, [])
+
 
 
     //  * volunteer info state
@@ -54,20 +55,16 @@ export default function ContextAndStates() {
     const [pointCount, setPointCount] = useState(Number);
     const [pathCount, setPathCount] = useState(Number);
 
-    const doApiVolunteer = async () => {
-        let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
-        let resp = await doApiGet(apiUrl);
-        setVolunteer({
-            name: resp.data.fullName,
-            role: resp.data.role
-        });
-    }
-
 
     const doApiVolInfo = async () => {
         let apiUrl = API_URL + VOLUNTEERS + "/volunteerInfo";
         let resp = await doApiGet(apiUrl);
         setvVolInfo(resp.data);
+        setVolunteer({
+            name: resp.data.fullName,
+            role: resp.data.role
+        });
+
     }
 
     const doApiListVol = async () => {
@@ -144,10 +141,10 @@ export default function ContextAndStates() {
 
     const value = {
         //todo Functions()
-        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths,
+        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths, setVolunteer,
 
         //? States[]
-        volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount
+        volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount, volunteer
     }
 
 
