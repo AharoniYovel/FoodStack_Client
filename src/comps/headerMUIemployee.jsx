@@ -80,14 +80,6 @@ const HeaderMUIemployee = () => {
         }
     }
 
-    // const onLogOut = async () => {
-    //     let name = localStorage["NickName"];
-    //     localStorage.removeItem(TOKEN_NAME);
-    //     localStorage.removeItem("NickName");
-    //     nav("/loginEmployees");
-    //     toast.dark(`Log out, see you soon ${name}!`);
-    // }
-
     return (
         <AppBar position="static" className='bg-info'>
             <Container maxWidth="xl">
