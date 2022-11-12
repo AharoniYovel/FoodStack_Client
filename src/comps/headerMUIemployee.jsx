@@ -12,9 +12,6 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link, useNavigate } from 'react-router-dom';
 import { GiSelfLove } from 'react-icons/gi';
-import { TOKEN_NAME } from '../services/apiService';
-import { toast } from 'react-toastify';
-import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
@@ -44,6 +41,10 @@ const settings = [
         name: 'Profile',
         url: '/employee'
     },
+    {
+        name: 'Logout',
+        url: '/empLogOut'
+    }
 ];
 
 const HeaderMUIemployee = () => {
@@ -51,8 +52,6 @@ const HeaderMUIemployee = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-
-    const nav = useNavigate();
 
     React.useEffect(() => {
 
@@ -77,18 +76,17 @@ const HeaderMUIemployee = () => {
 
     const ifSuperAdmin = async () => {
         if (localStorage['NickName'] === 'superAdmin') {
-            pages.push({ name: 'Employees list', url: '/superAdmin/empsList' });
-            console.log(pages, 'pages of line 82');
+            return pages.push({ name: 'Employees list', url: '/superAdmin/empsList' });
         }
     }
 
-    const onLogOut = async () => {
-        let name = localStorage["NickName"];
-        localStorage.removeItem(TOKEN_NAME);
-        localStorage.removeItem("NickName");
-        nav("/loginEmployees");
-        toast.dark(`Log out, see you soon ${name}!`);
-    }
+    // const onLogOut = async () => {
+    //     let name = localStorage["NickName"];
+    //     localStorage.removeItem(TOKEN_NAME);
+    //     localStorage.removeItem("NickName");
+    //     nav("/loginEmployees");
+    //     toast.dark(`Log out, see you soon ${name}!`);
+    // }
 
     return (
         <AppBar position="static" className='bg-info'>
@@ -209,18 +207,13 @@ const HeaderMUIemployee = () => {
                         >
                             {settings.map((setting, i) => (
                                 <MenuItem key={i} onClick={handleCloseUserMenu}>
-                                    <Link className='text-decoration-none text-black' to={setting.url}>
-                                        <Typography textAlign="center">{setting.name}</Typography>
+                                    <Link className={`text-decoration-none ${setting.url === "/empLogOut" ? 'text-danger' : 'text-black'} `} to={setting.url}>
+                                        <Typography className='fw-bolder' textAlign="center">{setting.name}</Typography>
                                     </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
 
-                        {localStorage[TOKEN_NAME] ?
-                            <LogoutIcon titleAccess="Logout" style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
-                            :
-                            null
-                        }
 
                     </Box>
                 </Toolbar>
