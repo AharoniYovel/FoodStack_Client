@@ -12,9 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link, useNavigate } from 'react-router-dom';
 import { GiSelfLove } from 'react-icons/gi';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { TOKEN_NAME } from '../services/apiService';
-import { toast } from 'react-toastify';
-import LogoutIcon from '@mui/icons-material/Logout';
+
 
 import "./header_footer.css";
 import { ClientContext } from '../context/context';
