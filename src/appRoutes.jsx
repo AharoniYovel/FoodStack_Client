@@ -30,6 +30,7 @@ import HeaderMUIclient from './comps/headerMUIclient'
 import HeaderMUIemployee from './comps/headerMUIemployee';
 import PathsList from './admin_comps/pathsList';
 import PathListOfVol from './admin_comps/pathListOfVol';
+import LogOut from './comps/logOut';
 
 export default function AppRoutes() {
     return (
@@ -62,6 +63,8 @@ export default function AppRoutes() {
                 {/* Volunteers */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/registration' element={<Registration />} />
+                <Route path='/logout' element={<LogOut />} />
+
 
                 <Route path='/volunteer'>
 

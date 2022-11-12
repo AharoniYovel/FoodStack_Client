@@ -33,8 +33,8 @@ const pages = [
         url: '/volunteer/allPaths'
     },
 ];
-const settings = [{ name: "Login", url: '/login' }];
 
+const settings = [{ name: "Login", url: '/login' }];
 
 const HeaderMUIclient = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,10 +44,8 @@ const HeaderMUIclient = () => {
 
 
     React.useEffect(() => {
-
         ifLogIn();
-
-    }, [settings])
+    }, [volunteer])
 
     const nav = useNavigate();
 
@@ -67,20 +65,11 @@ const HeaderMUIclient = () => {
     };
 
     const ifLogIn = async () => {
-        if (localStorage[TOKEN_NAME]) {
-            settings.push({ name: "Profile", url: '/volunteer' });
+        if (!(volunteer.name === "")) {
+            settings.splice(0, settings.length, { name: 'Profile', url: "/volunteer" }, { name: 'Logout', url: "/logout" });
         }
     }
 
-
-    const onLogOut = async () => {
-        setVolunteer({ name: "", role: "" })
-        let name = localStorage["Name"];
-        localStorage.removeItem(TOKEN_NAME);
-        localStorage.removeItem("Name");
-        nav("/");
-        toast.dark(`Log out, see you soon ${name}!`);
-    }
 
     return (
         <AppBar position="static">
@@ -197,23 +186,18 @@ const HeaderMUIclient = () => {
                         >
                             {settings.map((setting, i) => (
                                 <MenuItem key={i} onClick={handleCloseUserMenu}>
-                                    <Link className='text-decoration-none text-black' to={setting.url}>
-                                        <Typography textAlign="center">{setting.name}</Typography>
+                                    <Link className={`text-decoration-none  ${setting.url === "/login" ? "text-success" : setting.url === "/logout" ? "text-danger" : "text-black"}`} to={setting.url}>
+                                        <Typography className='fw-bolder' textAlign="center">{setting.name}</Typography>
                                     </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
 
-                        {localStorage[TOKEN_NAME] ?
-                            <LogoutIcon titleAccess="Logout" style={{ cursor: 'pointer' }} onClick={onLogOut} className='ms-4 cor text-danger' />
-                            :
-                            null
-                        }
 
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 };
 export default HeaderMUIclient;
