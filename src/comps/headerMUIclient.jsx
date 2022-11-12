@@ -103,16 +103,20 @@ const HeaderMUIclient = () => {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            < MenuIcon />
-                        </IconButton>
+
+                        {volunteer.name &&
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                < MenuIcon />
+                            </IconButton>
+                        }
+
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -131,7 +135,7 @@ const HeaderMUIclient = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page, i) => (
+                            {volunteer.name && pages.map((page, i) => (
                                 <MenuItem key={i} onClick={handleCloseNavMenu}>
                                     <Link className='text-decoration-none text-black' to={page.url}>
                                         <Typography textAlign="center">{page.name}</Typography>
@@ -140,6 +144,7 @@ const HeaderMUIclient = () => {
                             ))}
                         </Menu>
                     </Box>
+
                     <Typography
                         variant="h5"
                         noWrap
