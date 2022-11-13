@@ -35,7 +35,6 @@ import EmpLogOut from './admin_comps/empLogOut';
 import PathsListOfVol from './admin_comps/pathsListOfVol';
 
 export default function AppRoutes() {
-    
     return (
         <BrowserRouter>
 
