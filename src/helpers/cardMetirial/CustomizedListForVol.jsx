@@ -24,6 +24,7 @@ import ModeOfTravelIcon from '@mui/icons-material/ModeOfTravel';
 import MoreTimeIcon from '@mui/icons-material/MoreTime';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import EditIcon from '@mui/icons-material/Edit';
+import { ClientContext } from '../../context/context';
 
 
 
@@ -58,6 +59,8 @@ export default function CustomizedListForVol({ itemProp }) {
   ];
 
   const [open, setOpen] = React.useState(false);
+
+  const { volunteer } = React.useContext(ClientContext);
 
 
   return (
@@ -115,7 +118,7 @@ export default function CustomizedListForVol({ itemProp }) {
                   }}
                 />
               </ListItemButton>
-              <Link to='/volunteer/allPaths'>
+              <Link to={volunteer.role === 'volunteer' ? '/volunteer/allPaths' : `/employee/volList/pathsListOfVol/${itemProp._id}`}>
                 <Tooltip title="Show routes">
                   <IconButton
                     size="large"

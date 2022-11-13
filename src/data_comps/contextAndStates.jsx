@@ -12,9 +12,9 @@ export default function ContextAndStates() {
             doApiVolInfo();
         }
     }, [])
-    
 
-
+    // * All Paths list
+    const [pathList, setPathList] = useState([]);
 
     //  * volunteer info state
     const [volInfo, setvVolInfo] = useState([]);
@@ -138,14 +138,20 @@ export default function ContextAndStates() {
         setPathsForVol(resp.data);
     }
 
+    const doApiGetPathsList = async () => {
+        let apiUrl = API_URL + PATHS + '/allPathList';
+        let resp = await doApiGet(apiUrl);
+        setPathList(resp.data);
+    }
+
 
 
     const value = {
         //todo Functions()
-        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths, setVolunteer,
+        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths, setVolunteer, doApiGetPathsList,
 
         //? States[]
-        volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount, volunteer
+        volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount, volunteer, pathList
     }
 
 

@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { API_URL, doApiGet, PATHS } from '../services/apiService';
+import React, { useContext, useEffect } from 'react'
+import { ClientContext } from '../context/context';
 import PathItemForList from './pathItemForList';
 
 export default function PathsList() {
 
-    const [pathList, setPathList] = useState([]);
-
+    const { pathList, doApiGetPathsList } = useContext(ClientContext);
 
     useEffect(() => {
         doApiGetPathsList();
     }, [pathList])
-
-
-    const doApiGetPathsList = async () => {
-        let apiUrl = API_URL + PATHS + '/allPathList';
-        let resp = await doApiGet(apiUrl);
-        setPathList(resp.data);
-    }
-
 
     return (
         <div className='container-fluid'>

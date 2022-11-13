@@ -32,6 +32,7 @@ import PathsList from './admin_comps/pathsList';
 import PathListOfVol from './admin_comps/pathListOfVol';
 import LogOut from './comps/logOut';
 import EmpLogOut from './admin_comps/empLogOut';
+import PathsListOfVol from './admin_comps/pathsListOfVol';
 
 export default function AppRoutes() {
     return (
@@ -91,6 +92,7 @@ export default function AppRoutes() {
                     <Route index element={<EmpArea />} />
 
                     <Route path='volList' element={<VolunteersList />} />
+                    <Route path='volList/pathsListOfVol/:volId' element={<PathsListOfVol />} />
                     <Route path='/employee/volList/editVol/:id' element={<EditVol />} />
 
                     <Route path='donList' element={<DonatesList />} />
@@ -98,6 +100,8 @@ export default function AppRoutes() {
 
                     <Route path='pathList' element={<PathsList />} />
                     <Route path='pathList/pathListOfVol/:idPath/:volName' element={<PathListOfVol />} />
+
+
 
                     <Route path='addPathArea' element={<MapForEmpArea />} />
 
