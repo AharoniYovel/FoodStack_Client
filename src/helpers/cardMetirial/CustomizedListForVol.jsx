@@ -119,7 +119,7 @@ export default function CustomizedListForVol({ itemProp }) {
                 />
               </ListItemButton>
               <Link to={volunteer.role === 'volunteer' ? '/volunteer/allPaths' : `/employee/volList/pathsListOfVol/${itemProp._id}`}>
-                <Tooltip title="Show routes">
+                <Tooltip title="Show Paths">
                   <IconButton
                     size="large"
                     sx={{
