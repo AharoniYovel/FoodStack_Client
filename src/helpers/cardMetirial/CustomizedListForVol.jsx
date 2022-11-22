@@ -95,7 +95,7 @@ export default function CustomizedListForVol({ itemProp }) {
                 }}
               />
 
-              {localStorage["NickName"] ?
+              {!volunteer.role ?
                 <Link className='text-white' to={'/employee/volList/editVol/' + itemProp._id}>
                   <EditIcon />
                 </Link>

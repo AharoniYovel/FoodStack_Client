@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
@@ -17,7 +17,6 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSub = (_bodyData) => {
-        console.log(_bodyData);
         doApiLogin(_bodyData);
     }
 
@@ -25,7 +24,6 @@ export default function Login() {
         try {
             let url = API_URL + VOLUNTEERS + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
-            console.log(resp.data);
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);

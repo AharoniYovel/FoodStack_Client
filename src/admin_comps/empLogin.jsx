@@ -17,7 +17,6 @@ export default function EmpLogin() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSub = (_bodyData) => {
-        console.log(_bodyData);
         doApiEmpLogin(_bodyData);
     }
 
@@ -25,7 +24,6 @@ export default function EmpLogin() {
         try {
             let url = API_URL + EMPLOYEES + "/login";
             let resp = await doApiMethod(url, "post", _bodyData);
-            console.log(resp.data);
 
             if (resp.data.token) {
                 localStorage.setItem(TOKEN_NAME, resp.data.token);

@@ -16,8 +16,7 @@ export default function AuthComp() {
         try {
             let url = API_URL + VOLUNTEERS + '/checkToken';
             let resp = await doApiGet(url);
-            console.log('resp', resp.data)
-            if (resp.data.role != "volunteer") {
+            if (resp.data.role !== "volunteer") {
                 logOutAdmin("loged in to be here");
             }
         }
