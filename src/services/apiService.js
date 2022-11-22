@@ -3,8 +3,8 @@ import axios from "axios";
 // export const API_URL = "http://localhost:3001/";
 // export const API_URL = "https://foodstack-23.herokuapp.com/";
 
-export const API_URL = "https://food-stack-aharoni.cyclic.app/";
-// export const API_URL = "https://rich-lime-panther-sari.cyclic.app/";
+// export const API_URL = "https://food-stack.cyclic.app/";
+export const API_URL = "https://long-ruby-peacock-tie.cyclic.app/";
 
 
 export const EMPLOYEES = "employees";

@@ -82,10 +82,10 @@ export default function AddPath() {
 
                 :
 
-
-                <SpinerLoader />
-
-
+                <>
+                    <h2 className='text-center text-uppercase'>Please group some dontes red pointers for add a path!</h2>
+                    <SpinerLoader />
+                </>
             }
 
 
