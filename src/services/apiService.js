@@ -4,7 +4,9 @@ import axios from "axios";
 // export const API_URL = "https://foodstack-23.herokuapp.com/";
 
 // export const API_URL = "https://food-stack.cyclic.app/";
-export const API_URL = "https://long-ruby-peacock-tie.cyclic.app/";
+// export const API_URL = "https://long-ruby-peacock-tie.cyclic.app/";
+
+export const API_URL = "https://food-stack.onrender.com/";
 
 
 export const EMPLOYEES = "employees";
