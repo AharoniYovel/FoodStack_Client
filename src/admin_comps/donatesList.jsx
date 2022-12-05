@@ -14,7 +14,7 @@ export default function DonatesList() {
         if (donListAr.length > 0) {
             doApiListPoints();
             if (pointAr.length > 0) {
-                setTimeout(timeOut, 10);
+                setTimeout(timeOut, 1000);
             }
         }
     }, [donListAr])

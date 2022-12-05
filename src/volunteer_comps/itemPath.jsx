@@ -32,7 +32,7 @@ export default function ItemPath({ item }) {
 
     return (
         <div className='col-md-3 p-2'>
-            <div className='p-2 border shadow h-100'>
+            <div className='p-2 border border-dark shadow h-100 rounded-3'>
                 <Fab onClick={() => { window.confirm("are you sure?") && doApiAddPath(item._id) }} className='float-end' color="secondary" size="medium" aria-label="add">
                     <AddIcon />
                 </Fab>

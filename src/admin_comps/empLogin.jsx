@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, EMPLOYEES, TOKEN_NAME } from '../services/apiService';
 import { toast } from "react-toastify";
 import './loginEmp.css'
+import CircularIndeterminate from '../helpers/progressMUI/procces';
 
 
 export default function EmpLogin() {
 
     const { doApiListDon, doApiListVol } = useContext(ClientContext);
+    const [procces, setProcces] = useState(false);
 
 
     const nav = useNavigate();
@@ -17,6 +19,7 @@ export default function EmpLogin() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSub = (_bodyData) => {
+        setProcces(true);
         doApiEmpLogin(_bodyData);
     }
 
@@ -44,6 +47,7 @@ export default function EmpLogin() {
             console.log(err.response);
             toast.error("User or Password wrong");
         }
+        setProcces(false);
     }
 
 
@@ -67,7 +71,11 @@ export default function EmpLogin() {
                             {errors.password && <small className='text-danger'>* Enter valid password (min 3 chars)</small>}
                         </div>
 
-                        <button className='login-button'>Log in</button>
+                        {procces ?
+                            <CircularIndeterminate />
+                            :
+                            <button className='login-button'>Log in</button>
+                        }
 
                     </form>
                 </div>

@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, TOKEN_NAME, VOLUNTEERS } from '../services/apiService';
 import { toast } from "react-toastify";
 import './login.css'
+import CircularIndeterminate from '../helpers/progressMUI/procces';
 
 
 export default function Login() {
+
+    const [procces, setProcces] = useState(false);
 
 
     const { doApiVolInfo } = useContext(ClientContext);
@@ -17,6 +20,7 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSub = (_bodyData) => {
+        setProcces(true);
         doApiLogin(_bodyData);
     }
 
@@ -38,6 +42,7 @@ export default function Login() {
             console.log(err.response);
             toast.error("User or Password wrong");
         }
+        setProcces(false);
     }
 
     return (
@@ -47,7 +52,7 @@ export default function Login() {
                 <div className='login-container'>
 
                     <h1 className='login-title'>Welcome</h1>
-                    <Link className='text-decoration-none badge bg-secondary float-end fs-6' to='/loginEmployees'>Employee?</Link>
+                    <Link className='text-decoration-none badge bg-secondary d-flex justify-content-center col-md-3 col-6 mx-auto m-2 fs-6' to='/loginEmployees'>Employee?</Link>
                     <form onSubmit={handleSubmit(onSub)} className='form'>
 
                         <div className="input-group">
@@ -62,7 +67,11 @@ export default function Login() {
                             {errors.password && <small className='text-danger'>* Enter valid password (min 3 chars)</small>}
                         </div>
 
-                        <button className='login-button'>Log in</button>
+                        {procces ?
+                            <CircularIndeterminate/>
+                            :
+                            <button className='login-button'>Log in</button>
+                        }
 
                     </form>
                 </div>

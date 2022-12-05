@@ -67,6 +67,7 @@
     border-radius: .25em;
     color: white;
     font-weight: lighter;
+    width: 100%;
 }
 
 .input-group input:focus {

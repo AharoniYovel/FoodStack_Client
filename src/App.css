@@ -5,7 +5,8 @@
 }
 
 .NewPathLink {
-    margin: 16px;
+    margin: 0 auto;
+    margin-top: 16px;
     background-image: url(../public/images/newPath.jpg);
     height: 100%;
     width: 100%;
