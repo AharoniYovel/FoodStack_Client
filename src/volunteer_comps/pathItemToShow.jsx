@@ -10,13 +10,13 @@ export default function PathItemToShow({ item }) {
 
     return (
         <div className='col-md-3 p-2'>
-            <div className='p-2 border border-dark shadow h-100 rounded-3'>
+            <div className='p-2 border border-dark shadow-lg h-100 rounded-3'>
 
                 <h3>ID of Path: <span className='text-warning'> {item.path_id}</span></h3>
                 <h4><HouseIcon className='fs-2' /> Family's:  {item.arr_points_id.length}</h4>
                 <h4><LocationCityIcon className='fs-2' /> Citys: {item.arr_citys.map((element, i) => {
-                    return (<span key={i}>{element},</span>)
-                })}</h4>
+                    return (<span key={i}>{element}{i !== item.arr_citys.length - 1 ? "," : ""}</span>)
+                })}.</h4>
                 <Link to={"/volunteer/allPaths/pathInfo/" + item._id} className='btn btn-warning float-end m-2'>More info</Link>
 
             </div>
