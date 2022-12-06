@@ -40,7 +40,7 @@ export default function PathsListOfVol() {
     return (
         <div className='container-fluid'>
             <div className='container'>
-                <h2 className='display-4 my-4 text-center py-4'>Paths list</h2>
+                <h2 className='display-4 my-4 text-center py-4'>{params.volFullName}'s Paths list</h2>
                 <div className="row">
 
 
@@ -51,7 +51,7 @@ export default function PathsListOfVol() {
 
                         pathsListOfVol.length === 0 ?
 
-                            <h2 className='display-4 my-4 text-center py-4 fw-bolder text-danger'>VOLUNTEER has no paths 😥</h2>
+                            <h2 className='display-4 my-4 text-center py-4 fw-bolder text-danger'>{params.volFullName} has no paths 😥</h2>
                             :
                             pathsListOfVol.map((item, i) => {
                                 return (

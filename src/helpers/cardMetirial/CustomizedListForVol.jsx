@@ -46,6 +46,7 @@ const FireNav = styled(List)({
 export default function CustomizedListForVol({ itemProp }) {
 
 
+
   let arrTitleName = ["Role", "Email", "Phone", "Radius", "RangePeople", "Create_at", "Anonymous"];
 
   const data = [
@@ -118,7 +119,7 @@ export default function CustomizedListForVol({ itemProp }) {
                   }}
                 />
               </ListItemButton>
-              <Link to={volunteer.role === 'volunteer' ? '/volunteer/allPaths' : `/employee/volList/pathsListOfVol/${itemProp._id}`}>
+              <Link to={volunteer.role === 'volunteer' ? '/volunteer/allPaths' : `/employee/volList/pathsListOfVol/${itemProp._id}/${itemProp.fullName}`}>
                 <Tooltip title="Show Paths">
                   <IconButton
                     size="large"

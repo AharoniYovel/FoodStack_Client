@@ -92,7 +92,7 @@ export default function AppRoutes() {
                     <Route index element={<EmpArea />} />
 
                     <Route path='volList' element={<VolunteersList />} />
-                    <Route path='volList/pathsListOfVol/:volId' element={<PathsListOfVol />} />
+                    <Route path='volList/pathsListOfVol/:volId/:volFullName' element={<PathsListOfVol />} />
                     <Route path='/employee/volList/editVol/:id' element={<EditVol />} />
 
                     <Route path='donList' element={<DonatesList />} />
