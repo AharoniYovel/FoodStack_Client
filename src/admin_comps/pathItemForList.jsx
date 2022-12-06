@@ -34,11 +34,12 @@ export default function PathItemForList({ item }) {
 
                 {FamilysNum !== 0 ?
                     <h4><LocationCityIcon className='fs-2' /> Citys: {item.arr_citys.map((element, i) => {
-                        return (<span key={i}>{element}-</span>)
-                    })}</h4>
+                        return (<span key={i}>{element}{i !== item.arr_citys.length - 1 ? "," : ""}</span>)
+                    })}.</h4>
                     :
                     null
                 }
+
 
                 {FamilysNum !== 0 ?
                     <Link to={'/employee/pathList/pathListOfVol/' + item._id + '/' + item.volunteerID.fullName} className='btn btn-secondary'>More info</Link>

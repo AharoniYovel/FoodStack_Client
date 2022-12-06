@@ -1,12 +1,8 @@
 import axios from "axios";
+import { infConect } from "../config/secret";
 
 // export const API_URL = "http://localhost:3001/";
-// export const API_URL = "https://foodstack-23.herokuapp.com/";
-
-// export const API_URL = "https://food-stack.cyclic.app/";
-// export const API_URL = "https://long-ruby-peacock-tie.cyclic.app/";
-
-export const API_URL = "https://food-stack.onrender.com/";
+export const API_URL = infConect.apiUrl;
 
 
 export const EMPLOYEES = "employees";
@@ -15,7 +11,7 @@ export const VOLUNTEERS = "volunteers";
 export const PATHS = "paths";
 export const POINTS = "points";
 
-export const TOKEN_NAME = "food_Stack"
+export const TOKEN_NAME = infConect.tokenName;
 
 //* For [GET] Request
 export const doApiGet = async (_url) => {
