@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import CustomizedListForDon from '../helpers/cardMetirial/CustomizedListForDon';
 import { API_URL, doApiGet, PATHS } from '../services/apiService';
-import { FaWaze } from 'react-icons/fa'
 
 export default function PathListOfVol() {
 
