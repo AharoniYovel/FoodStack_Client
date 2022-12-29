@@ -1,6 +1,7 @@
 .traficTitle {
     color: #FFFFFF;
     text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+    padding: 8px;
 }
 
 .trafic li {

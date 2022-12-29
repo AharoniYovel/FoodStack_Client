@@ -27,27 +27,32 @@ export default function Trafic() {
 
             <h1 className='text-center traficTitle'>Trafic</h1>
             <ul className="list-group  mx-auto trafic">
+
                 <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     <span>{<EngineeringIcon className='fs-2' />} Employees </span>
-                    <span className="badge bg-danger rounded-pill">{empCount}</span>
+                    <span className="badge bg-danger bg-gradient rounded-pill">{empCount}</span>
                 </li>
+
                 <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     <span>{<DriveEtaIcon className='fs-2' />} Volunteers </span>
-                    <span className="badge bg-warning rounded-pill">{volCount}</span>
+                    <span className="badge bg-warning  rounded-pill">{volCount}</span>
                 </li>
-                <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
 
+                <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     <span>{<VolunteerActivismIcon className='fs-2' />} Donates</span>
-                    <span className="badge bg-success rounded-pill">{donCount}</span>
+                    <span className="badge bg-success  rounded-pill">{donCount}</span>
                 </li>
+
                 <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     <span>{<PlaceIcon className='fs-2' />} Points Waiting for grouping</span>
-                    <span className="badge bg-secondary rounded-pill">{pointCount}</span>
+                    <span className="badge bg-secondary  rounded-pill">{pointCount}</span>
                 </li>
+                
                 <li className="list-group-item d-flex justify-content-between align-items-center fs-5">
                     <span>{<ForkLeftIcon className='fs-2' />} Path active</span>
-                    <span className="badge bg-success rounded-pill">{pathCount}</span>
+                    <span className="badge bg-primary bg-gradient rounded-pill">{pathCount}</span>
                 </li>
+
             </ul>
 
         </React.Fragment>
