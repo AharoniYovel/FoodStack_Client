@@ -23,11 +23,11 @@ function Map() {
 
     const { pointsForPath, doApiGetPointsForNewPath, addpointClick, selectedPoint, setselectedPoint, donateInfoClick } = useContext(ClientContext);
 
-
+    const [tempPointsForPath, setTempPointsForPath] = useState([]);
 
     useEffect(() => {
-        doApiGetPointsForNewPath();
-    }, [pointsForPath])
+        doApiGetPointsForNewPath().then(() => setTempPointsForPath(pointsForPath));
+    }, [tempPointsForPath])
 
 
     const addPointToAr = (_point) => {
@@ -37,12 +37,13 @@ function Map() {
         console.log(donateInfoClick);
     }
 
+    
 
     const center = useMemo(() => ({ lat: 32.05406083412323, lng: 34.839882212960525 }), []);
 
     return <GoogleMap zoom={11} center={center} mapContainerClassName='map-container'>
 
-        {pointsForPath.map((point, i) => {
+        {tempPointsForPath.map((point, i) => {
 
             if (point.donateId.status === 'pending') {
 
