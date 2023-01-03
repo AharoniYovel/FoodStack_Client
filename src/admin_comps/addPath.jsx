@@ -2,19 +2,13 @@ import React, { useContext } from 'react'
 import { ClientContext } from '../context/context';
 import { API_URL, doApiMethod, PATHS } from '../services/apiService';
 import { toast } from 'react-toastify';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SpinerLoader from '../helpers/spinerLoader/spinerLoader';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import { useNavigate } from 'react-router-dom';
-import aos from 'aos';
-
-
-
-
+import InteractiveList from '../helpers/mapPathList/InteractiveList';
 
 export default function AddPath() {
 
-    const { addpointClick, donateInfoClick } = useContext(ClientContext);
+    const { addpointClick, setaddpointClick, donateInfoClick, setDonateInfoClick, setPointsForPath } = useContext(ClientContext);
 
     const nav = useNavigate();
 
@@ -37,11 +31,13 @@ export default function AddPath() {
 
     }
 
-    const delFromTempAr = async (_index) => {
-        addpointClick.splice(_index, 1);
-        donateInfoClick.splice(_index, 1);
-        console.log(addpointClick);
-        console.log(donateInfoClick);
+    const delFromTempAr = async (_point) => {
+
+        setaddpointClick(prevId => prevId.filter(point_id => point_id != _point._id));
+
+        setDonateInfoClick(prevPoints => prevPoints.filter(point => point._id != _point._id));
+
+        setPointsForPath(prev => [...prev, _point]);
     }
 
     let totalPeople = 0;
@@ -53,24 +49,14 @@ export default function AddPath() {
             {donateInfoClick.length > 0 ?
 
                 <div className='m-4' >
-                    <button className='text-white bg-success p-2' onClick={doApiAddPath}>add path</button>
+                    <button className='text-white bg-black p-2 float-end badge fs-6 mb-3' onClick={() => { window.confirm("Are you sure?") && doApiAddPath() }}>add path</button>
 
-                    <ul className='border border-dark'>
+                    <ul>
 
                         {donateInfoClick.map((item, i) => {
                             totalPeople += Number(item.donateId.rangePeople);
                             return (
-
-                                <div key={item.point_id} className='row m-2 border border-danger p-1'>
-
-                                    <div className='col-9 text-center'>
-                                        <li>{item.donateId.fullName}</li>
-                                        <li>{item.donateId.rangePeople} <EmojiPeopleIcon /></li>
-                                    </div>
-
-                                    <button className='bg-danger col-3' onClick={() => delFromTempAr(i)}><DeleteIcon /></button>
-
-                                </div>
+                                <InteractiveList key={i} item={item} delFromTempAr={delFromTempAr} />
                             )
                         })}
 

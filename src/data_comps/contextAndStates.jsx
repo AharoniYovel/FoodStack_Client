@@ -148,7 +148,7 @@ export default function ContextAndStates() {
 
     const value = {
         //todo Functions()
-        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, doApigetCountDon, doApiGetPointsForNewPath, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths, setVolunteer, doApiGetPathsList,
+        doApiVolInfo, doApiListVol, doApiListDon, setDonateID, doApiListPoints, doApiListEmp, doApigetCountEmp, doApigetCountVol, setPointsForPath, doApigetCountDon, doApiGetPointsForNewPath, setaddpointClick, setselectedPoint, setDonateInfoClick, doApiGetPathForVol, doApiGetCountPoints, doApiGetCountPaths, setVolunteer, doApiGetPathsList,
 
         //? States[]
         volListAr, donListAr, volInfo, donateID, pointAr, empListAr, empCount, volCount, donCount, pointsForPath, addpointClick, selectedPoint, donateInfoClick, pathsForVol, pointCount, pathCount, volunteer, pathList

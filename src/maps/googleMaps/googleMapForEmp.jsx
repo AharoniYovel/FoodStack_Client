@@ -21,52 +21,57 @@ export default function GoogleMapForEmp() {
 
 function Map() {
 
-    const { pointsForPath, doApiGetPointsForNewPath, addpointClick, selectedPoint, setselectedPoint, donateInfoClick } = useContext(ClientContext);
-
-    const [tempPointsForPath, setTempPointsForPath] = useState([]);
+    const { pointsForPath, setPointsForPath, doApiGetPointsForNewPath, addpointClick, setaddpointClick, selectedPoint, setselectedPoint, donateInfoClick, setDonateInfoClick } = useContext(ClientContext);
 
     useEffect(() => {
-        doApiGetPointsForNewPath().then(() => setTempPointsForPath(pointsForPath));
-    }, [tempPointsForPath])
-
+        doApiGetPointsForNewPath();
+    }, [])
 
     const addPointToAr = (_point) => {
-        addpointClick.push(_point._id);
-        donateInfoClick.push(_point)
-        console.log(addpointClick);
-        console.log(donateInfoClick);
-    }
 
-    
+        // * premetive array of id's
+        setaddpointClick(prevPoint => [...prevPoint, _point._id]);
+
+        // * array of objects of the points
+        setDonateInfoClick(prevDonate => [...prevDonate, _point]);
+    }
 
     const center = useMemo(() => ({ lat: 32.05406083412323, lng: 34.839882212960525 }), []);
 
-    return <GoogleMap zoom={11} center={center} mapContainerClassName='map-container'>
+    return <GoogleMap zoom={11} center={center} mapContainerClassName='map-container' >
 
-        {tempPointsForPath.map((point, i) => {
+        {
+            pointsForPath.map((point, i) => {
 
-            if (point.donateId.status === 'pending') {
+                if (point.donateId.status === 'pending') {
 
-                return (
-                    <MarkerF key={i} position={{ lat: point.location.lat, lng: point.location.lng }}
-                        onClick={() => { setselectedPoint(point) }} />
+                    return (
+                        <MarkerF key={i} position={{ lat: point.location.lat, lng: point.location.lng }}
+                            onClick={() => { setselectedPoint(point) }} />
 
-                )
-            }
-        })}
-
-
-        {selectedPoint && (<InfoWindow onCloseClick={() => { setselectedPoint(null) }} position={{ lat: selectedPoint.location.lat, lng: selectedPoint.location.lng }}>
-            <div className='text-center'>
-                <h2 className='text-center'> Name: {selectedPoint.donateId.fullName}</h2>
-                <h4 className='h5'><EmojiPeopleIcon /> {selectedPoint.donateId.rangePeople}</h4>
-                <h4 className='h5'>FLOOR: {selectedPoint.floor}</h4>
-                <button className='badge bg-success fs-4' onClick={() => { addPointToAr(selectedPoint) }}>add to path</button>
-            </div>
-        </InfoWindow>)}
+                    )
+                }
+            })
+        }
 
 
-    </GoogleMap>
+        {
+            selectedPoint && (<InfoWindow onCloseClick={() => { setselectedPoint(null) }} position={{ lat: selectedPoint.location.lat, lng: selectedPoint.location.lng }}>
+                <div className='text-center'>
+                    <h2 className='text-center'> Name: {selectedPoint.donateId.fullName}</h2>
+                    <h4 className='h5'><EmojiPeopleIcon /> {selectedPoint.donateId.rangePeople}</h4>
+                    <h4 className='h5'>FLOOR: {selectedPoint.floor}</h4>
+                    <button className='badge bg-success fs-4' onClick={() => {
+                        addPointToAr(selectedPoint);
+                        setPointsForPath(tempPoints => tempPoints.filter(point => point._id != selectedPoint._id));
+                        setselectedPoint(null);
+                    }}>add to path</button>
+                </div>
+            </InfoWindow>)
+        }
+
+
+    </GoogleMap >
 
 
 
