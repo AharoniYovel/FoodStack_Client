@@ -26,3 +26,10 @@
 .NewPathLink h1 {
     color: rgb(249, 249, 249);
 }
+
+
+.mapBoxBack {
+    -webkit-box-shadow: 0px 0px 0px 8px #000000, 0px 0px 0px 16px #4B4C4B, -35px -37px 31px -22px rgba(0, 0, 0, 0);
+    box-shadow: 0px 0px 0px 8px #000000, 0px 0px 0px 16px #4B4C4B, -35px -37px 31px -22px rgba(0, 0, 0, 0);
+    margin: 12px;
+}

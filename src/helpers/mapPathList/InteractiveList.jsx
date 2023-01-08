@@ -20,14 +20,14 @@ const Demo = styled('div')(({ theme }) => ({
 export default function InteractiveList({ item, delFromTempAr }) {
 
     return (
-        <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+        <Box  sx={{ flexGrow: 1, maxWidth: 752 }}>
 
-            <Grid container spacing={0}>
+            <Grid  container spacing={0}>
                 <Grid className='mx-auto' item xs={12} md={7}>
-                    <Demo>
-                        <List>
+                    <Demo >
+                        <List >
 
-                            <ListItem
+                            <ListItem className='mapBoxBack'
                                 secondaryAction={
                                     <IconButton onClick={() => delFromTempAr(item)} edge="end" aria-label="delete">
                                         <DeleteIcon className='text-black' />
