@@ -1,8 +1,8 @@
 import axios from "axios";
 import { infConect } from "../config/secret";
 
-export const API_URL = "http://localhost:3001/";
-// export const API_URL = infConect.apiUrl;
+// export const API_URL = "http://localhost:3001/";
+export const API_URL = infConect.apiUrl;
 
 
 export const EMPLOYEES = "employees";
